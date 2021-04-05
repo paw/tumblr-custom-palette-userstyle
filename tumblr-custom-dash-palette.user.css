@@ -1,0 +1,187 @@
+/* ==UserStyle==
+@name           Tumblr – Custom Dash Colors
+@namespace      github.com/openstyles/stylus
+@version        0.0.1
+@description    `Set custom colors for your Tumblr dashboard.`
+@author         github.com/paw
+
+@advanced dropdown font "Font Family" {
+font1 "Default" <<<EOT "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif EOT;
+font2 "Arial" <<<EOT arial, sans-serif EOT;
+font3 "Verdana" <<<EOT verdana, sans-serif EOT;
+font4 "Courier New" <<<EOT courier new, monospace EOT;
+font5 "Monospace" <<<EOT monospace EOT;
+font6 "Cursive" <<<EOT cursive EOT;
+font7 "Custom Font" <<<EOT var(--custom-font) EOT;
+}
+
+@advanced text customfont "Custom Font (Select 'Custom Font' Above)" "OpenDyslexic"
+@advanced text fontsize "Font Size (px)" "16"
+
+@advanced dropdown followlabel "Hide Follow Label" {
+followlabel1 "Hide" <<<EOT 
+    /*hide follow button*\/
+    body#tumblr article button.KeFJu[aria-label="Follow"] {
+        display: none
+    } EOT;
+followlabel2 "Show" <<<EOT  EOT;
+}
+
+@advanced color navy "Background Color" #FFB264
+@advanced color white "Posts Color" #FFFDF6
+@advanced color black "Font Color" #000000
+@advanced color accent "Primary Accent & Links Color" #C03813
+@advanced color linkhover "Link Hover Color" #EB9200
+@advanced color secondary "Menu Hover BG Color" #EB9200
+@advanced color whiteondark "Secondary Accent" #370F00
+@advanced color tertiary "Top Bar BG Color" #FC8A56
+@advanced color quaternary "Top Bar Icon Color" #370F00
+@advanced color follow "Follower Notifications" #FFFDF6
+@advanced color modal "Modal BG" #160B05
+
+@advanced color red "Red" #FF492F
+@advanced color orange "Orange" #FF8A00
+@advanced color yellow "Yellow" #E8D738
+@advanced color green "Green" #00CF35
+@advanced color blue "Blue" #00B8FF
+@advanced color purple "Purple" #7C5CFF
+@advanced color pink "Pink" #FF62CE
+
+==/UserStyle== */
+
+
+@-moz-document regexp("(http|https)://www\\.tumblr\\.com.*") {
+    :root {
+        --white: /*[[white-rgb]]*/; /*post bg*/
+        --white-on-dark: /*[[whiteondark-rgb]]*/;
+        --black: /*[[black-rgb]]*/; /*font color*/
+
+        --font-family: /*[[font]]*/;
+        --custom-font: /*[[customfont]]*/;
+        --base-font-size: /*[[fontsize]]*/px;
+
+        --red: /*[[red-rgb]]*/;
+        --orange: /*[[orange-rgb]]*/;
+        --yellow: /*[[yellow-rgb]]*/;
+        --green: /*[[green-rgb]]*/;
+        --blue: /*[[blue-rgb]]*/;
+        --purple: /*[[purple-rgb]]*/;
+        --pink: /*[[pink-rgb]]*/;
+
+        --navy: /*[[navy-rgb]]*/; /* body background */
+        --accent: /*[[accent-rgb]]*/; /* links, buttons on top */
+        --secondary-accent: /*[[secondary-rgb]]*/; /*secondary accent */
+        --link-hover: /*[[linkhover-rgb]]*/; /*link hover color */
+        --tertiary-accent: /*[[tertiary-rgb]]*/; /*top bar bg */
+        --quaternary-accent: /*[[quaternary-rgb]]*/; /*top bar buttons */
+
+        --modal: /*[[modal-rgb]]*/;
+        --follow: /*[[follow-rgb]]*/; /*notifications from followers*/
+    }
+    /*change bg color of top bar*/
+    body#tumblr ._3r0gp {
+        background-color: rgb(var(--tertiary-accent))
+    }
+    body#tumblr ._3r0gp ._3ojs9 svg {
+        fill: rgb(var(--quaternary-accent))
+    }
+    /*link colors*/
+    body#tumblr article a, body#tumblr article header .hVK3L, body#tumblr ._3lVNJ {
+        color: rgba(var(--accent),1)
+    }
+    body#tumblr article a:hover, body#tumblr article a:focus, body#tumblr a ._3lVNJ:hover, body#tumblr a ._3lVNJ:focus {
+        color: rgba(var(--link-hover),1);
+    }
+    /*fix menu colors
+    ._2U-M4 ._1_s4- {
+ padding:0 20px 0 10px
+}
+._2U-M4:hover ._1dLVj .XcYVy, ._1_s4-:focus ._2U-M4 ._1dLVj .XcYVy, ._2U-M4:hover ._1dLVj ._3A6x8, ._2U-M4:focus ._1dLVj ._3A6x8 {
+ color: var(--white) !important
+}
+    ._2U-M4:hover ._2abFB svg {
+        fill: rgba(var(--white), 0.65) !important;
+    }*/
+    /*post options menu prevent changing color*/
+    body#tumblr a._3hRvh._32O5L._3MiJg._5M1cX:hover, body#tumblr a._3hRvh._32O5L._3MiJg._5M1cX:focus {
+        color: inherit
+    }
+    /*post options menu link fixes*/
+    body#tumblr ._3HoFU ._3hRvh._1jVF3._1hipC {
+        color: RGB(var(--red)) !important;
+    }
+    body#tumblr ._3HoFU a:hover, body#tumblr ._3HoFU a:focus {
+        color: rgb(var(--black)) !important;
+    }
+    body#tumblr ._3HoFU ._3hRvh._1jVF3._1hipC:hover, body#tumblr ._3HoFU ._3hRvh._1jVF3._1hipC:focus {
+        color: rgb(var(--black)) !important;
+        background-color: rgba(var(--red), 0.5) !important;
+    }
+    /*follow button color*/
+    article ._2eajK {
+        color: rgb(var(--secondary-accent))
+    }
+    /*permalink post corner*/
+    body#tumblr .POCCe ._2PI5a {
+        background-color: rgba(var(--accent),1)
+    }
+    /*[[followlabel]]*/
+    /*the liked button color should be pink i think :)*/
+    body#tumblr ._2opDm > svg {
+        fill: rgb(var(--pink))
+    }
+    /*modal*/
+    body#tumblr button._2KXPE span._3e9MM, body#tumblr ._2KXPE[tabindex="-1"] {
+        background-color: rgba(var(--modal), 0.9) !important;
+    }
+    body#tumblr .sxFXf h3 {
+        color: rgba(var(--white));
+    }
+
+    /*minor bugfixes*/
+    body#tumblr ._3MmnJ:first-of-type {
+        overflow: hidden;
+    }
+    body#tumblr ul[aria-label="Check out these blogs"] {
+        height: auto !important;
+    }
+    body#tumblr .L5OmD:not(._1g2KQ) {
+        min-height: 21px;
+        height: auto !important;
+    }
+    header.l4QOZ {
+        min-height: 54px;
+        height: auto;
+    }
+    ._1K1i-, .j_1KQ {
+        font-size: 16px !important;
+    }
+    ._1K1i- .MyoaM {
+        background: rgba(var(--navy),1) !important;
+    }
+    ._1K1i- .MyoaM svg[fill="RGB(var(--white))"] {
+        fill: var(--black) !important;
+    }
+    .Si9F8 .j_1KQ {
+        color: rgb(var(--black));
+    }
+    ._10Ced {
+        font-size: 16px !important;
+    }
+    ._2ef6Q {
+        font-size: 30px !important;
+    }
+    /*messaging fixes*/
+    ._22qW9, ._2n1fq ._2zt7X ._15aT2, ._186_D {
+        line-height: 100%;
+    }
+    /*xkit fixes*/
+    #quick-reblog .quick-tags button:hover, #quick-reblog .action-buttons:enabled button:hover {
+        background-color: rgba(var(--secondary-accent),0.1) !important;
+    }
+    .xkit-long-timestamp {
+        height: auto !important;
+        min-height: 1em !important;
+        line-height: 1.5 !important;
+    }
+}
