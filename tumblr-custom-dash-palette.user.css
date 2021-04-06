@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dash Colors
-@namespace      github.com/openstyles/stylus
-@version        0.0.1
+@namespace      github.com/paw/tumblr-custom-palette-userstyle
+@version        0.0.2
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 
@@ -12,10 +12,10 @@ font3 "Verdana" <<<EOT verdana, sans-serif EOT;
 font4 "Courier New" <<<EOT courier new, monospace EOT;
 font5 "Monospace" <<<EOT monospace EOT;
 font6 "Cursive" <<<EOT cursive EOT;
-font7 "Custom Font" <<<EOT var(--custom-font) EOT;
+font7 "Custom" <<<EOT var(--custom-font) EOT;
 }
 
-@advanced text customfont "Custom Font (Select 'Custom Font' Above)" "OpenDyslexic"
+@advanced text customfont "Custom Font (Select 'Custom' Above)" "OpenDyslexic"
 @advanced text fontsize "Font Size (px)" "16"
 
 @advanced dropdown followlabel "Hide Follow Label" {
@@ -27,17 +27,17 @@ followlabel1 "Hide" <<<EOT
 followlabel2 "Show" <<<EOT  EOT;
 }
 
-@advanced color navy "Background Color" #FFB264
-@advanced color white "Posts Color" #FFFDF6
-@advanced color black "Font Color" #000000
-@advanced color accent "Primary Accent & Links Color" #C03813
-@advanced color linkhover "Link Hover Color" #EB9200
-@advanced color secondary "Menu Hover BG Color" #EB9200
-@advanced color whiteondark "Secondary Accent" #370F00
-@advanced color tertiary "Top Bar BG Color" #FC8A56
-@advanced color quaternary "Top Bar Icon Color" #370F00
-@advanced color follow "Follower Notifications" #FFFDF6
-@advanced color modal "Modal BG" #160B05
+@advanced color navy "Background Color" #090117
+@advanced color white "Posts Color" #141021
+@advanced color black "Font Color" #d1a3d8
+@advanced color accent "Primary Accent & Links Color" #3dedd8
+@advanced color linkhover "Link Hover Color" #f68ac5
+@advanced color secondary "Menu Hover BG Color" #493650
+@advanced color whiteondark "Secondary Accent" #b051ff
+@advanced color tertiary "Top Bar BG Color" #100521
+@advanced color quaternary "Top Bar Icon Color" #ff9c13
+@advanced color follow "Follower Notifications" #1c2b34
+@advanced color modal "Modal BG" #0c0516
 
 @advanced color red "Red" #FF492F
 @advanced color orange "Orange" #FF8A00
@@ -92,16 +92,6 @@ followlabel2 "Show" <<<EOT  EOT;
     body#tumblr article a:hover, body#tumblr article a:focus, body#tumblr a ._3lVNJ:hover, body#tumblr a ._3lVNJ:focus {
         color: rgba(var(--link-hover),1);
     }
-    /*fix menu colors
-    ._2U-M4 ._1_s4- {
- padding:0 20px 0 10px
-}
-._2U-M4:hover ._1dLVj .XcYVy, ._1_s4-:focus ._2U-M4 ._1dLVj .XcYVy, ._2U-M4:hover ._1dLVj ._3A6x8, ._2U-M4:focus ._1dLVj ._3A6x8 {
- color: var(--white) !important
-}
-    ._2U-M4:hover ._2abFB svg {
-        fill: rgba(var(--white), 0.65) !important;
-    }*/
     /*post options menu prevent changing color*/
     body#tumblr a._3hRvh._32O5L._3MiJg._5M1cX:hover, body#tumblr a._3hRvh._32O5L._3MiJg._5M1cX:focus {
         color: inherit
