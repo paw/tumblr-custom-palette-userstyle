@@ -121,9 +121,6 @@ followlabel2 "Show" <<<EOT  EOT;
     body#tumblr button._2KXPE span._3e9MM, body#tumblr ._2KXPE[tabindex="-1"] {
         background-color: rgba(var(--modal), 0.9) !important;
     }
-    body#tumblr .sxFXf h3 {
-        color: rgba(var(--white));
-    }
 
     /*minor bugfixes*/
     body#tumblr ._3MmnJ:first-of-type {
