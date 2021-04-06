@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.1.1
+@version        0.1.2
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -117,10 +117,6 @@ followlabel2 "Show" <<<EOT  EOT;
         background-color: rgba(var(--accent),1)
     }
     /*[[followlabel]]*/
-    /*the liked button color should be pink i think :)*/
-    body#tumblr ._2opDm > svg {
-        fill: rgb(var(--pink))
-    }
     /*modal*/
     body#tumblr button._2KXPE span._3e9MM, body#tumblr ._2KXPE[tabindex="-1"] {
         background-color: rgba(var(--modal), 0.9) !important;
