@@ -1,9 +1,10 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dash Colors
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.0.2
+@version        0.1.1
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
+@updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
 
 @advanced dropdown font "Font Family" {
 font1 "Default" <<<EOT "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif EOT;
@@ -150,7 +151,7 @@ followlabel2 "Show" <<<EOT  EOT;
         background: rgba(var(--navy),1) !important;
     }
     ._1K1i- .MyoaM svg[fill="RGB(var(--white))"] {
-        fill: var(--black) !important;
+        fill: rgb(var(--black)) !important;
     }
     .Si9F8 .j_1KQ {
         color: rgb(var(--black));
