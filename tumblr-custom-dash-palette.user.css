@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.1.6
+@version        0.1.7
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -297,11 +297,14 @@ followlabel2 "Show" <<<EOT  EOT;
         font-size: 30px !important;
     }
     /*messaging fixes*/
-    ._22qW9, ._2n1fq ._2zt7X ._15aT2, ._186_D {
-        line-height: 100%;
+    body#tumblr ._22qW9, body#tumblr ._2n1fq ._2zt7X ._15aT2, body#tumblr ._186_D {
+        line-height: 1.5em;
+    }
+    body#tumblr ._3XfdP > div {
+        line-height: inherit;
     }
     /*queue time fix*/
-    ._3ZHB_ ._22dtn {
+    body#tumblr ._3ZHB_ ._22dtn {
         line-height: 1em;
     }
     /*xkit fixes*/
