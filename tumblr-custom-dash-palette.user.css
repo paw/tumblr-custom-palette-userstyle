@@ -45,6 +45,50 @@ font33 "Typewriter" <<<EOT 'Typewriter FS', serif EOT;
 @advanced text customfont "Custom Font (Select 'Custom' Above)" "OpenDyslexic"
 @advanced text fontsize "Font Size (px)" "16"
 
+@advanced text bgimage "Background Image (URL)" ""
+@advanced dropdown bgpos "Background Position" {
+bgpos1 "Center" <<<EOT center EOT;
+bgpos2 "Top Left" <<<EOT top left EOT;
+bgpos3 "Top Right" <<<EOT top right EOT;
+bgpos4 "Bottom Left" <<<EOT bottom left EOT;
+bgpos5 "Bottom Right" <<<EOT bottom right EOT;
+}
+@advanced dropdown bgattachment "Background Attachment" {
+bgattachment1 "Fixed" <<<EOT fixed EOT;
+bgattachment2 "Scroll" <<<EOT scroll EOT;
+}
+@advanced dropdown bgrepeat "Background Repeat" {
+bgrepeat1 "Repeat" <<<EOT repeat EOT;
+bgrepeat2 "Repeat Vertically" <<<EOT repeat-y EOT;
+bgrepeat3 "Repeat Horizontally" <<<EOT repeat-x EOT;
+bgrepeat4 "Don't Repeat" <<<EOT no-repeat EOT;
+}
+@advanced dropdown bgsize "Background Size" {
+bgsize1 "Cover" <<<EOT cover EOT;
+bgsize2 "Auto" <<<EOT auto EOT;
+}
+
+@advanced color navy "Background Color" #090117
+@advanced color white "Posts Color" #141021
+@advanced color black "Font Color" #d1a3d8
+@advanced color accent "Primary Accent & Links Color" #3dedd8
+@advanced color linkhover "Link Hover Color" #f68ac5
+@advanced color secondary "Menu Hover BG Color" #493650
+@advanced color whiteondark "Secondary Accent" #b051ff
+@advanced color tertiary "Top Bar BG Color" #100521
+@advanced color quaternary "Top Bar Icon Color" #ff9c13
+@advanced color follow "Notifications From Followed Blogs" #1c2b34
+@advanced color modal "Modal BG" #0c0516
+
+@advanced color red "Red" #FF492F
+@advanced color orange "Orange" #FF8A00
+@advanced color yellow "Yellow" #E8D738
+@advanced color green "Green" #00CF35
+@advanced color blue "Blue" #00B8FF
+@advanced color purple "Purple" #7C5CFF
+@advanced color pink "Pink" #FF62CE
+@advanced color blacktext "Black" #ffffff
+
 @advanced dropdown blacklisttags "Fully Display Tags On Filtered Posts" {
 blacklisttags1 "Yes" <<<EOT 
     /*fully show blacklisted tags*\/
@@ -109,35 +153,18 @@ inlinesuggest2 "Hide" <<<EOT
     } EOT;
 inlinesuggest1 "Show" <<<EOT  EOT;
 }
-@advanced dropdown sidebarsponsor "Sidebar Sponsored Section" {
+@advanced dropdown sponsoredposts "Sponsored Posts At Top of Dash" {
 sidebarsponsor1 "Hide" <<<EOT 
-    /*hide sponsored in sidebar*\/
-    body#tumblr aside ._3v4BC ._3bMU2 {
-        display: none;
+    /*hide sponsored posts*\/
+    body#tumblr ._1DxdS:nth-child(1):not([data-id]) {
+        margin-bottom: 0;
+        display: none !important;
+    }
+    body#tumblr ._1DxdS:not([data-id]) > .hyZhC > ._1Bwz3 > ._18O6M {
+        display: none !important;
     } EOT;
 sidebarsponsor2 "Show" <<<EOT  EOT;
 }
-
-@advanced color navy "Background Color" #090117
-@advanced color white "Posts Color" #141021
-@advanced color black "Font Color" #d1a3d8
-@advanced color accent "Primary Accent & Links Color" #3dedd8
-@advanced color linkhover "Link Hover Color" #f68ac5
-@advanced color secondary "Menu Hover BG Color" #493650
-@advanced color whiteondark "Secondary Accent" #b051ff
-@advanced color tertiary "Top Bar BG Color" #100521
-@advanced color quaternary "Top Bar Icon Color" #ff9c13
-@advanced color follow "Notifications From Followed Blogs" #1c2b34
-@advanced color modal "Modal BG" #0c0516
-
-@advanced color red "Red" #FF492F
-@advanced color orange "Orange" #FF8A00
-@advanced color yellow "Yellow" #E8D738
-@advanced color green "Green" #00CF35
-@advanced color blue "Blue" #00B8FF
-@advanced color purple "Purple" #7C5CFF
-@advanced color pink "Pink" #FF62CE
-@advanced color blacktext "Black" #ffffff
 
 ==/UserStyle== */
 
@@ -147,6 +174,12 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
         --white: /*[[white-rgb]]*/; /*post bg*/
         --white-on-dark: /*[[whiteondark-rgb]]*/;
         --black: /*[[black-rgb]]*/; /*font color*/
+        
+        --custom-bg: url(/*[[bgimage]]*/);
+        --bg-attachment: /*[[bgattachment]]*/;
+        --bg-position: /*[[bgpos]]*/;
+        --bg-repeat: /*[[bgrepeat]]*/;
+        --bg-size: /*[[bgsize]]*/;
 
         --font-family: /*[[font]]*/;
         --custom-font: /*[[customfont]]*/;
@@ -170,6 +203,15 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
 
         --modal: /*[[modal-rgb]]*/;
         --follow: /*[[follow-rgb]]*/; /*notifications from followers*/
+    }
+    
+    /*custom background*/
+    body#tumblr ._2hdQN {
+        background: rgb(var(--navy)) var(--custom-bg);
+        background-attachment: var(--bg-attachment);
+        background-position: var(--bg-position);
+        background-size: var(--bg-size);
+        background-repeat: var(--bg-repeat);
     }
     /*change bg color of top bar*/
     body#tumblr ._3r0gp {
@@ -228,14 +270,15 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
     
     /*[[sidebarblogs]]*/
 
-    /*[[sidebarsponsor]]*/
+    /*[[sponsoredposts]]*/
     
-    /*[[inlinesuggest]]*/
-    
+    /*hide sponsored posts in sidebar*/
     body#tumblr aside ._3v4BC {
         border-radius: 3px;
         overflow: hidden;
     }
+    
+    /*[[inlinesuggest]]*/
     
     /*[[radar]]*/
     
@@ -256,6 +299,10 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
     body#tumblr ._3vJ7I[style*="background-color: rgb(255, 73, 47)"], body#tumblr .MyoaM[style*="background: rgb(255, 73, 47)"] {
         background-color: rgb(var(--red)) !important;
     }
+    /*red svgs*/
+    body#tumblr svg[fill*="#ff492f"] {
+        fill: rgb(var(--red));
+    }
     
     /*ORANGE*/
     /*orange text in posts*/
@@ -265,6 +312,10 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
     /*orange circle in popover menu*/
     body#tumblr ._3vJ7I[style*="background-color: rgb(255, 138, 0)"], body#tumblr .MyoaM[style*="background: rgb(255, 138, 0)"] {
         background-color: rgb(var(--orange)) !important;
+    }
+    /*orange svgs*/
+    body#tumblr svg[fill*="#ff8a00"] {
+        fill: rgb(var(--orange));
     }
     
     /*YELLOW*/
@@ -276,15 +327,23 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
     body#tumblr ._3vJ7I[style*="background-color: rgb(232, 215, 56)"], body#tumblr .MyoaM[style*="background: rgb(232, 215, 56)"] {
         background-color: rgb(var(--yellow)) !important;
     }
+    /*yellow svgs*/
+    body#tumblr svg[fill*="#e8d738"] {
+        fill: rgb(var(--yellow));
+    }
     
     /*GREEN*/
     /*green text in posts*/
-    body#tumblr span[style*="color: rgb(0, 207, 53)"], body#tumblr span[style*="color:#00cf35"] {
+    body#tumblr span[style*="color: rgb(0, 207, 53)"], body#tumblr span[style*="color:#00cf35"], body#tumblr main .Fu2CO._3jNy9[style*="color: rgb(0, 207, 53)"], body#tumblr main .Fu2CO._3jNy9[style*="color:#00cf35"] {
         color: rgb(var(--green)) !important;
     }
     /*green circle in popover menu*/
     body#tumblr ._3vJ7I[style*="background-color: rgb(0, 207, 53)"], body#tumblr .MyoaM[style*="background: rgb(0, 207, 53)"] {
         background-color: rgb(var(--green)) !important;
+    }
+    /*green svgs*/
+    body#tumblr svg[fill*="#00cf35"] {
+        fill: rgb(var(--green));
     }
     
     /*BLUE*/
@@ -296,6 +355,10 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
     body#tumblr ._3vJ7I[style*="background-color: rgb(0, 184, 255)"], body#tumblr .MyoaM[style*="background: rgb(0, 184, 255)"] {
         background-color: rgb(var(--blue)) !important;
     }
+    /*blue svgs*/
+    body#tumblr svg[fill*="#00b8ff"] {
+        fill: rgb(var(--blue));
+    }
     
     /*PINK*/
     /*pink text in posts*/
@@ -305,6 +368,10 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
     /*pink circle in popover menu*/
     body#tumblr ._3vJ7I[style*="background-color: rgb(255, 98, 206)"], body#tumblr .MyoaM[style*="background: rgb(255, 98, 206)"] {
         background-color: rgb(var(--pink)) !important;
+    }
+    /*pink svgs*/
+    body#tumblr svg[fill*="#ff62ce"] {
+        fill: rgb(var(--pink));
     }
     
     /*PURPLE (not currently enabled, but jic they add it)*/
@@ -316,6 +383,11 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
     body#tumblr ._3vJ7I[style*="background-color: rgb(124, 192, 255)"], body#tumblr .MyoaM[style*="background: rgb(124, 192, 255)"] {
         background-color: rgb(var(--purple)) !important;
     }
+    /*purple svgs*/
+    body#tumblr svg[fill*="#7c5cff"] {
+        fill: rgb(var(--purple));
+    }
+    
     /*BLACK*/
     /*black text in posts*/
     body#tumblr main span[style*="color: rgb(0, 0, 0)"], body#tumblr main span[style*="color:#000000"] {
@@ -340,6 +412,12 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
     body#tumblr header.l4QOZ { /*top bar will now grow in height with larger fonts*/
         min-height: 54px;
         height: auto;
+    }
+    /*fix height of button when following tags*/
+    body#tumblr button._2jskX {
+        min-height: 40px;
+        height: auto;
+        padding: 5px 10px;
     }
     /*make sure new posts number isn't too big in top bar*/
     body#tumblr ._3LtFh.kAS3C._2_oyi{
