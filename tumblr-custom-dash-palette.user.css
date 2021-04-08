@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.1.7
+@version        0.2.0
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -45,26 +45,40 @@ font33 "Typewriter" <<<EOT 'Typewriter FS', serif EOT;
 @advanced text customfont "Custom Font (Select 'Custom' Above)" "OpenDyslexic"
 @advanced text fontsize "Font Size (px)" "16"
 
-@advanced dropdown followlabel "Hide Follow Label" {
-followlabel1 "Hide" <<<EOT 
-    /*hide follow button*\/
-    body#tumblr article button.KeFJu[aria-label="Follow"] {
-        display: none
-    } EOT;
-followlabel2 "Show" <<<EOT  EOT;
+@advanced text bgimage "Background Image (URL)" ""
+@advanced dropdown bgpos "Background Position" {
+bgpos1 "Center" <<<EOT center EOT;
+bgpos2 "Top Left" <<<EOT top left EOT;
+bgpos3 "Top Right" <<<EOT top right EOT;
+bgpos4 "Bottom Left" <<<EOT bottom left EOT;
+bgpos5 "Bottom Right" <<<EOT bottom right EOT;
+}
+@advanced dropdown bgattachment "Background Attachment" {
+bgattachment1 "Fixed" <<<EOT fixed EOT;
+bgattachment2 "Scroll" <<<EOT scroll EOT;
+}
+@advanced dropdown bgrepeat "Background Repeat" {
+bgrepeat1 "Repeat" <<<EOT repeat EOT;
+bgrepeat2 "Repeat Vertically" <<<EOT repeat-y EOT;
+bgrepeat3 "Repeat Horizontally" <<<EOT repeat-x EOT;
+bgrepeat4 "Don't Repeat" <<<EOT no-repeat EOT;
+}
+@advanced dropdown bgsize "Background Size" {
+bgsize1 "Cover" <<<EOT cover EOT;
+bgsize2 "Auto" <<<EOT auto EOT;
 }
 
-@advanced color navy "Background Color" #090117
-@advanced color white "Posts Color" #141021
-@advanced color black "Font Color" #d1a3d8
-@advanced color accent "Primary Accent & Links Color" #3dedd8
-@advanced color linkhover "Link Hover Color" #f68ac5
-@advanced color secondary "Menu Hover BG Color" #493650
-@advanced color whiteondark "Secondary Accent" #b051ff
-@advanced color tertiary "Top Bar BG Color" #100521
-@advanced color quaternary "Top Bar Icon Color" #ff9c13
-@advanced color follow "Follower Notifications" #1c2b34
-@advanced color modal "Modal BG" #0c0516
+@advanced color navy "Background Color" #36465d
+@advanced color white "Posts Color" #ffffff
+@advanced color black "Font Color" #444444
+@advanced color accent "Primary Accent & Links Color" #529ecc
+@advanced color linkhover "Link Hover Color" #14518e
+@advanced color secondary "Settings Menu Hover BG Color" #f0f8ff
+@advanced color whiteondark "Secondary Accent" #b9b9b9
+@advanced color tertiary "Top Bar BG Color" #14263e
+@advanced color quaternary "Top Bar Icon Color" #ffffff
+@advanced color follow "Notifications From Followed Blogs BG Color" #e7f7e9
+@advanced color modal "Modal BG" #050e1e
 
 @advanced color red "Red" #FF492F
 @advanced color orange "Orange" #FF8A00
@@ -73,7 +87,95 @@ followlabel2 "Show" <<<EOT  EOT;
 @advanced color blue "Blue" #00B8FF
 @advanced color purple "Purple" #7C5CFF
 @advanced color pink "Pink" #FF62CE
-@advanced color blacktext "Black" #ffffff
+@advanced color blacktext "Black" #000000
+
+@advanced dropdown followlabel "Follow Label" {
+followlabel1 "Hide" <<<EOT 
+    /*hide follow button*\/
+    body#tumblr article button.KeFJu[aria-label="Follow"] {
+        display: none
+    } EOT;
+followlabel2 "Show" <<<EOT  EOT;
+}
+
+@advanced dropdown radar "Radar" {
+radar1 "Show" <<<EOT  EOT;
+radar2 "Hide" <<<EOT 
+    /*hide radar*\/
+    body#tumblr aside ._149RG:nth-child(2) {
+        display: none;
+    } EOT;
+}
+@advanced dropdown sidebarblogs "Sidebar Blog Recommendations" {
+sidebarblogs1 "Hide" <<<EOT 
+    /*hide suggested blogs in sidebar while still showing blog stats*\/
+    body#tumblr aside ._149RG:nth-child(1) > *:not(aside) {
+        display: none;
+    }
+    body#tumblr aside ._149RG:nth-child(1) aside {
+        margin-bottom: 38px;
+    }
+    body#tumblr aside ._149RG:nth-child(1) {
+        margin-bottom: 0;
+    } EOT;
+sidebarblogs2 "Show" <<<EOT  EOT;
+}
+@advanced dropdown inlinesuggest "Inline Recommendations" {
+inlinesuggest2 "Hide" <<<EOT 
+    /*hide inline recommendations, 1st is blogs and 2nd is posts*\/
+    body#tumblr ._1DxdS > .hyZhC > ._2o6T5._1jpWM, body#tumblr ._1DxdS > .hyZhC > ._8COZG, body#tumblr ._1DxdS > .hyZhC > ._2X7uM > ._1jpWM, body#tumblr ._1DxdS > .hyZhC > ._3IIWk {
+        display: none !important;
+    } EOT;
+inlinesuggest1 "Show" <<<EOT  EOT;
+}
+@advanced dropdown sponsoredposts "Sponsored Posts At Top of Dash" {
+sidebarsponsor1 "Hide" <<<EOT 
+    /*hide sponsored posts*\/
+    body#tumblr ._1DxdS:nth-child(1):not([data-id]) {
+        margin-bottom: 0;
+        display: none !important;
+    }
+    body#tumblr ._1DxdS:not([data-id]) > .hyZhC > ._1Bwz3 > ._18O6M {
+        display: none !important;
+    } EOT;
+sidebarsponsor2 "Show" <<<EOT  EOT;
+}
+
+@advanced dropdown compactblockedpost "Compact Filtered Posts" {
+compactblockedpost1 "Disable" <<<EOT  EOT;
+compactblockedpost2 "Enable" <<<EOT 
+    /*Compact blocked posts*\/
+    body#tumblr ._1DxdS[data-id] .LihFc { /*container for filtered post*\/
+        flex-direction: row;
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: var(--post-padding);
+    }
+    body#tumblr ._1DxdS[data-id] .LihFc > a { /*blacklisted tags*\/
+        margin: 0 0.5em 0 0;
+        max-width: 100%;
+        flex: 0 0 calc(70% - 0.5em);
+        word-wrap: break-word;
+        white-space: normal;
+    }
+    body#tumblr ._1DxdS[data-id] .LihFc > a::before { /*shorter label *\/
+        content: 'Filtered Tags:';
+        padding-right: 0.5em;
+        color: rgb(var(--black)) !important;
+    }
+    body#tumblr ._1DxdS[data-id] .LihFc .KeFJu { /*view post button*\/
+        margin-left: 0;
+        flex: 0 0 30%;
+    }
+    body#tumblr ._1DxdS[data-id] .LihFc .KeFJu ._2oITk {
+        margin-top: 0;
+    }
+    /*'This post contains filtered tags.'*\/
+    [data-id] .LihFc > p {
+        display: none;
+    } EOT;
+}
 
 ==/UserStyle== */
 
@@ -83,6 +185,12 @@ followlabel2 "Show" <<<EOT  EOT;
         --white: /*[[white-rgb]]*/; /*post bg*/
         --white-on-dark: /*[[whiteondark-rgb]]*/;
         --black: /*[[black-rgb]]*/; /*font color*/
+        
+        --custom-bg: url(/*[[bgimage]]*/);
+        --bg-attachment: /*[[bgattachment]]*/;
+        --bg-position: /*[[bgpos]]*/;
+        --bg-repeat: /*[[bgrepeat]]*/;
+        --bg-size: /*[[bgsize]]*/;
 
         --font-family: /*[[font]]*/;
         --custom-font: /*[[customfont]]*/;
@@ -106,6 +214,15 @@ followlabel2 "Show" <<<EOT  EOT;
 
         --modal: /*[[modal-rgb]]*/;
         --follow: /*[[follow-rgb]]*/; /*notifications from followers*/
+    }
+    
+    /*custom background*/
+    body#tumblr ._2hdQN {
+        background: rgb(var(--navy)) var(--custom-bg);
+        background-attachment: var(--bg-attachment);
+        background-position: var(--bg-position);
+        background-size: var(--bg-size);
+        background-repeat: var(--bg-repeat);
     }
     /*change bg color of top bar*/
     body#tumblr ._3r0gp {
@@ -136,6 +253,11 @@ followlabel2 "Show" <<<EOT  EOT;
         color: rgb(var(--black)) !important;
         background-color: rgba(var(--red), 0.5) !important;
     }
+    /*tag focus color*/
+    body#tumblr .pOoZl a.L0N4W:focus {
+        color: rgb(var(--white)) !important;
+    }
+    
     /*follow button styling*/
     body#tumblr article ._2eajK {
         font-size: 0.8em;
@@ -147,8 +269,8 @@ followlabel2 "Show" <<<EOT  EOT;
     }
     body#tumblr article ._2eajK:hover, article ._2eajK:focus {
         text-decoration: none !important;
-        color: #000 !important;
-        background-color: rgba(0,207,53,1);
+        color: rgb(var(--white)) !important;
+        background-color: rgb(var(--green));
     }
     /*permalink post corner*/
     body#tumblr .POCCe ._2PI5a {
@@ -157,9 +279,25 @@ followlabel2 "Show" <<<EOT  EOT;
     
     /*[[followlabel]]*/
     
+    /*[[sidebarblogs]]*/
+
+    /*[[sponsoredposts]]*/
+    
+    /*hide sponsored posts in sidebar*/
+    body#tumblr aside ._3v4BC {
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    
+    /*[[inlinesuggest]]*/
+    
+    /*[[radar]]*/
+    
+    /*[[compactblockedpost]]*/
+    
     /*modal bg color*/
     body#tumblr button._2KXPE span._3e9MM, body#tumblr ._2KXPE[tabindex="-1"] {
-        background-color: rgba(var(--modal), 0.9) !important;
+        background-color: rgba(var(--modal), 0.95) !important;
     }
     
     /*change rainbow text colors to custom colors*/
@@ -172,6 +310,10 @@ followlabel2 "Show" <<<EOT  EOT;
     body#tumblr ._3vJ7I[style*="background-color: rgb(255, 73, 47)"], body#tumblr .MyoaM[style*="background: rgb(255, 73, 47)"] {
         background-color: rgb(var(--red)) !important;
     }
+    /*red svgs*/
+    body#tumblr svg[fill*="#ff492f"] {
+        fill: rgb(var(--red));
+    }
     
     /*ORANGE*/
     /*orange text in posts*/
@@ -181,6 +323,10 @@ followlabel2 "Show" <<<EOT  EOT;
     /*orange circle in popover menu*/
     body#tumblr ._3vJ7I[style*="background-color: rgb(255, 138, 0)"], body#tumblr .MyoaM[style*="background: rgb(255, 138, 0)"] {
         background-color: rgb(var(--orange)) !important;
+    }
+    /*orange svgs*/
+    body#tumblr svg[fill*="#ff8a00"] {
+        fill: rgb(var(--orange));
     }
     
     /*YELLOW*/
@@ -192,15 +338,23 @@ followlabel2 "Show" <<<EOT  EOT;
     body#tumblr ._3vJ7I[style*="background-color: rgb(232, 215, 56)"], body#tumblr .MyoaM[style*="background: rgb(232, 215, 56)"] {
         background-color: rgb(var(--yellow)) !important;
     }
+    /*yellow svgs*/
+    body#tumblr svg[fill*="#e8d738"] {
+        fill: rgb(var(--yellow));
+    }
     
     /*GREEN*/
     /*green text in posts*/
-    body#tumblr span[style*="color: rgb(0, 207, 53)"], body#tumblr span[style*="color:#00cf35"] {
+    body#tumblr span[style*="color: rgb(0, 207, 53)"], body#tumblr span[style*="color:#00cf35"], body#tumblr main .Fu2CO._3jNy9[style*="color: rgb(0, 207, 53)"], body#tumblr main .Fu2CO._3jNy9[style*="color:#00cf35"] {
         color: rgb(var(--green)) !important;
     }
     /*green circle in popover menu*/
     body#tumblr ._3vJ7I[style*="background-color: rgb(0, 207, 53)"], body#tumblr .MyoaM[style*="background: rgb(0, 207, 53)"] {
         background-color: rgb(var(--green)) !important;
+    }
+    /*green svgs*/
+    body#tumblr svg[fill*="#00cf35"] {
+        fill: rgb(var(--green));
     }
     
     /*BLUE*/
@@ -212,6 +366,10 @@ followlabel2 "Show" <<<EOT  EOT;
     body#tumblr ._3vJ7I[style*="background-color: rgb(0, 184, 255)"], body#tumblr .MyoaM[style*="background: rgb(0, 184, 255)"] {
         background-color: rgb(var(--blue)) !important;
     }
+    /*blue svgs*/
+    body#tumblr svg[fill*="#00b8ff"] {
+        fill: rgb(var(--blue));
+    }
     
     /*PINK*/
     /*pink text in posts*/
@@ -221,6 +379,10 @@ followlabel2 "Show" <<<EOT  EOT;
     /*pink circle in popover menu*/
     body#tumblr ._3vJ7I[style*="background-color: rgb(255, 98, 206)"], body#tumblr .MyoaM[style*="background: rgb(255, 98, 206)"] {
         background-color: rgb(var(--pink)) !important;
+    }
+    /*pink svgs*/
+    body#tumblr svg[fill*="#ff62ce"] {
+        fill: rgb(var(--pink));
     }
     
     /*PURPLE (not currently enabled, but jic they add it)*/
@@ -232,6 +394,11 @@ followlabel2 "Show" <<<EOT  EOT;
     body#tumblr ._3vJ7I[style*="background-color: rgb(124, 192, 255)"], body#tumblr .MyoaM[style*="background: rgb(124, 192, 255)"] {
         background-color: rgb(var(--purple)) !important;
     }
+    /*purple svgs*/
+    body#tumblr svg[fill*="#7c5cff"] {
+        fill: rgb(var(--purple));
+    }
+    
     /*BLACK*/
     /*black text in posts*/
     body#tumblr main span[style*="color: rgb(0, 0, 0)"], body#tumblr main span[style*="color:#000000"] {
@@ -246,7 +413,10 @@ followlabel2 "Show" <<<EOT  EOT;
     body#tumblr ._3MmnJ:first-of-type { /*fix weird overflow of bg color when hovering over blogs on following page*/
         overflow: hidden;
     }
-    body#tumblr ul[aria-label="Check out these blogs"] { /*make sure that you can see all suggested blogs when your font is larger than 16px*/
+    body#tumblr .LihFc .KeFJu ._2oITk, body#tumblr .LihFc {
+        color: rgb(var(--black));
+    }
+    body#tumblr ul[aria-label="Check out these blogs"], body#tumblr aside .hjHTG { /*make sure that you can see all suggested blogs when your font is larger than 16px*/
         height: auto !important;
     }
     body#tumblr .L5OmD:not(._1g2KQ) {
@@ -256,6 +426,12 @@ followlabel2 "Show" <<<EOT  EOT;
     body#tumblr header.l4QOZ { /*top bar will now grow in height with larger fonts*/
         min-height: 54px;
         height: auto;
+    }
+    /*fix height of button when following tags*/
+    body#tumblr button._2jskX {
+        min-height: 40px;
+        height: auto;
+        padding: 5px 10px;
     }
     /*make sure new posts number isn't too big in top bar*/
     body#tumblr ._3LtFh.kAS3C._2_oyi{
