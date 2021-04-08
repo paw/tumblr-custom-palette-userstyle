@@ -89,31 +89,6 @@ bgsize2 "Auto" <<<EOT auto EOT;
 @advanced color pink "Pink" #FF62CE
 @advanced color blacktext "Black" #000000
 
-@advanced dropdown blacklisttags "Fully Display Tags On Filtered Posts" {
-blacklisttags1 "Yes" <<<EOT 
-    /*fully show blacklisted tags*\/
-    body#tumblr [data-id] .LihFc { /*container for filtered post*\/
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
-    body#tumblr [data-id] .LihFc > a { /*blacklisted tags*\/
-        margin: 1em 1ch 1em 0;
-        max-width: 100%;
-        flex: 0 1 60%;
-        word-wrap: break-word;
-        white-space: normal;
-    }
-    body#tumblr [data-id] .LihFc .KeFJu { /*view post button*\/
-        margin-left: 0;
-        flex: 0 0 30%;
-    }
-    /*'This post contains filtered tags.'*\/
-    [data-id] .LihFc > p {
-        width: 100%;
-    } EOT;
-blacklisttags2 "No" <<<EOT  EOT;
-}
-
 @advanced dropdown followlabel "Follow Label" {
 followlabel1 "Hide" <<<EOT 
     /*hide follow button*\/
@@ -164,6 +139,42 @@ sidebarsponsor1 "Hide" <<<EOT
         display: none !important;
     } EOT;
 sidebarsponsor2 "Show" <<<EOT  EOT;
+}
+
+@advanced dropdown compactblockedpost "Compact Filtered Posts" {
+compactblockedpost1 "Disable" <<<EOT  EOT;
+compactblockedpost2 "Enable" <<<EOT 
+    /*Compact blocked posts*\/
+    body#tumblr ._1DxdS[data-id] .LihFc { /*container for filtered post*\/
+        flex-direction: row;
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: var(--post-padding);
+    }
+    body#tumblr ._1DxdS[data-id] .LihFc > a { /*blacklisted tags*\/
+        margin: 0 0.5em 0 0;
+        max-width: 100%;
+        flex: 0 0 calc(70% - 0.5em);
+        word-wrap: break-word;
+        white-space: normal;
+    }
+    body#tumblr ._1DxdS[data-id] .LihFc > a::before { /*shorter label *\/
+        content: 'Filtered Tags:';
+        padding-right: 0.5em;
+        color: rgb(var(--black)) !important;
+    }
+    body#tumblr ._1DxdS[data-id] .LihFc .KeFJu { /*view post button*\/
+        margin-left: 0;
+        flex: 0 0 30%;
+    }
+    body#tumblr ._1DxdS[data-id] .LihFc .KeFJu ._2oITk {
+        margin-top: 0;
+    }
+    /*'This post contains filtered tags.'*\/
+    [data-id] .LihFc > p {
+        display: none;
+    } EOT;
 }
 
 ==/UserStyle== */
@@ -282,7 +293,7 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
     
     /*[[radar]]*/
     
-    /*[[blacklisttags]]*/
+    /*[[compactblockedpost]]*/
     
     /*modal bg color*/
     body#tumblr button._2KXPE span._3e9MM, body#tumblr ._2KXPE[tabindex="-1"] {
@@ -401,6 +412,9 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
     /*minor bugfixes*/
     body#tumblr ._3MmnJ:first-of-type { /*fix weird overflow of bg color when hovering over blogs on following page*/
         overflow: hidden;
+    }
+    body#tumblr .LihFc .KeFJu ._2oITk, body#tumblr .LihFc {
+        color: rgb(var(--black));
     }
     body#tumblr ul[aria-label="Check out these blogs"], body#tumblr aside .hjHTG { /*make sure that you can see all suggested blogs when your font is larger than 16px*/
         height: auto !important;
