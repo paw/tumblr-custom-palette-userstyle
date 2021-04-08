@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.1.7
+@version        0.2.0
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -45,13 +45,51 @@ font33 "Typewriter" <<<EOT 'Typewriter FS', serif EOT;
 @advanced text customfont "Custom Font (Select 'Custom' Above)" "OpenDyslexic"
 @advanced text fontsize "Font Size (px)" "16"
 
-@advanced dropdown followlabel "Hide Follow Label" {
+@advanced dropdown followlabel "Follow Label" {
 followlabel1 "Hide" <<<EOT 
     /*hide follow button*\/
     body#tumblr article button.KeFJu[aria-label="Follow"] {
         display: none
     } EOT;
 followlabel2 "Show" <<<EOT  EOT;
+}
+@advanced dropdown radar "Radar" {
+radar1 "Show" <<<EOT  EOT;
+radar2 "Hide" <<<EOT 
+    /*hide radar*\/
+    body#tumblr aside ._149RG:nth-child(2) {
+        display: none;
+    } EOT;
+}
+@advanced dropdown sidebarblogs "Sidebar Blog Recommendations" {
+sidebarblogs1 "Hide" <<<EOT 
+    /*hide suggested blogs in sidebar while still showing blog stats*\/
+    body#tumblr aside ._149RG:nth-child(1) > *:not(aside) {
+        display: none;
+    }
+    body#tumblr aside ._149RG:nth-child(1) aside {
+        margin-bottom: 38px;
+    }
+    body#tumblr aside ._149RG:nth-child(1) {
+        margin-bottom: 0;
+    } EOT;
+sidebarblogs2 "Show" <<<EOT  EOT;
+}
+@advanced dropdown inlinesuggest "Inline Recommendations" {
+inlinesuggest2 "Hide" <<<EOT 
+    /*hide inline recommendations, 1st is blogs and 2nd is posts*\/
+    body#tumblr ._1DxdS > .hyZhC > ._2o6T5._1jpWM, body#tumblr ._1DxdS > .hyZhC > ._8COZG, body#tumblr ._1DxdS > .hyZhC > ._2X7uM > ._1jpWM, body#tumblr ._1DxdS > .hyZhC > ._3IIWk {
+        display: none !important;
+    } EOT;
+inlinesuggest1 "Show" <<<EOT  EOT;
+}
+@advanced dropdown sidebarsponsor "Sidebar Sponsored Section" {
+sidebarsponsor1 "Hide" <<<EOT 
+    /*hide sponsored in sidebar*\/
+    body#tumblr aside ._3v4BC ._3bMU2 {
+        display: none;
+    } EOT;
+sidebarsponsor2 "Show" <<<EOT  EOT;
 }
 
 @advanced color navy "Background Color" #090117
@@ -136,6 +174,10 @@ followlabel2 "Show" <<<EOT  EOT;
         color: rgb(var(--black)) !important;
         background-color: rgba(var(--red), 0.5) !important;
     }
+    /*tag focus color*/
+    body#tumblr .pOoZl a.L0N4W:focus {
+        color: rgb(var(--white)) !important;
+    }
     /*follow button styling*/
     body#tumblr article ._2eajK {
         font-size: 0.8em;
@@ -156,6 +198,19 @@ followlabel2 "Show" <<<EOT  EOT;
     }
     
     /*[[followlabel]]*/
+    
+    /*[[sidebarblogs]]*/
+
+    /*[[sidebarsponsor]]*/
+    
+    /*[[inlinesuggest]]*/
+    
+    body#tumblr aside ._3v4BC {
+        border-radius: 3px;
+        overflow: hidden;
+    }
+    
+    /*[[radar]]*/
     
     /*modal bg color*/
     body#tumblr button._2KXPE span._3e9MM, body#tumblr ._2KXPE[tabindex="-1"] {
@@ -246,7 +301,7 @@ followlabel2 "Show" <<<EOT  EOT;
     body#tumblr ._3MmnJ:first-of-type { /*fix weird overflow of bg color when hovering over blogs on following page*/
         overflow: hidden;
     }
-    body#tumblr ul[aria-label="Check out these blogs"] { /*make sure that you can see all suggested blogs when your font is larger than 16px*/
+    body#tumblr ul[aria-label="Check out these blogs"], body#tumblr aside .hjHTG { /*make sure that you can see all suggested blogs when your font is larger than 16px*/
         height: auto !important;
     }
     body#tumblr .L5OmD:not(._1g2KQ) {
