@@ -1,19 +1,45 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.1.4
+@version        0.1.5
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
 
 @advanced dropdown font "Font Family" {
-font1 "Default" <<<EOT "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif EOT;
+font1 "Default (Favorit)" <<<EOT "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif EOT;
+font7 "Custom" <<<EOT var(--custom-font) EOT;
 font2 "Arial" <<<EOT arial, sans-serif EOT;
-font3 "Verdana" <<<EOT verdana, sans-serif EOT;
-font4 "Courier New" <<<EOT courier new, monospace EOT;
+font3 "Verdana" <<<EOT Verdana, Geneva, Tahoma, sans-serif EOT;
+font4 "Helvetica" <<<EOT 'Helvetica Neue', Arial, Helvetica, sans-serif EOT;
 font5 "Monospace" <<<EOT monospace EOT;
 font6 "Cursive" <<<EOT cursive EOT;
-font7 "Custom" <<<EOT var(--custom-font) EOT;
+font8 "1785 Baskerville" <<<EOT '1785 GLC Baskerville', serif EOT;
+font9 "Arquitecta" <<<EOT 'Arquitecta', sans-serif EOT;
+font10 "Alternate Gothic" <<<EOT 'Alternate Gothic', sans-serif EOT;
+font11 "Avalon" <<<EOT 'Avalon', sans-serif EOT;
+font12 "Bookmania" <<<EOT 'Bookmania', serif EOT;
+font13 "Brutal Type" <<<EOT 'Brutal Type', serif EOT;
+font14 "Calluna" <<<EOT 'Calluna', serif EOT;
+font15 "Calluna Sans" <<<EOT 'Calluna Sans', sans-serif EOT;
+font16 "Capita" <<<EOT 'Capita', serif EOT;
+font17 "Clarendon" <<<EOT 'Clarendon Text Pro', serif EOT;
+font18 "Clearface" <<<EOT 'Clearface FS', serif EOT;
+font19 "Fang Song" <<<EOT 'FangSong', 'STFangsong', sans-serif EOT;
+font20 "Garamond" <<<EOT 'Garamond Classic FS', serif EOT;
+font21 "Georgia" <<<EOT Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman' serif EOT;
+font22 "Gibson" <<<EOT 'Gibson', sans-serif EOT;
+font23 "Grumpy" <<<EOT 'Grumpy Black 48', serif EOT;
+font24 "Kaiti" <<<EOT 'Kaiti TC', 'KaiTi', sans-serif EOT;
+font25 "Lorimer No 2" <<<EOT 'Lorimer No 2', sans-serif EOT;
+font26 "Lucida Sans" <<<EOT 'Lucida Sans', 'Lucida Grande', 'Lucida Sans Unicode', sans-serif EOT;
+font27 "News Gothic" <<<EOT 'News Gothic FS', sans-serif EOT;
+font28 "Pratt Pro" <<<EOT 'Pratt Pro', serif EOT;
+font29 "Quadrat" <<<EOT 'Quadrat', serif EOT;
+font30 "Sim Hei" <<<EOT 'SimHei', 'STHeiti', sans-serif EOT;
+font31 "Sofia Pro" <<<EOT 'Sofia Pro', sans-serif EOT;
+font32 "Square Serif" <<<EOT 'Square Serif', serif EOT;
+font33 "Typewriter" <<<EOT 'Typewriter FS', serif EOT;
 }
 
 @advanced text customfont "Custom Font (Select 'Custom' Above)" "OpenDyslexic"
@@ -47,6 +73,7 @@ followlabel2 "Show" <<<EOT  EOT;
 @advanced color blue "Blue" #00B8FF
 @advanced color purple "Purple" #7C5CFF
 @advanced color pink "Pink" #FF62CE
+@advanced color blacktext "Black" #ffffff
 
 ==/UserStyle== */
 
@@ -61,6 +88,7 @@ followlabel2 "Show" <<<EOT  EOT;
         --custom-font: /*[[customfont]]*/;
         --base-font-size: /*[[fontsize]]*/px;
 
+        --blacktext: /*[[blacktext-rgb]]*/; /*changes black font in post*/
         --red: /*[[red-rgb]]*/;
         --orange: /*[[orange-rgb]]*/;
         --yellow: /*[[yellow-rgb]]*/;
@@ -108,51 +136,164 @@ followlabel2 "Show" <<<EOT  EOT;
         color: rgb(var(--black)) !important;
         background-color: rgba(var(--red), 0.5) !important;
     }
-    /*follow button color*/
-    article ._2eajK {
-        color: rgb(var(--secondary-accent))
+    /*follow button styling*/
+    body#tumblr article ._2eajK {
+        font-size: 0.8em;
+        font-weight: bold;
+        background-color: rgba(var(--black),0.4);
+        padding: 2px 8px;
+        border-radius: 2px;
+        color: rgb(var(--white)) !important;
+    }
+    body#tumblr article ._2eajK:hover, article ._2eajK:focus {
+        text-decoration: none !important;
+        color: #000 !important;
+        background-color: rgba(0,207,53,1);
     }
     /*permalink post corner*/
     body#tumblr .POCCe ._2PI5a {
         background-color: rgba(var(--accent),1)
     }
+    
     /*[[followlabel]]*/
-    /*modal*/
+    
+    /*modal bg color*/
     body#tumblr button._2KXPE span._3e9MM, body#tumblr ._2KXPE[tabindex="-1"] {
         background-color: rgba(var(--modal), 0.9) !important;
     }
+    
+    /*change rainbow text colors to custom colors*/
+    /*RED*/
+    /*red text in posts*/
+    body#tumblr span[style*="color: rgb(255, 73, 47)"], body#tumblr span[style*="color:#ff492f"] {
+        color: rgb(var(--red)) !important;
+    }
+    /*red circle in popover menu*/
+    body#tumblr ._3vJ7I[style*="background-color: rgb(255, 73, 47)"], body#tumblr .MyoaM[style*="background: rgb(255, 73, 47)"] {
+        background-color: rgb(var(--red)) !important;
+    }
+    
+    /*ORANGE*/
+    /*orange text in posts*/
+    body#tumblr span[style*="color: rgb(255, 138, 0)"], body#tumblr span[style*="color:#ff8a00"] {
+        color: rgb(var(--orange)) !important;
+    }
+    /*orange circle in popover menu*/
+    body#tumblr ._3vJ7I[style*="background-color: rgb(255, 138, 0)"], body#tumblr .MyoaM[style*="background: rgb(255, 138, 0)"] {
+        background-color: rgb(var(--orange)) !important;
+    }
+    
+    /*YELLOW*/
+    /*yellow text in posts*/
+    body#tumblr span[style*="color: rgb(232, 215, 56)"], body#tumblr span[style*="color:#e8d738"] {
+        color: rgb(var(--yellow)) !important;
+    }
+    /*yellow circle in popover menu*/
+    body#tumblr ._3vJ7I[style*="background-color: rgb(232, 215, 56)"], body#tumblr .MyoaM[style*="background: rgb(232, 215, 56)"] {
+        background-color: rgb(var(--yellow)) !important;
+    }
+    
+    /*GREEN*/
+    /*green text in posts*/
+    body#tumblr span[style*="color: rgb(0, 207, 53)"], body#tumblr span[style*="color:#00cf35"] {
+        color: rgb(var(--green)) !important;
+    }
+    /*green circle in popover menu*/
+    body#tumblr ._3vJ7I[style*="background-color: rgb(0, 207, 53)"], body#tumblr .MyoaM[style*="background: rgb(0, 207, 53)"] {
+        background-color: rgb(var(--green)) !important;
+    }
+    
+    /*BLUE*/
+    /*blue text in posts*/
+    body#tumblr span[style*="color: rgb(0, 184, 255)"], body#tumblr span[style*="color:#00b8ff"] {
+        color: rgb(var(--blue)) !important;
+    }
+    /*blue circle in popover menu*/
+    body#tumblr ._3vJ7I[style*="background-color: rgb(0, 184, 255)"], body#tumblr .MyoaM[style*="background: rgb(0, 184, 255)"] {
+        background-color: rgb(var(--blue)) !important;
+    }
+    
+    /*PINK*/
+    /*pink text in posts*/
+    body#tumblr span[style*="color: rgb(255, 98, 206)"], body#tumblr span[style*="color:#ff62ce"] {
+        color: rgb(var(--pink)) !important;
+    }
+    /*pink circle in popover menu*/
+    body#tumblr ._3vJ7I[style*="background-color: rgb(255, 98, 206)"], body#tumblr .MyoaM[style*="background: rgb(255, 98, 206)"] {
+        background-color: rgb(var(--pink)) !important;
+    }
+    
+    /*PURPLE (not currently enabled, but jic they add it)*/
+    /*purple text in posts*/
+    body#tumblr span[style*="color: rgb(124, 192, 255)"], span[style*="color:#7c5cff"] {
+        color: rgb(var(--purple)) !important;
+    }
+    /*purple circle in popover menu*/
+    body#tumblr ._3vJ7I[style*="background-color: rgb(124, 192, 255)"], body#tumblr .MyoaM[style*="background: rgb(124, 192, 255)"] {
+        background-color: rgb(var(--purple)) !important;
+    }
+    /*BLACK*/
+    /*black text in posts*/
+    body#tumblr span[style*="color: rgb(0, 0, 0)"], span[style*="color:#000000"] {
+        color: rgb(var(--blacktext)) !important;
+    }
+    /*black circle in popover menu*/
+    body#tumblr ._3vJ7I[style*="background-color: rgb(0, 0, 0)"], body#tumblr .MyoaM[style*="background: rgb(0, 0, 0)"] {
+        background-color: rgb(var(--blacktext)) !important;
+    }
 
     /*minor bugfixes*/
-    body#tumblr ._3MmnJ:first-of-type {
+    body#tumblr ._3MmnJ:first-of-type { /*fix weird overflow of bg color when hovering over blogs on following page*/
         overflow: hidden;
     }
-    body#tumblr ul[aria-label="Check out these blogs"] {
+    body#tumblr ul[aria-label="Check out these blogs"] { /*make sure that you can see all suggested blogs when your font is larger than 16px*/
         height: auto !important;
     }
     body#tumblr .L5OmD:not(._1g2KQ) {
         min-height: 21px;
         height: auto !important;
     }
-    header.l4QOZ {
+    body#tumblr header.l4QOZ { /*top bar will now grow in height with larger fonts*/
         min-height: 54px;
         height: auto;
     }
-    ._1K1i-, .j_1KQ {
+    /*make sure new posts number isn't too big in top bar*/
+    body#tumblr ._3LtFh.kAS3C._2_oyi{
+        font-family: "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+    }
+    /*post editing popover menu font fix*/
+    body#tumblr ._1K1i-, body#tumblr ._1bWnc * {
         font-size: 16px !important;
     }
-    ._1K1i- .MyoaM {
+    /*fix post creation popover menu for adding colors to fonts in posts*/
+    body#tumblr ._1K1i- .MyoaM:not([style*="background"]) {
         background: rgba(var(--navy),1) !important;
     }
-    ._1K1i- .MyoaM svg[fill="RGB(var(--white))"] {
+    /*fix paint bucket in post creation popover color menu at larger font sizes*/
+    body#tumblr ._3vJ7I {
+        line-height: 16px;
+    }
+    /*make post creation popover paint bucket be the same color as posts bg*/
+    body#tumblr  ._3vJ7I svg, body#tumblr .MyoaM button[aria-label="Colors"] svg[fill*="#ffffff"] {
+        fill: rgb(var(--white)) !important;
+    }
+    body#tumblr .j_1KQ {
+        font-family: sans-serif;
+        line-height: 16px;
+    }
+     /*post editor make sure colors are right*/
+    body#tumblr ._1K1i- > div > .MyoaM button:not([aria-label="Colors"]) > span > svg[fill="RGB(var(--white))"], body#tumblr ._1K1i- .MyoaM .Si9F8 svg {
         fill: rgb(var(--black)) !important;
     }
-    .Si9F8 .j_1KQ {
+    
+    body#tumblr .Si9F8 .j_1KQ { 
         color: rgb(var(--black));
     }
-    ._10Ced {
+    body#tumblr ._10Ced {
         font-size: 16px !important;
     }
-    ._2ef6Q {
+    body#tumblr ._2ef6Q {
         font-size: 30px !important;
     }
     /*messaging fixes*/
