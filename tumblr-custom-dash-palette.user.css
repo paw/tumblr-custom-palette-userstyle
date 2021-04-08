@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.1.5
+@version        0.1.6
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -234,7 +234,7 @@ followlabel2 "Show" <<<EOT  EOT;
     }
     /*BLACK*/
     /*black text in posts*/
-    body#tumblr span[style*="color: rgb(0, 0, 0)"], span[style*="color:#000000"] {
+    body#tumblr main span[style*="color: rgb(0, 0, 0)"], body#tumblr main span[style*="color:#000000"] {
         color: rgb(var(--blacktext)) !important;
     }
     /*black circle in popover menu*/
