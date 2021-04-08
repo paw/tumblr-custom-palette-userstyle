@@ -68,17 +68,17 @@ bgsize1 "Cover" <<<EOT cover EOT;
 bgsize2 "Auto" <<<EOT auto EOT;
 }
 
-@advanced color navy "Background Color" #090117
-@advanced color white "Posts Color" #141021
-@advanced color black "Font Color" #d1a3d8
-@advanced color accent "Primary Accent & Links Color" #3dedd8
-@advanced color linkhover "Link Hover Color" #f68ac5
-@advanced color secondary "Menu Hover BG Color" #493650
-@advanced color whiteondark "Secondary Accent" #b051ff
-@advanced color tertiary "Top Bar BG Color" #100521
-@advanced color quaternary "Top Bar Icon Color" #ff9c13
-@advanced color follow "Notifications From Followed Blogs" #1c2b34
-@advanced color modal "Modal BG" #0c0516
+@advanced color navy "Background Color" #36465d
+@advanced color white "Posts Color" #ffffff
+@advanced color black "Font Color" #444444
+@advanced color accent "Primary Accent & Links Color" #529ecc
+@advanced color linkhover "Link Hover Color" #14518e
+@advanced color secondary "Settings Menu Hover BG Color" #f0f8ff
+@advanced color whiteondark "Secondary Accent" #b9b9b9
+@advanced color tertiary "Top Bar BG Color" #14263e
+@advanced color quaternary "Top Bar Icon Color" #ffffff
+@advanced color follow "Notifications From Followed Blogs BG Color" #e7f7e9
+@advanced color modal "Modal BG" #050e1e
 
 @advanced color red "Red" #FF492F
 @advanced color orange "Orange" #FF8A00
@@ -87,7 +87,7 @@ bgsize2 "Auto" <<<EOT auto EOT;
 @advanced color blue "Blue" #00B8FF
 @advanced color purple "Purple" #7C5CFF
 @advanced color pink "Pink" #FF62CE
-@advanced color blacktext "Black" #ffffff
+@advanced color blacktext "Black" #000000
 
 @advanced dropdown blacklisttags "Fully Display Tags On Filtered Posts" {
 blacklisttags1 "Yes" <<<EOT 
@@ -286,7 +286,7 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
     
     /*modal bg color*/
     body#tumblr button._2KXPE span._3e9MM, body#tumblr ._2KXPE[tabindex="-1"] {
-        background-color: rgba(var(--modal), 0.9) !important;
+        background-color: rgba(var(--modal), 0.95) !important;
     }
     
     /*change rainbow text colors to custom colors*/
