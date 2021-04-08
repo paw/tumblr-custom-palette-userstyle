@@ -45,6 +45,31 @@ font33 "Typewriter" <<<EOT 'Typewriter FS', serif EOT;
 @advanced text customfont "Custom Font (Select 'Custom' Above)" "OpenDyslexic"
 @advanced text fontsize "Font Size (px)" "16"
 
+@advanced dropdown blacklisttags "Fully Display Tags On Filtered Posts" {
+blacklisttags1 "Yes" <<<EOT 
+    /*fully show blacklisted tags*\/
+    body#tumblr [data-id] .LihFc { /*container for filtered post*\/
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    body#tumblr [data-id] .LihFc > a { /*blacklisted tags*\/
+        margin: 1em 1ch 1em 0;
+        max-width: 100%;
+        flex: 0 1 60%;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+    body#tumblr [data-id] .LihFc .KeFJu { /*view post button*\/
+        margin-left: 0;
+        flex: 0 0 30%;
+    }
+    /*'This post contains filtered tags.'*\/
+    [data-id] .LihFc > p {
+        width: 100%;
+    } EOT;
+blacklisttags2 "No" <<<EOT  EOT;
+}
+
 @advanced dropdown followlabel "Follow Label" {
 followlabel1 "Hide" <<<EOT 
     /*hide follow button*\/
@@ -53,6 +78,7 @@ followlabel1 "Hide" <<<EOT
     } EOT;
 followlabel2 "Show" <<<EOT  EOT;
 }
+
 @advanced dropdown radar "Radar" {
 radar1 "Show" <<<EOT  EOT;
 radar2 "Hide" <<<EOT 
@@ -101,7 +127,7 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
 @advanced color whiteondark "Secondary Accent" #b051ff
 @advanced color tertiary "Top Bar BG Color" #100521
 @advanced color quaternary "Top Bar Icon Color" #ff9c13
-@advanced color follow "Follower Notifications" #1c2b34
+@advanced color follow "Notifications From Followed Blogs" #1c2b34
 @advanced color modal "Modal BG" #0c0516
 
 @advanced color red "Red" #FF492F
@@ -178,6 +204,7 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
     body#tumblr .pOoZl a.L0N4W:focus {
         color: rgb(var(--white)) !important;
     }
+    
     /*follow button styling*/
     body#tumblr article ._2eajK {
         font-size: 0.8em;
@@ -189,8 +216,8 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
     }
     body#tumblr article ._2eajK:hover, article ._2eajK:focus {
         text-decoration: none !important;
-        color: #000 !important;
-        background-color: rgba(0,207,53,1);
+        color: rgb(var(--white)) !important;
+        background-color: rgb(var(--green));
     }
     /*permalink post corner*/
     body#tumblr .POCCe ._2PI5a {
@@ -211,6 +238,8 @@ sidebarsponsor2 "Show" <<<EOT  EOT;
     }
     
     /*[[radar]]*/
+    
+    /*[[blacklisttags]]*/
     
     /*modal bg color*/
     body#tumblr button._2KXPE span._3e9MM, body#tumblr ._2KXPE[tabindex="-1"] {
