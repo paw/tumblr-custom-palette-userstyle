@@ -257,6 +257,16 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr .pOoZl a.L0N4W:focus {
         color: rgb(var(--white)) !important;
     }
+    /*fixing header sizes, 2nd is post editor*/
+    body#tumblr article h1, body#tumblr .DraftEditor-root h1 {
+        font-size: 1.625em;
+        line-height: 1.3em;
+    }
+    body#tumblr article h2, body#tumblr .DraftEditor-root h2 {
+        font-size: 1.25em;
+        line-height: 1.3em;
+        font-family: var(--font-family);
+    }
     
     /*follow button styling*/
     body#tumblr article ._2eajK {
