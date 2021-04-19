@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.2.0
+@version        0.2.1
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -128,10 +128,10 @@ inlinesuggest2 "Hide" <<<EOT
     } EOT;
 inlinesuggest1 "Show" <<<EOT  EOT;
 }
-@advanced dropdown sponsoredposts "Sponsored Posts At Top of Dash" {
+@advanced dropdown sponsoredposts "Inline Sponsored Posts" {
 sidebarsponsor1 "Hide" <<<EOT 
     /*hide sponsored posts*\/
-    body#tumblr ._1DxdS:nth-child(1):not([data-id]) {
+    body#tumblr ._1DxdS:nth-child(1):not([data-id]), body#tumblr ._1DxdS:not([data-id]) > .hyZhC > ._1Bwz3 {
         margin-bottom: 0;
         display: none !important;
     }
