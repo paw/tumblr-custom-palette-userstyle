@@ -312,12 +312,21 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr ._29lp8 {
         background-color: rgb(var(--tertiary-accent))
     }
-	/*top bar svg icons color, account settings popover icon color*/
-    body#tumblr ._2Lnx8 ._36kWE .Yz6Xp > svg, ul.tNNIl._3VOHb svg {
+	/*top bar svg icons color*/
+    body#tumblr ._2Lnx8 ._36kWE .Yz6Xp > svg {
         fill: rgb(var(--quaternary-accent))
     }
-    /*link colors; 1st = general, 2nd = main article header links, 3rd = reblog chain usernames, 4 = links in post editor*/
-    body#tumblr article a, body#tumblr article header .hVK3L, body#tumblr a._1SERh ._1891Y, body#tumblr .DraftEditor-root a {
+    /*account settings popover icon color*/
+    body#tumblr ul.tNNIl._3VOHb svg {
+        fill: rgb(var(--accent))
+    }
+    /*link colors
+        1.general
+        2. main article header links
+        3. reblog chain usernames
+        4. links in post editor
+    */
+    body#tumblr article a, body#tumblr article header .hVK3L, body#tumblr a._1SERh ._1891Y, body#tumblr .DraftEditor-root a, body#tumblr .ZjULs ._3HknS ._3ihyI._3afMY {
         color: rgba(var(--accent),1)
     }
     body#tumblr article a:hover, body#tumblr article a:focus, body#tumblr a._1SERh:hover ._1891Y, body#tumblr a._1SERh:focus ._1891Y, body#tumblr .DraftEditor-root a:hover, body#tumblr .DraftEditor-root a:focus {
@@ -627,15 +636,13 @@ compactblockedpost2 "Enable" <<<EOT
     }
     /*~~~*/
     
-	/*whyyy didnt i label these*/
-    body#tumblr .Si9F8 .j_1KQ { 
-        color: rgb(var(--black));
+    /*change color of account notifs popover blog title*/
+    body#tumblr .ZjULs ._3HknS ._3ihyI._3afMY[style*="color:rgba(var(--black), 0.65);"] {
+        color: rgb(var(--black)) !important;
     }
-    body#tumblr ._10Ced {
-        font-size: 16px !important;
-    }
-    body#tumblr ._2ef6Q {
-        font-size: 30px !important;
+    /*change color of account notifs popover blog chevron*/
+    body#tumblr .ZjULs ._3HknS ._3ihyI._3afMY[style*="color:rgba(var(--black), 0.65);"] + svg {
+        fill: rgb(var(--accent));
     }
     
     /*~~~*/
