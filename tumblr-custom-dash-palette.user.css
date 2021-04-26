@@ -168,6 +168,15 @@ bgasidefix1 "Enable" <<<EOT
     EOT;
 }
 
+@advanced dropdown jumpbtn '"Now, where were we?" Button '{
+jumpbtn1 "Show" <<<EOT  EOT;
+jumpbtn2 "Hide" <<<EOT
+    main > div > button[aria-label="Restore timeline to what it was when you last viewed it"] {
+        display: none !important;
+    }
+EOT;
+}
+
 @advanced dropdown followlabel "Follow Label" {
 followlabel1 "Hide" <<<EOT 
     /*hide follow button*\/
@@ -400,6 +409,8 @@ compactblockedpost2 "Enable" <<<EOT
     /*[[bgasidefix]]*/
     
     /*[[compactblockedpost]]*/
+    
+    /*[[jumpbtn]]*/
     
     /*modal bg color*/
     body#tumblr button._3EFbU span._2vAlC, body#tumblr ._3EFbU[tabindex="-1"] {
