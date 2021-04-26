@@ -503,7 +503,7 @@ compactblockedpost2 "Enable" <<<EOT
     
     /*BLACK*/
     /*black text in posts*/
-    body#tumblr *:not(button) span[style*="color: rgb(0, 0, 0)"], body#tumblr main article span[style*="color:#000000"] {
+    body#tumblr *:not(button) > span[style*="color: rgb(0, 0, 0)"], body#tumblr main article span[style*="color:#000000"] {
         color: rgb(var(--blacktext)) !important;
     }
     /*black circle in popover menu, 1st = select menu, 2nd = main menu when selected*/
