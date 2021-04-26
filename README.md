@@ -1,6 +1,6 @@
 # Tumblr – Custom Dashboard Palette
 
-Just a simple userstyle for setting custom colors, font size, and font family for the tumblr dashboard. This theme will update automatically when I make changes to the code here on github. The default theme is dark purple.
+Just a simple userstyle for setting custom colors, font size, and font family for the tumblr dashboard. This theme will update automatically when I make changes to the code here on github. The default theme is inspired by the old dashboard and uses its old blue hue.
 
 ## How to Install:
 1. Get the userstyle manager [Stylus](https://github.com/openstyles/stylus#readme), if you don't already have it.
