@@ -227,7 +227,7 @@ inlinesuggest1 "Show" <<<EOT  EOT;
 @advanced dropdown sponsoredposts "Sponsored Posts" {
 sidebarsponsor1 "Hide" <<<EOT 
     /*hide sponsored posts*\/
-    body#tumblr ._2erxf:nth-child(1):not([data-id]), body#tumblr ._2erxf:not([data-id]) > ._3Z_GW > .nKBUH, main article._2DpMA > header:nth-child(1), main article._2DpMA > header:nth-child(1) + div._3wPrb, main article._2DpMA > header:nth-child(1) + div._3wPrb + div.IdU-A {
+    body#tumblr ._2erxf:nth-child(1):not([data-id]), body#tumblr ._2erxf:not([data-id]) > ._3Z_GW > .nKBUH, main._29jR1 article._2DpMA > header:nth-child(1), main._29jR1 article._2DpMA > header:nth-child(1) + div._3wPrb, main._29jR1 article._2DpMA > header:nth-child(1) + div._3wPrb + div.IdU-A {
         margin-bottom: 0;
         display: none !important;
     }
