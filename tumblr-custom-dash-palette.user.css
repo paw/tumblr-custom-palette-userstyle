@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.2.4
+@version        0.3.0
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -168,6 +168,15 @@ bgasidefix1 "Enable" <<<EOT
     EOT;
 }
 
+@advanced dropdown jumpbtn '"Now, where were we?" Button '{
+jumpbtn1 "Show" <<<EOT  EOT;
+jumpbtn2 "Hide" <<<EOT
+    main > div > button[aria-label="Restore timeline to what it was when you last viewed it"] {
+        display: none !important;
+    }
+EOT;
+}
+
 @advanced dropdown followlabel "Follow Label" {
 followlabel1 "Hide" <<<EOT 
     /*hide follow button*\/
@@ -218,7 +227,7 @@ inlinesuggest1 "Show" <<<EOT  EOT;
 @advanced dropdown sponsoredposts "Sponsored Posts" {
 sidebarsponsor1 "Hide" <<<EOT 
     /*hide sponsored posts*\/
-    body#tumblr ._2erxf:nth-child(1):not([data-id]), body#tumblr ._2erxf:not([data-id]) > ._3Z_GW > .nKBUH, main article._2DpMA > header:nth-child(1), main article._2DpMA > header:nth-child(1) + div._3wPrb, main article._2DpMA > header:nth-child(1) + div._3wPrb + div.IdU-A {
+    body#tumblr ._2erxf:nth-child(1):not([data-id]), body#tumblr ._2erxf:not([data-id]) > ._3Z_GW > .nKBUH, main._29jR1 article._2DpMA > header:nth-child(1), main._29jR1 article._2DpMA > header:nth-child(1) + div._3wPrb, main._29jR1 article._2DpMA > header:nth-child(1) + div._3wPrb + div.IdU-A {
         margin-bottom: 0;
         display: none !important;
     }
@@ -401,6 +410,8 @@ compactblockedpost2 "Enable" <<<EOT
     
     /*[[compactblockedpost]]*/
     
+    /*[[jumpbtn]]*/
+    
     /*modal bg color*/
     body#tumblr button._3EFbU span._2vAlC, body#tumblr ._3EFbU[tabindex="-1"] {
         background-color: rgba(var(--modal), 0.95) !important;
@@ -514,10 +525,17 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr ._2pGhq[style*="background-color: rgb(0, 0, 0)"], body#tumblr ._9dtbh._1GSCF[style*="background: rgb(0, 0, 0)"] {
         background-color: rgb(var(--blacktext)) !important;
     }
+    
+    /*~~~*/
 
     /*minor bugfixes*/
-    body#tumblr ._3MmnJ:first-of-type { /*fix weird overflow of bg color when hovering over blogs on following page*/
-        overflow: hidden;
+    
+    /*fix weird overflow of bg color when hovering over first and last blogs on following page*/
+    body#tumblr .KXP72:first-of-type, body#tumblr .KXP72:first-of-type a._1SERh.q9Hex { 
+        border-radius: 6px 6px 0 0 !important;
+    }
+    body#tumblr .KXP72:last-of-type, body#tumblr .KXP72:last-of-type a._1SERh.q9Hex {
+        border-radius: 0 0 6px 6px !important;
     }
     body#tumblr ul[aria-label="Check out these blogs"], body#tumblr aside ._26-sO { /*make sure that you can see all suggested blogs when your font is larger than 16px*/
         height: auto !important;
