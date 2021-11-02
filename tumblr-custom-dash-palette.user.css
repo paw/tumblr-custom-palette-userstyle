@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.3.1
+@version        0.3.2
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -272,18 +272,6 @@ inlinesuggest2 "Hide" <<<EOT
     } EOT;
 inlinesuggest1 "Show" <<<EOT  EOT;
 }
-@advanced dropdown sponsoredposts "Sponsored Posts" {
-sidebarsponsor1 "Hide" <<<EOT 
-    /*hide sponsored posts*\/
-    body#tumblr .IGdYk:nth-child(1):not([data-id]), body#tumblr .IGdYk:not([data-id]) > .pDYwz > .nKBUH, main._29jR1 article._2DpMA > header:nth-child(1), main._29jR1 article._2DpMA > header:nth-child(1) + div._3wPrb, main._29jR1 article._2DpMA > header:nth-child(1) + div._3wPrb + div.IdU-A {
-        margin-bottom: 0;
-        display: none !important;
-    }
-    body#tumblr .IGdYk:not([data-id]) > .pDYwz > .nKBUH > .IGdYk {
-        display: none !important;
-    } EOT;
-sidebarsponsor2 "Show" <<<EOT  EOT;
-}
 
 @advanced dropdown compactblockedpost "Compact Filtered Posts" {
 compactblockedpost1 "Disable" <<<EOT  EOT;
@@ -369,8 +357,8 @@ compactblockedpost2 "Enable" <<<EOT
         background-size: var(--bg-size);
         background-repeat: var(--bg-repeat);
     }
-    /*change bg color of top bar - LN 1433, shared */
-    body#tumblr .PkBMv {
+    /*change bg color of top bar - NOT the header, but its parent */
+    body#tumblr div.Cu0Yh {
         background-color: rgb(var(--tertiary-accent))
     }
 	/*top bar svg icons color - .kIuBF s 1313, xBRdB, .WCafO shared 1324*/
@@ -447,8 +435,6 @@ compactblockedpost2 "Enable" <<<EOT
     /*[[followlabel]]*/
     
     /*[[sidebarblogs]]*/
-
-    /*[[sponsoredposts]]*/
     
     /*hide sponsored posts in sidebar*/
     body#tumblr aside .JD7Cz:not(:only-child) {
