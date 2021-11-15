@@ -109,10 +109,22 @@ bgasidefix1 "Enable" <<<EOT
     body#tumblr aside > div {
         border-radius: 3px;
     }
-    body#tumblr aside ul.EMxZ6 { /*following recommendation list el*\/
+    body#tumblr aside ul.PwJi6 { /*following recommendation list el*\/
         width: 100%;
-        padding-right: 0.5em;
+        padding: 0em;
         box-sizing:border-box;
+    }
+    /*fix hover background for recommended blogs to include the dismiss icon in the bg color *\/
+    body#tumblr aside .PwJi6 .Ut4iZ:not(.veU9u):focus-within,
+    body#tumblr aside .PwJi6 .Ut4iZ:not(.veU9u):hover {
+        background: transparent;
+    }
+    body#tumblr aside .PwJi6 button[aria-label="Follow"] > .f68ED {
+        margin-right: 0;
+    }
+    body#tumblr aside .PwJi6 .kqme1:hover,
+    body#tumblr aside .PwJi6 .kqme1:focus-within {
+        background-color: rgba(var(--white-on-dark),.07);
     }
     /*pseudoelement bg added to tagged page sidebar divs (.EEy3L), explore page (.sM_HY), 'follow some tags' msg (.DWKx9), followed tags div (._1dYAZ), sidebar lists*\/
     body#tumblr aside ._3RuXz, body#tumblr aside .EEy3L, body#tumblr aside .sM_HY, body#tumblr aside .DWKx9, body#tumblr aside ._1dYAZ, body#tumblr aside ul { /*tagged pages*\/
@@ -201,7 +213,7 @@ bgasidefix1 "Enable" <<<EOT
         border-radius: 3px 3px 0 0;
     }
     /*border radius fix for divs and uls after sidebar h1s*\/
-    body#tumblr aside h1._tP7f + div::before, body#tumblr aside h1._tP7f + ul::before, body#tumblr aside div.XuF_q + ul.EMxZ6 {
+    body#tumblr aside h1._tP7f + div::before, body#tumblr aside h1._tP7f + ul::before, body#tumblr aside div.XuF_q + ul.PwJi6 {
         border-radius: 0 0 3px 3px
     }
     /*explore all of tumblr links restyling*\/
@@ -427,9 +439,9 @@ compactblockedpost2 "Enable" <<<EOT
         font-family: var(--font-family);
     }
     
-    /*follow button styling */
-    body#tumblr main article .f68ED,
-    body#tumblr aside button[aria-label="Follow"] .f68ED {
+    /*follow button styling, includes for recommended blogs in sidebar */
+    body#tumblr article .f68ED,
+    body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED {
         font-size: 0.8em;
         font-weight: bold;
         background-color: rgba(var(--black),0.4);
@@ -438,19 +450,21 @@ compactblockedpost2 "Enable" <<<EOT
         color: rgb(var(--white)) !important;
         vertical-align: middle;
     }
-    body#tumblr main article .f68ED:hover,
-    body#tumblr main article .f68ED:focus,
-    body#tumblr aside button[aria-label="Follow"] .f68ED:hover,
-    body#tumblr aside button[aria-label="Follow"] .f68ED:focus {
+    body#tumblr article .f68ED:hover,
+    body#tumblr article .f68ED:focus,
+    body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED:hover,
+    body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED:focus {
         text-decoration: none !important;
         color: rgb(var(--white)) !important;
         background-color: rgb(var(--green));
     }
-    /*follow button styling in recommended blog sidebar*/
-    body#tumblr aside button[aria-label="Follow"] > .f68ED {
-        color: rgb(var(--white)) !important;
-        margin: 0;
+    body#tumblr aside .PwJi6 .SbeG8 {
+        padding-right: 0;
     }
+    body#tumblr article .f68ED {
+        display: inline-block;
+    }
+
     /*permalink post corner*/
     body#tumblr .BjErQ .jk63e {
         background-color: rgba(var(--accent),1)
@@ -602,7 +616,7 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr .KXP72:last-of-type, body#tumblr .KXP72:last-of-type a._1SERh.q9Hex {
         border-radius: 0 0 6px 6px !important;
     }
-    body#tumblr ul[aria-label="Check out these blogs"], body#tumblr aside .EMxZ6 { /*make sure that you can see all suggested blogs when your font is larger than 16px*/
+    body#tumblr ul[aria-label="Check out these blogs"], body#tumblr aside .PwJi6 { /*make sure that you can see all suggested blogs when your font is larger than 16px*/
         height: auto !important;
     }
     body#tumblr ._3QBiZ:not(._10u52) { /*username of poster in reblog header before reblog icon*/
@@ -763,11 +777,12 @@ compactblockedpost2 "Enable" <<<EOT
     }
     
     /*more obvious remove suggested blog styling*/
-    body#tumblr aside ul.EMxZ6 button[aria-label="Dismiss Recommendation"] svg {
+    body#tumblr aside ul.PwJi6 button[aria-label="Dismiss Recommendation"] svg {
         fill: rgba(var(--white-on-dark), 0.5);
         transition: 0.3s fill;
+        margin: auto 8px;
     }
-    body#tumblr aside ul.EMxZ6 button[aria-label="Dismiss Recommendation"]:hover svg, body#tumblr aside ul.EMxZ6 button[aria-label="Dismiss Recommendation"]:focus svg {
+    body#tumblr aside ul.PwJi6 button[aria-label="Dismiss Recommendation"]:hover svg, body#tumblr aside ul.PwJi6 button[aria-label="Dismiss Recommendation"]:focus svg {
         fill: rgb(var(--red)) !important;
     }
     /*search your followers h1 width fix*/
