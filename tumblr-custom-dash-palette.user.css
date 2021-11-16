@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.3.3
+@version        0.4.0
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -43,7 +43,8 @@ font33 "Typewriter" <<<EOT 'Typewriter FS', serif EOT;
 }
 
 @advanced text customfont "Custom Font (Select 'Custom' Above)" "OpenDyslexic"
-@advanced text fontsize "Font Size (px)" "16"
+@advanced text fontsize "Main Font Size (px)" "16"
+@advanced text menufontsize "Menu Font Size (px)" "16"
 
 @advanced text bgimage "Background Image (URL)" ""
 @advanced dropdown bgpos "Background Position" {
@@ -149,7 +150,7 @@ bgasidefix1 "Enable" <<<EOT
         7. 'explore all of tumblr' link
         8. 'show more blogs' on tagged pages
     *\/
-    body#tumblr main._sE6H > ._pB_Y,
+    body#tumblr main.FdbiI > .qF_aN,
     body#tumblr .acReb > .T5uZR > ._36fM0,
     body#tumblr .acReb._Zajq .__AVQ > .SD9hG,
     body#tumblr .acReb > .T5uZR > .SD9hG,
@@ -349,6 +350,7 @@ compactblockedpost2 "Enable" <<<EOT
         --font-family: /*[[font]]*/;
         --custom-font: /*[[customfont]]*/;
         --base-font-size: /*[[fontsize]]*/px;
+        --menu-font-size: /*[[menufontsize]]*/px;
 
         --blacktext: /*[[blacktext-rgb]]*/; /*changes black font in post*/
         --red: /*[[red-rgb]]*/;
@@ -495,6 +497,28 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr button.SaLOl span.ZUy1d, body#tumblr .SaLOl[tabindex="-1"] {
         background-color: rgba(var(--modal), 0.95) !important;
     }
+
+    /*popover & on-dashboard blog fixes */
+    /*popover usernames + header container*/
+    body#tumblr .XP0zm .rTiqc .mUv9w .qwIYc,
+    body#tumblr header.rTiqc{
+        font-size: 16px;
+    }
+    body#tumblr header.rTiqc button[aria-label*='follow' i] .EvhBA {
+        font-size: 15px;
+    }
+    /*popover blogName + blogName.tumblr.com*/
+    body#tumblr .XP0zm .rTiqc .mUv9w .qwIYc .Q7KVB,
+    body#tumblr .XP0zm .rTiqc .mUv9w .qwIYc .u_VQH {
+        top: 0;
+    }
+    /*fix potential width issue for on-dashboard view + long usernames*/
+    body#tumblr .XP0zm .rTiqc .mUv9w {
+        width: calc(100% - 14px);
+    }
+    body#tumblr .XP0zm .rTiqc .k_NeV {
+        align-self: center;
+    }
     
     /*change rainbow text colors to custom colors*/
     /*RED*/
@@ -623,9 +647,17 @@ compactblockedpost2 "Enable" <<<EOT
         min-height: 21px;
         height: auto !important;
     }
-    body#tumblr header.PkBMv { /*top bar will now grow in height with larger fonts*/
+    body#tumblr header._3kR_ { /*top bar will now grow in height with larger fonts*/
         min-height: 54px;
         height: auto;
+    }
+    /*top bar add some padding around search bar so it looks nicer with larger fonts*/
+    body#tumblr header._3kR_ .oPa7v.v_yMG {
+        margin: 5px 0;
+    }
+    /*top bar fix issues with icons for really big fonts*/
+    body#tumblr header._3kR_ span.BPf9u {
+        display: block;
     }
     /*fix height of button when following tags*/
     body#tumblr button._2jskX {
@@ -634,7 +666,7 @@ compactblockedpost2 "Enable" <<<EOT
         padding: 5px 10px;
     }
     /*make sure new posts number isn't too big in top bar*/
-    body#tumblr ._iDZo.UDi42._IQ_I {
+    body#tumblr header._3kR_ .jpu7k.D0OOd.XnKJk {
         font-family: "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
         font-size: 16px;
     }
@@ -747,29 +779,51 @@ compactblockedpost2 "Enable" <<<EOT
     }
     
     /*~~~*/
-    
-    /*messaging fixes*/
-	/*1st is window holding messages, 2nd is msg preview in msging menu popover */
-    body#tumblr ._207KA, body#tumblr ._3TBjk ._1SqPY ._3FL0V {
+
+    /*docked post use menu font*/
+    body#tumblr div.h1D5S article.FtjPK * {
+        font-size: var(--menu-font-size);
+    }
+
+    /*undock post button fix*/
+    body#tumblr .TRX6J.cybcx {
+        font-size: 16px;
+    }
+
+    /*fix menu font sizes*/
+    body#tumblr .AzqQv *,
+    body#tumblr .iI6zv * {
+        font-size: var(--menu-font-size);
         line-height: 1.2em;
     }
-    body#tumblr ._207KA div /*make sure every msg has the right line height by forcing inheriting*/ {
-        line-height: inherit;
+    
+    /*messaging fixes*/
+    /*fix z-index of messages*/
+    body#tumblr .cwvO0 {
+        z-index: 95;
     }
-	body#tumblr ._2Z6ks .yHXVo { /*blog description at top of messaging window will now scroll so you can read the whole thing w/o going to their blog*/
+    /*fix messaging header size*/
+    body#tumblr .SPN7I * {
+        font-size: var(--menu-font-size);
+    }
+    /*Conversation*/
+    body#tumblr button[aria-label="Conversation"] {
+        font-size: 16px;
+    }
+	/*1st is window holding messages, 2nd is msg preview in msging menu popover */
+    body#tumblr .hpABw,
+    body#tumblr .hpABw .vwvdr {
+        line-height: 1.2em;
+        font-size: var(--menu-font-size);
+    }
+    /*blog description at top of messaging window will now scroll so you can read the whole thing*/
+	body#tumblr .b7hYL .X3v32 {
 		display: block;
 		max-height: 75px;
 		overflow-y: auto;
         padding: 0.2em;
         margin: 0.2em 0;
 	}
-    body#tumblr ._391DT ._1ncCe:not(:empty) + div { /*add some spacing between name of sender + their msg */
-        margin-top: 0.3em;
-    }
-    /*queue time line-height fix for large fonts*/
-    body#tumblr .Hosxs ._1EDs_ {
-        line-height: 1em;
-    }
 
     /*because you follow #tag spacing fix*/
     body#tumblr .YCeHL .OjCiP .nefzG {
@@ -786,23 +840,23 @@ compactblockedpost2 "Enable" <<<EOT
         fill: rgb(var(--red)) !important;
     }
     /*search your followers h1 width fix*/
-    body#tumblr main._sE6H > ._pB_Y h1.iow_j {
+    body#tumblr main.FdbiI > .qF_aN h1.lRmVC {
         flex: 1 0 50%;
     }
-    /*follow tag btn fix, tagg recommendations line height fix*/ 
+    /*follow tag btn fix, tagg recommendations line height fix FIXME*/ 
     body#tumblr button._1kIlD, body#tumblr ._1kN53 span {
         line-height: 100%;
     }
     
     /*trending topics ol fixes for larger fonts*/
-    .eV6Zh ._awWv {
+    body#tumblr .nKYyP.CXVtW .FSlaf {
         display: flex;
         flex-direction: column;
         flex: 1 1 100%;
         align-items: center;
     }
     /*give bg to make it work w/ custom bgs w/o needing extra code up top, .W7PJ9 > li w/ data-index */
-    .eV6Zh ._awWv > .W7PJ9 {
+    body#tumblr .nKYyP.CXVtW .FSlaf > .vT7_j {
         background: rgb(var(--navy));
         display: flex;
         flex: 1 1 50%;
@@ -814,11 +868,11 @@ compactblockedpost2 "Enable" <<<EOT
         overflow: hidden;
     }
     /* trending topic # ensure circlular shape */
-    .eb52V .W7PJ9 li::before {
+    body#tumblr .nKYyP li::before {
         flex-shrink: 0;
     }
     /*see all of the trending topic's tags by scrolling*/
-    .eV6Zh ._0OrO .liX6I {
+    body#tumblr .nKYyP .sEVNj {
         word-wrap: break-word;
         word-break: break-word;
         display: block;
