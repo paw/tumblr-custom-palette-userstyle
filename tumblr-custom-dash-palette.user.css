@@ -469,10 +469,12 @@ compactblockedpost2 "Enable" <<<EOT
         stroke: rgba(var(--white-on-dark),1);
     }
     
-    /*in posts: reblog symbol & options */
-    body#tumblr .jOhmG svg,
+    /*in posts: reblog symbol & options menu dots */
+    body#tumblr .jOhmG svg {
+        fill: rgb(var(--black))
+    }
     body#tumblr article button[aria-label="More options"] svg {
-        fill: rgb(var(--quaternary-accent))
+        fill: rgb(var(--link-hover))
     }
     /*link colors
         1. general
@@ -924,9 +926,14 @@ compactblockedpost2 "Enable" <<<EOT
 
     /*~~~*/
 
-    /*docked post use menu font*/
+    /*docked post use menu font size*/
     body#tumblr div.h1D5S article.FtjPK * {
         font-size: var(--menu-font-size);
+    }
+    /*docked post svg color fix*/
+    body#tumblr button[aria-label*="Dock post"] .EvhBA svg[fill="RGB(var(--white))"],
+    body#tumblr button[aria-label*="Undock post"] .EvhBA svg[fill="RGB(var(--white))"] {
+        fill: rgb(var(--white)) !important;
     }
 
     /*undock post button fix*/
