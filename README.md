@@ -2,7 +2,7 @@
 
 Just a simple userstyle for setting custom colors, font size, and font family for the tumblr dashboard. This theme will update automatically when I make changes to the code here on github. The default theme is inspired by the old dashboard and uses its old blue hue.
 
-[![Screenshot of default theme](https://64.media.tumblr.com/6c99eaf6bacfa50d59986e4f64957c03/0a469888dd87744e-0e/s500x750/f533960eb4faa87117276dee0e94caad5e8825db.png)\
+[![Screenshot of default theme](https://64.media.tumblr.com/3859155cedd3d770c6e0f93b1e8a2602/77b5a6dea75038d9-2f/s800x1000/2ce49660c3fdae284585a07fe5f092c6b31c5655.png)\
 Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/custompalettepreview.png)
 
 ## How to Install:
