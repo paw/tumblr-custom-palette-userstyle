@@ -7,8 +7,8 @@ Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-p
 
 ## How to Install:
 1. Get the userstyle manager [Stylus](https://github.com/openstyles/stylus#readme), if you don't already have it.
-2. Click [this link](https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css) to view the raw user.css, which will automatically open it in Stylus.
-3. Click 'Install Style', and leave 'Check for Updates' checked.
+2. Click [this link](https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css) to view the raw user.css or install it through the [Userstyles.world Mirror](https://userstyles.world/style/192/tumblr-custom-dashboard-palette), which will automatically open it in Stylus for you to review.
+3. Click 'Install Style', and leave 'Check for Updates' checked for automatic updates.
 4. Customize away! If you don't know how to customize styles, check out [these](https://github.com/openstyles/stylus/wiki/Usercss#how-do-i-customize-usercss) [pages](https://github.com/openstyles/stylus/wiki/Popup#interface).
 
 ### Notes:
