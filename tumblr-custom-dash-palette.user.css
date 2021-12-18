@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.4.0
+@version        0.4.1
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -43,20 +43,16 @@ font33 "Typewriter" <<<EOT 'Typewriter FS', serif EOT;
 }
 
 @advanced text customfont "Custom Font (Select 'Custom' Above)" "OpenDyslexic"
-@advanced text fontsize "Main Font Size (px)" "16"
-@advanced text menufontsize "Menu Font Size (px)" "16"
+@advanced range fontsize "Main Font Size" [16, 10, 30, 0.5, 'px']
+@advanced range menufontsize "Menu Font Size" [16, 10, 30, 0.5, 'px']
 
-@advanced text bgimage "Background Image (URL)" ""
+@advanced text bgimage "Background Image URL (Must include https://)" "https://assets.tumblr.com/images/x.gif"
 @advanced dropdown bgpos "Background Position" {
 bgpos1 "Center" <<<EOT center EOT;
 bgpos2 "Top Left" <<<EOT top left EOT;
 bgpos3 "Top Right" <<<EOT top right EOT;
 bgpos4 "Bottom Left" <<<EOT bottom left EOT;
 bgpos5 "Bottom Right" <<<EOT bottom right EOT;
-}
-@advanced dropdown bgattachment "Background Attachment" {
-bgattachment1 "Fixed" <<<EOT fixed EOT;
-bgattachment2 "Scroll" <<<EOT scroll EOT;
 }
 @advanced dropdown bgrepeat "Background Repeat" {
 bgrepeat1 "Repeat" <<<EOT repeat EOT;
@@ -96,8 +92,6 @@ editorsize2 "1.1x" <<<EOT 1.1 EOT;
 editorsize3 "1.2x" <<<EOT 1.2 EOT;
 editorsize4 "1.3x" <<<EOT 1.3 EOT;
 editorsize5 "1.4x" <<<EOT 1.4 EOT;
-editorsize6 "1.5x" <<<EOT 1.5 EOT;
-editorsize7 "1.6x" <<<EOT 1.6 EOT;
 }
 
 @advanced dropdown bgasidefix "Fixes for Custom BG Images" {
@@ -260,6 +254,30 @@ bgasidefix1 "Enable" <<<EOT
         box-sizing: border-box;
         text-align: center;
     }
+    /*answertime container link fix*\/
+    body#tumblr .j8ha0 > div > .So6RQ:not([data-id]):first-child .ge_yK {
+        background: RGB(var(--navy));
+        border-radius: 6px;
+        overflow: hidden;
+    }
+    /*docked post fix overlay bg*\/
+    body#tumblr .GDWdm {
+        background: rgb(var(--navy)) var(--custom-bg);
+        background-attachment: fixed;
+        background-position: var(--bg-position);
+        background-size: var(--bg-size);
+        background-repeat: var(--bg-repeat);
+        z-index: 98;
+    }
+    /*docked post fix z-index*\/
+    body#tumblr .h1D5S.MsxAB {
+        z-index:99;
+    }
+    /*queue bg fix*\/
+    body#tumblr .R0TWs {
+        background: rgba(var(--navy),0.92);
+        color: rgba(var(--white-on-dark),1);
+    }
     EOT;
 }
 
@@ -377,15 +395,14 @@ compactblockedpost2 "Enable" <<<EOT
         --black: /*[[black-rgb]]*/; /*font color*/
         
         --custom-bg: url(/*[[bgimage]]*/);
-        --bg-attachment: /*[[bgattachment]]*/;
         --bg-position: /*[[bgpos]]*/;
         --bg-repeat: /*[[bgrepeat]]*/;
         --bg-size: /*[[bgsize]]*/;
 
         --font-family: /*[[font]]*/;
         --custom-font: /*[[customfont]]*/;
-        --base-font-size: /*[[fontsize]]*/px;
-        --menu-font-size: /*[[menufontsize]]*/px;
+        --base-font-size: /*[[fontsize]]*/;
+        --menu-font-size: /*[[menufontsize]]*/;
 
         --blacktext: /*[[blacktext-rgb]]*/; /*changes black font in post*/
         --red: /*[[red-rgb]]*/;
@@ -411,7 +428,7 @@ compactblockedpost2 "Enable" <<<EOT
     /*custom background  */
     body#tumblr .D5eCV {
         background: rgb(var(--navy)) var(--custom-bg);
-        background-attachment: var(--bg-attachment);
+        background-attachment: fixed;
         background-position: var(--bg-position);
         background-size: var(--bg-size);
         background-repeat: var(--bg-repeat);
@@ -867,6 +884,37 @@ compactblockedpost2 "Enable" <<<EOT
     .kCzoF .oehtt .iszjU button.TRX6J svg {
         fill: rgb(var(--accent)) !important;
     }
+    /*close button hover styling*/
+    .dzJuF .DyZIk:hover,
+    .dzJuF .DyZIk:focus {
+        background: rgba(var(--black),1)
+    }
+    /*post editor button font scaling fixes
+      1. post button
+      2. close button
+    */
+    .l8blt .QEtDS,
+    .l8blt .dzJuF .DyZIk {
+        line-height: 100%;
+        min-height: 24px;
+    }
+    .l8blt .QEtDS {
+        display: flex;
+        align-items: center;
+    }
+    /*post editor post button chevron before pseudoelement*/
+    .l8blt .QEtDS .qtKRw::before {
+        top: 0;
+        bottom: 0;
+        right: unset;
+        left: 0;
+        height: 100%;
+    }
+    /*post editor post button chevron scales with font size now*/
+    .l8blt .QEtDS .qtKRw svg {
+        width: calc(var(--base-font-size) - 5px);
+        height: calc(var(--base-font-size) - 5px);
+    }
 
     /*~~~*/
 
@@ -923,6 +971,37 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr .XP0zm .rTiqc .k_NeV .tOdXM {
         font-size: 0.9em;
     }
+    
+    /*tagged page change sidebar tag hover color*/
+    body#tumblr .Rp8gp:hover:not(.xsZgg):not(.bkzF7),
+    body#tumblr .Rp8gp:focus-within:not(.xsZgg):not(.bkzF7) {
+        color: rgb(var(--link-hover));
+        background-color: rgba(var(--accent),0.15);
+        border-color: rgba(var(--accent),0.3);
+    }
+    /*
+      1. general button hover color
+      2. tagged page new post button hover color
+      3. header new post link
+      4. post editor post button
+    */
+    body#tumblr .TRX6J:hover > .WdYx4,
+    body#tumblr .TRX6J:focus > .WdYx4,
+    body#tumblr .CCtDO:hover,
+    body#tumblr .CCtDO:focus,
+    body#tumblr .hlDot .xxqHJ:hover,
+    body#tumblr .hlDot .xxqHJ:focus,
+    body#tumblr .QEtDS:hover,
+    body#tumblr .QEtDS:focus-within {
+        background-color: rgb(var(--link-hover));
+    }
+    /* same as above just for:
+       1. post editor settings button
+    */
+    body#tumblr .kCzoF .oehtt .iszjU button.TRX6J[aria-label="Settings"]:focus svg,
+    body#tumblr .kCzoF .oehtt .iszjU button.TRX6J[aria-label="Settings"]:hover svg {
+        fill: rgb(var(--link-hover)) !important;
+    }
 
     /*~~~*/
 
@@ -935,9 +1014,11 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr button[aria-label*="Undock post"] .EvhBA svg[fill="RGB(var(--white))"] {
         fill: rgb(var(--white)) !important;
     }
-
-    /*undock post button fix*/
-    body#tumblr .TRX6J.cybcx {
+    /*1. undock post button fix
+      2. BETA dashboard button fix
+    */
+    body#tumblr .TRX6J.cybcx,
+    body#tumblr .l8blt .Rp8gp.g3KgL.bkzF7 {
         font-size: 16px;
     }
 
@@ -1079,10 +1160,14 @@ compactblockedpost2 "Enable" <<<EOT
     #quick-reblog .quick-tags button:hover, #quick-reblog .action-buttons:enabled button:hover {
         background-color: rgba(var(--secondary-accent),0.1) !important;
     }
-    .xkit-long-timestamp {
+    body#tumblr .xkit-long-timestamp {
         height: auto !important;
         min-height: 1em !important;
         line-height: 1.5 !important;
+    }
+    body#tumblr .xkit-post-option:focus-within svg,
+    body#tumblr .xkit-post-option:hover svg {
+        fill: rgba(var(--black), 1)
     }
 	/*xkit change post block button to orange*/
 	body#tumblr button[data-xkit-meatball-button="postblock"] { /*report + block button, plus xkit block post btn*/
@@ -1091,5 +1176,17 @@ compactblockedpost2 "Enable" <<<EOT
 	body#tumblr button[data-xkit-meatball-button="postblock"]:hover, body#tumblr button[data-xkit-meatball-button="postblock"]:focus {
         color: rgb(var(--orange)) !important;
         background-color: rgba(var(--orange), 0.2) !important;
+    }
+    /*change quick reblog menu color to be green to match post footer reblogged icon color*/
+    #quick-reblog button[data-state="published"] {
+        color: rgb(var(--green));
+    }
+    /*change quick reblog successful draft icon color match orange draft button color in the menu*/
+    .draft svg[fill="rgba(var(--black), 0.65)"] {
+        fill: rgb(var(--orange));
+    }
+    /*change quick reblog successful queue icon color match pink draft button color in the menu*/
+    .queue svg[fill="rgba(var(--black), 0.65)"] {
+        fill: rgb(var(--pink));
     }
 }
