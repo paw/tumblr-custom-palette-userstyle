@@ -46,7 +46,7 @@ font33 "Typewriter" <<<EOT 'Typewriter FS', serif EOT;
 @advanced range fontsize "Main Font Size" [16, 10, 30, 0.5, 'px']
 @advanced range menufontsize "Menu Font Size" [16, 10, 30, 0.5, 'px']
 
-@advanced text bgimage "Background Image URL (Must include https://)" "https://assets.tumblr.com/images/x.gif"
+@advanced text bgimage "Custom Background Image URL (Must include https://)" "https://assets.tumblr.com/images/x.gif"
 @advanced dropdown bgpos "Background Position" {
 bgpos1 "Center" <<<EOT center EOT;
 bgpos2 "Top Left" <<<EOT top left EOT;
@@ -86,7 +86,7 @@ bgsize2 "Auto" <<<EOT auto EOT;
 @advanced color pink "Pink" #FF62CE
 @advanced color blacktext "Black" #000000
 
-@advanced dropdown editorsize "Post Editor Controls Size" {
+@advanced dropdown editorsize "Post Editor Controls Scaling" {
 editorsize1 "1x" <<<EOT 1 EOT;
 editorsize2 "1.1x" <<<EOT 1.1 EOT;
 editorsize3 "1.2x" <<<EOT 1.2 EOT;
@@ -94,7 +94,7 @@ editorsize4 "1.3x" <<<EOT 1.3 EOT;
 editorsize5 "1.4x" <<<EOT 1.4 EOT;
 }
 
-@advanced dropdown bgasidefix "Fixes for Custom BG Images" {
+@advanced dropdown bgasidefix "Layout Fixes for Custom Backgrounds" {
 bgasidefix2 "Disable" <<<EOT  EOT;
 bgasidefix1 "Enable" <<<EOT 
     /*fix layering issues caused by pseudo element bgs,
