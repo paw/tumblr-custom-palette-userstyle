@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.4.1
+@version        0.4.2
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -339,14 +339,28 @@ inlinesuggest2 "Hide" <<<EOT
         2. headers for the recommendations + 'youre caught up, check these out' header
         3. 'youre caught up, check these out' content
         4. tag recommedations on /tagged/ pages
+        5. 'look at this post you made!' / 'check out this post'
     *\/
     body#tumblr .So6RQ > .ge_yK > .H14Pr.kDCXR,
     body#tumblr .So6RQ > .ge_yK > .HphhS,
     body#tumblr .So6RQ > .ge_yK > .Oii0L.kDCXR,
-    body#tumblr .So6RQ > .ge_yK > .sKf2H > .luqhx > ._3fYLM {
+    body#tumblr .So6RQ > .ge_yK > .sKf2H > .luqhx > ._3fYLM,
+    body#tumblr .j8ha0 > div[style] + div > .So6RQ:not([data-id]):first-child, /*#5 header *\/
+    body#tumblr .j8ha0 > div[style] + div > .So6RQ:not([data-id]):first-child + .So6RQ[data-id] /*#5 suggested post*\/ {
         display: none !important;
     } EOT;
 inlinesuggest1 "Show" <<<EOT  EOT;
+}
+@advanced dropdown modalsuggest "Modal Recommendations" {
+modalsuggest1 "Show" <<<EOT  EOT;
+modalsuggest2 "Hide" <<<EOT 
+    /*hide modal recommendations *\/
+    body#tumblr #glass-container .LaNhI {
+        display: none !important;
+    }
+    body#tumblr #glass-container .GHloH:not(.N8SnF) {
+        margin-top: 0;
+    } EOT;
 }
 
 @advanced dropdown compactblockedpost "Compact Filtered Posts" {
@@ -583,6 +597,8 @@ compactblockedpost2 "Enable" <<<EOT
     
     /*[[inlinesuggest]]*/
     
+    /*[[modalsuggest]]*/
+    
     /*[[radar]]*/
 
     /*[[postplus]]*/
@@ -597,12 +613,19 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr button.SaLOl span.ZUy1d, body#tumblr .SaLOl[tabindex="-1"] {
         background-color: rgba(var(--modal), 0.95) !important;
     }
+    /*modal suggestions slight fix*/
+    body#tumblr #glass-container .GHloH:not(.N8SnF) .LaNhI > .hyiL2 {
+        margin-bottom: 10px;
+    }
+    body#tumblr #glass-container .GHloH:not(.N8SnF) .LaNhI > .hyiL2 .USr9U > div {
+        margin-bottom: 20px;
+    }
 
     /*popover & on-dashboard blog fixes */
     /*popover usernames + header container*/
     body#tumblr .XP0zm .rTiqc .mUv9w .qwIYc,
     body#tumblr header.rTiqc,
-    body#tumblr .AzqQv .XP0zm .rTiqc .mUv9w .qwIYc .Q7KVB
+    body#tumblr .AzqQv .XP0zm .rTiqc .mUv9w .qwIYc .Q7KVB,
     body#tumblr .AzqQv .XP0zm .rTiqc .mUv9w .qwIYc .u_VQH {
         font-size: 16px;
     }
