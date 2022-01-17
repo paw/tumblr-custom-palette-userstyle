@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.4.3
+@version        0.4.4
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -64,36 +64,6 @@ bgrepeat4 "Don't Repeat" <<<EOT no-repeat EOT;
 bgsize1 "Cover" <<<EOT cover EOT;
 bgsize2 "Auto" <<<EOT auto EOT;
 }
-
-@advanced color navy "Background Color" #36465d
-@advanced color white "Posts Color" #ffffff
-@advanced color black "Font Color" #444444
-@advanced color accent "Primary Accent & Links Color" #529ecc
-@advanced color linkhover "Link Hover Color" #14518e
-@advanced color secondary "Settings Menu Hover BG Color" #f0f8ff
-@advanced color whiteondark "Secondary Accent" #b9b9b9
-@advanced color tertiary "Top Bar BG Color" #14263e
-@advanced color quaternary "Top Bar Icon Color" #ffffff
-@advanced color follow "Notifications From Followed Blogs BG Color" #e7f7e9
-@advanced color modal "Modal BG" #050e1e
-
-@advanced color red "Red" #FF492F
-@advanced color orange "Orange" #FF8A00
-@advanced color yellow "Yellow" #E8D738
-@advanced color green "Green" #00CF35
-@advanced color blue "Blue" #00B8FF
-@advanced color purple "Purple" #7C5CFF
-@advanced color pink "Pink" #FF62CE
-@advanced color blacktext "Black" #000000
-
-@advanced dropdown editorsize "Post Editor Controls Scaling" {
-editorsize1 "1x" <<<EOT 1 EOT;
-editorsize2 "1.1x" <<<EOT 1.1 EOT;
-editorsize3 "1.2x" <<<EOT 1.2 EOT;
-editorsize4 "1.3x" <<<EOT 1.3 EOT;
-editorsize5 "1.4x" <<<EOT 1.4 EOT;
-}
-
 @advanced dropdown bgasidefix "Layout Fixes for Custom Backgrounds" {
 bgasidefix2 "Disable" <<<EOT  EOT;
 bgasidefix1 "Enable" <<<EOT 
@@ -279,6 +249,35 @@ bgasidefix1 "Enable" <<<EOT
         color: rgba(var(--white-on-dark),1);
     }
     EOT;
+}
+
+@advanced color navy "Background Color" #36465d
+@advanced color white "Posts Color" #ffffff
+@advanced color black "Font Color" #444444
+@advanced color accent "Primary Accent & Links Color" #529ecc
+@advanced color linkhover "Link Hover Color" #14518e
+@advanced color secondary "Settings Menu Hover BG Color" #f0f8ff
+@advanced color whiteondark "Secondary Accent" #b9b9b9
+@advanced color tertiary "Top Bar BG Color" #14263e
+@advanced color quaternary "Top Bar Icon Color" #ffffff
+@advanced color follow "Notifications From Followed Blogs BG Color" #e7f7e9
+@advanced color modal "Modal BG" #050e1e
+
+@advanced color red "Red" #FF492F
+@advanced color orange "Orange" #FF8A00
+@advanced color yellow "Yellow" #E8D738
+@advanced color green "Green" #00CF35
+@advanced color blue "Blue" #00B8FF
+@advanced color purple "Purple" #7C5CFF
+@advanced color pink "Pink" #FF62CE
+@advanced color blacktext "Black" #000000
+
+@advanced dropdown editorsize "Post Editor Controls Scaling" {
+editorsize1 "1x" <<<EOT 1 EOT;
+editorsize2 "1.1x" <<<EOT 1.1 EOT;
+editorsize3 "1.2x" <<<EOT 1.2 EOT;
+editorsize4 "1.3x" <<<EOT 1.3 EOT;
+editorsize5 "1.4x" <<<EOT 1.4 EOT;
 }
 
 @advanced dropdown jumpbtn '"Now, where were we?" Button '{
