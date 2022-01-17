@@ -2,14 +2,14 @@
 
 Just a simple userstyle for setting custom colors, font size, and font family for the tumblr dashboard. This theme will update automatically when I make changes to the code here on github. The default theme is inspired by the old dashboard and uses its old blue hue. [Skip directly to installation instructions.](#how-to-install)
 
-[![Screenshot of default theme](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/defaultpreview.png)\
+[![Screenshot of default theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/defaultpreview.png)\
 Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/defaultpreview.png)
 
-[![Screenshot of a custom theme](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/custompalettepreview.png)\
+[![Screenshot of a custom theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/custompalettepreview.png)\
 Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/custompalettepreview.png)
 
-[![Screenshot of the tagged page with a custom theme](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/taggedpage.png)\
-Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/taggedpage.png)\
+[![Screenshot of the tagged dragons page with a custom theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/taggedpage.png)\
+Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/taggedpage.png)
 
 ## How to Install:
 1. Get the userstyle manager [Stylus](https://github.com/openstyles/stylus#readme), if you don't already have it.
