@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.4.2
+@version        0.4.3
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -346,7 +346,9 @@ inlinesuggest2 "Hide" <<<EOT
     body#tumblr .So6RQ > .ge_yK > .Oii0L.kDCXR,
     body#tumblr .So6RQ > .ge_yK > .sKf2H > .luqhx > ._3fYLM,
     body#tumblr .j8ha0 > div[style] + div > .So6RQ:not([data-id]):first-child, /*#5 header *\/
-    body#tumblr .j8ha0 > div[style] + div > .So6RQ:not([data-id]):first-child + .So6RQ[data-id] /*#5 suggested post*\/ {
+    body#tumblr .j8ha0 > div[style] + div > .So6RQ:not([data-id]):first-child + .So6RQ[data-id], /*#5 suggested post*\/
+    body#tumblr .j8ha0 > div[style] + div > .So6RQ:not([data-id]):first-child + .So6RQ:not([data-id]),
+    body#tumblr .j8ha0 > div[style] + div > .So6RQ:not([data-id]):first-child + .So6RQ:not([data-id]) + .So6RQ[data-id] {
         display: none !important;
     } EOT;
 inlinesuggest1 "Show" <<<EOT  EOT;
