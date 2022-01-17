@@ -14,7 +14,7 @@ Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-p
 ### Notes:
 * This style will only change the look of the beta post editor, the new dashboard, and any other pages that have been updated to use the new layout.
 * Most of the options are self-explanatory, but there are a few that might need clarification:
-  * **Fix for Custom BG Images** = Adds solid backgrounds to many sidebar/header elements and pages (ex. the activity page) that don't have them by default.
+  * **Layout Fixes for Custom Backgrounds** = Adds solid backgrounds to many sidebar/header elements and pages (ex. the activity page) that don't have them by default.
   * **Modal Color** = The color of the semi-transparent overlay that appears when you open up the post editor, go to delete a post, block someone, etc.
   * **Menu Hover BG Color** = the bg color that appears when hovering over options in the settings dropdown, as well as when hovering over blogs on the following/followers pages and when hovering over notifications.
   * **Follower Notifications** = the custom background color for notifications from people you follow.
