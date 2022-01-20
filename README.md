@@ -1,6 +1,6 @@
 # Tumblr – Custom Dashboard Palette
 
-Just a simple userstyle for setting custom colors, font size, and font family for the tumblr dashboard. This theme will update automatically when I make changes to the code here on github. The default theme is inspired by the old dashboard and uses its old blue hue. [Skip directly to installation instructions.](#how-to-install)
+Just a simple userstyle for setting custom colors, font size, and font family for the tumblr dashboard. This theme will update automatically when I make changes to the code here on github if you have auto update enabled in Stylus. The default theme is inspired by the old dashboard and uses its old blue hue. [Skip directly to installation instructions.](#how-to-install)
 
 [![Screenshot of default theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/defaultpreview.png)\
 Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/defaultpreview.png)
@@ -24,3 +24,10 @@ Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-p
   * **Modal Color** = The color of the semi-transparent overlay that appears when you open up the post editor, go to delete a post, block someone, etc.
   * **Menu Hover BG Color** = the bg color that appears when hovering over options in the settings dropdown, as well as when hovering over blogs on the following/followers pages and when hovering over notifications.
   * **Follower Notifications** = the custom background color for notifications from people you follow.
+  * **Modal Reccomendations** = when clicked to view full size, some images now rarely suggest similar posts directly inside the modal itself underneath the fullsize picture. this toggle gives you the option to hide or show these suggested posts.
+  * **Inline Recommendations** = this will hide the following inline recommendations:
+      * 'check out this post'/'look at this post you made' at the top of the dash
+      * inline blog suggestions ('check out these blogs')
+      * inline tag suggestions on /tagged/ pages
+      * the 'You're caught up. Check these out' carousel
+  * This theme will NOT hide 'In Your Orbit', 'Based On Your Likes', or 'Because You Follow #Tag' posts, but these can all be disabled via toggles found [on this page of the tumblr account settings.](https://www.tumblr.com/settings/dashboard)
