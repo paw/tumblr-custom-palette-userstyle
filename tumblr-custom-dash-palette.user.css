@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.4.4
+@version        0.4.5
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -286,6 +286,37 @@ jumpbtn2 "Hide" <<<EOT
     main > div > button[aria-label="Restore timeline to what it was when you last viewed it"] {
         display: none !important;
     }
+EOT;
+}
+
+@advanced dropdown oldfooter 'Old post footer styling'{
+oldfooter1 "Disable" <<<EOT  EOT;
+oldfooter2 "Enable" <<<EOT
+body#tumblr footer.tOKgq.G6mnk {
+    display: flex;
+    padding: 0 var(--post-padding) var(--post-padding);
+    justify-content: space-between;
+    align-items: center;
+}
+body#tumblr footer.tOKgq.G6mnk > * {
+    padding: 5px 0;
+}
+body#tumblr footer.tOKgq.G6mnk .gstmW {
+    display: inline-flex;
+}
+body#tumblr .G6mnk .MCavR {
+    justify-content: flex-end;
+    margin: 0 0 0 auto;
+    border-top: none;
+    display: inline-flex;
+    padding: 5px 0;
+}
+body#tumblr .G6mnk .MCavR .sfGru, .MCavR .xkit-quick-tags-button {
+    margin: 0 12px;
+}
+body#tumblr .G6mnk .MCavR .sfGru:last-child {
+    margin-right: 0;
+}
 EOT;
 }
 
@@ -609,6 +640,8 @@ compactblockedpost2 "Enable" <<<EOT
     /*[[compactblockedpost]]*/
     
     /*[[jumpbtn]]*/
+    
+    /*[[oldfooter]]*/
     
     /*modal bg color*/
     body#tumblr button.SaLOl span.ZUy1d, body#tumblr .SaLOl[tabindex="-1"] {
