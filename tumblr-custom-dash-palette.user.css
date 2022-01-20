@@ -229,6 +229,7 @@ bgasidefix1 "Enable" <<<EOT
         background: RGB(var(--navy));
         border-radius: 6px;
         overflow: hidden;
+        display: none !important;
     }
     /*docked post fix overlay bg*\/
     body#tumblr .GDWdm {
@@ -290,20 +291,23 @@ EOT;
 }
 
 @advanced dropdown oldfooter 'Old post footer styling'{
-oldfooter1 "Disable" <<<EOT  EOT;
-oldfooter2 "Enable" <<<EOT
+oldfooter1 "Enabled" <<<EOT 
+/*footer*\/
 body#tumblr footer.tOKgq.G6mnk {
     display: flex;
     padding: 0 var(--post-padding) var(--post-padding);
     justify-content: space-between;
     align-items: center;
 }
+/*footer - all children have equal padding*\/
 body#tumblr footer.tOKgq.G6mnk > * {
     padding: 5px 0;
 }
+/*footer - notes container*\/
 body#tumblr footer.tOKgq.G6mnk .gstmW {
     display: inline-flex;
 }
+/*footer - post controls*\/
 body#tumblr .G6mnk .MCavR {
     justify-content: flex-end;
     margin: 0 0 0 auto;
@@ -311,13 +315,16 @@ body#tumblr .G6mnk .MCavR {
     display: inline-flex;
     padding: 5px 0;
 }
+/*footer - even post controls buttons margins + fix xkit quick tags margin*\/
 body#tumblr .G6mnk .MCavR .sfGru, .MCavR .xkit-quick-tags-button {
     margin: 0 12px;
 }
+/*footer - remove unnecessary right padding on last post control button*\/
 body#tumblr .G6mnk .MCavR .sfGru:last-child {
     margin-right: 0;
 }
 EOT;
+oldfooter2 "Disabled" <<<EOT  EOT;
 }
 
 @advanced dropdown followlabel "Follow Label" {
