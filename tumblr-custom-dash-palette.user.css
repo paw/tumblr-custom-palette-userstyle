@@ -395,6 +395,11 @@ modalsuggest2 "Hide" <<<EOT
     }
     body#tumblr #glass-container .GHloH:not(.N8SnF) {
         margin-top: 0;
+    }
+    /*fix modal padding when recommendations are hidden*\/
+    body#tumblr #glass-container .yPZfR:not(.xGwgY) {
+        height: auto;
+        margin-top: auto;
     } EOT;
 }
 
