@@ -224,13 +224,6 @@ bgasidefix1 "Enable" <<<EOT
         box-sizing: border-box;
         text-align: center;
     }
-    /*answertime container link fix*\/
-    body#tumblr .j8ha0 > div > .So6RQ:not([data-id]):first-child .ge_yK {
-        background: RGB(var(--navy));
-        border-radius: 6px;
-        overflow: hidden;
-        display: none !important;
-    }
     /*docked post fix overlay bg*\/
     body#tumblr .GDWdm {
         background: rgb(var(--navy)) var(--custom-bg);
@@ -376,13 +369,13 @@ inlinesuggest2 "Hide" <<<EOT
         2. headers for the recommendations + 'youre caught up, check these out' header
         3. 'youre caught up, check these out' content
         4. tag recommedations on /tagged/ pages
+	5. bonecoin ad / answertime link
     *\/
     body#tumblr .So6RQ > .ge_yK > .H14Pr.kDCXR,
     body#tumblr .So6RQ > .ge_yK > .HphhS,
     body#tumblr .So6RQ > .ge_yK > .Oii0L.kDCXR,
     body#tumblr .So6RQ > .ge_yK > .sKf2H > .luqhx > ._3fYLM,
-    body#tumblr .j8ha0 > div[style] + div > .So6RQ:not([data-id]):first-child, /*#5 header *\/
-    body#tumblr .j8ha0 > div[style] + div > .So6RQ:not([data-id]):first-child + .So6RQ[data-id] {
+    body#tumblr .j8ha0 > div > .So6RQ:not([data-id]):first-child .ge_yK {
         display: none !important;
     } EOT;
 inlinesuggest1 "Show" <<<EOT  EOT;
