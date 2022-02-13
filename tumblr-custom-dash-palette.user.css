@@ -224,6 +224,12 @@ bgasidefix1 "Enable" <<<EOT
         box-sizing: border-box;
         text-align: center;
     }
+    /*answertime container link fix*\/
+    body#tumblr .j8ha0 > div > .So6RQ:not([data-id]):first-child .ge_yK {
+        background: RGB(var(--navy));
+        border-radius: 6px;
+        overflow: hidden;
+    }
     /*docked post fix overlay bg*\/
     body#tumblr .GDWdm {
         background: rgb(var(--navy)) var(--custom-bg);
