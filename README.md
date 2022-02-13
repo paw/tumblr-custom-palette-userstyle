@@ -26,6 +26,7 @@ Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-p
   * **Follower Notifications** = the custom background color for notifications from people you follow.
   * **Modal Reccomendations** = when clicked to view full size, some images now rarely suggest similar posts directly inside the modal itself underneath the fullsize picture. this toggle gives you the option to hide or show these suggested posts.
   * **Inline Recommendations** = this will hide the following inline recommendations:
+      * bonecoin ad / answertime link
       * inline blog suggestions ('check out these blogs')
       * inline tag suggestions on /tagged/ pages
       * the 'You're caught up. Check these out' carousel
