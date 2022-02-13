@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.4.5
+@version        0.4.6
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -229,7 +229,6 @@ bgasidefix1 "Enable" <<<EOT
         background: RGB(var(--navy));
         border-radius: 6px;
         overflow: hidden;
-        display: none !important;
     }
     /*docked post fix overlay bg*\/
     body#tumblr .GDWdm {
@@ -376,16 +375,13 @@ inlinesuggest2 "Hide" <<<EOT
         2. headers for the recommendations + 'youre caught up, check these out' header
         3. 'youre caught up, check these out' content
         4. tag recommedations on /tagged/ pages
-        5. 'look at this post you made!' / 'check out this post'
+	5. bonecoin ad / answertime link
     *\/
     body#tumblr .So6RQ > .ge_yK > .H14Pr.kDCXR,
     body#tumblr .So6RQ > .ge_yK > .HphhS,
     body#tumblr .So6RQ > .ge_yK > .Oii0L.kDCXR,
     body#tumblr .So6RQ > .ge_yK > .sKf2H > .luqhx > ._3fYLM,
-    body#tumblr .j8ha0 > div[style] + div > .So6RQ:not([data-id]):first-child, /*#5 header *\/
-    body#tumblr .j8ha0 > div[style] + div > .So6RQ:not([data-id]):first-child + .So6RQ[data-id], /*#5 suggested post*\/
-    body#tumblr .j8ha0 > div[style] + div > .So6RQ:not([data-id]):first-child + .So6RQ:not([data-id]),
-    body#tumblr .j8ha0 > div[style] + div > .So6RQ:not([data-id]):first-child + .So6RQ:not([data-id]) + .So6RQ[data-id] {
+    body#tumblr .j8ha0 > div > .So6RQ:not([data-id]):first-child .ge_yK {
         display: none !important;
     } EOT;
 inlinesuggest1 "Show" <<<EOT  EOT;
@@ -399,6 +395,15 @@ modalsuggest2 "Hide" <<<EOT
     }
     body#tumblr #glass-container .GHloH:not(.N8SnF) {
         margin-top: 0;
+    }
+    /*fix modal padding when recommendations are hidden*\/
+    body#tumblr #glass-container .yPZfR:not(.xGwgY) {
+        height: auto;
+        margin-top: auto;
+    }
+    /*hide padding under modal reccomendations*\/
+    body#tumblr #glass-container .GHloH:not(.N8SnF) > .j8GND {
+        display: none;
     } EOT;
 }
 
