@@ -400,6 +400,10 @@ modalsuggest2 "Hide" <<<EOT
     body#tumblr #glass-container .yPZfR:not(.xGwgY) {
         height: auto;
         margin-top: auto;
+    }
+    /*hide padding under modal reccomendations*\/
+    body#tumblr #glass-container .GHloH:not(.N8SnF) > .j8GND {
+        display: none;
     } EOT;
 }
 
