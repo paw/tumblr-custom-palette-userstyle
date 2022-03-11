@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.4.6
+@version        0.4.7
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -248,6 +248,14 @@ bgasidefix1 "Enable" <<<EOT
         background: rgba(var(--navy),0.92);
         color: rgba(var(--white-on-dark),1);
     }
+    /*fix new blog peepr dropdown menu z-index*\/
+    #glass-container .u2YPL.wFAw8 {
+        z-index: 4;
+    }
+    /*fix new blog peepr search z-index*\/
+    #glass-container div[data-testid="searchWrapper"] {
+    z-index: 5;
+    }
     EOT;
 }
 
@@ -294,9 +302,9 @@ oldfooter1 "Enabled" <<<EOT
 /*footer*\/
 body#tumblr footer.tOKgq.G6mnk {
     display: flex;
-    padding: 0 var(--post-padding) var(--post-padding);
     justify-content: space-between;
     align-items: center;
+    padding: 0px var(--post-padding) var(--post-padding);
 }
 /*footer - all children have equal padding*\/
 body#tumblr footer.tOKgq.G6mnk > * {
@@ -344,6 +352,106 @@ radar2 "Hide" <<<EOT
     } EOT;
 }
 
+@advanced dropdown peepr "Blog View Colors" {
+peepr1 "Override All Colors" <<<EOT 
+
+#glass-container .DCCfo.kXP4L, #glass-container .xm3hr.KwKKC.u10SL.raBdW {
+        --white: /*[[white-rgb]]*\/ !important;
+        --color-title: /*[[whiteondark]]*\/ !important;
+        --color-text: /*[[whiteondark]]*\/ !important;
+        --blog-text-color: /*[[black]]*\/ !important;
+        --white-on-dark: /*[[whiteondark-rgb]]*\/ !important;
+        --black: /*[[black-rgb]]*\/ !important; 
+        --blog-title-color: /*[[whiteondark-rgb]]*\/ !important;
+        
+        --color-modal-close-button-background: /*[[navy]]*\/ !important;
+        --color-modal-close-button: /*[[whiteondark]]*\/ !important;
+
+        
+        --custom-bg: url(/*[[bgimage]]*\/) !important;
+        --bg-position: /*[[bgpos]]*\/ !important;
+        --bg-repeat: /*[[bgrepeat]]*\/ !important;
+        --bg-size: /*[[bgsize]]*\/ !important;
+
+        --font-family: /*[[font]]*\/ !important;
+        --custom-font: /*[[customfont]]*\/ !important;
+        --base-font-size: /*[[fontsize]]*\/ !important;
+        --menu-font-size: /*[[menufontsize]]*\/ !important;
+
+        --blacktext: /*[[blacktext-rgb]]*\/ !important; 
+        --orange: /*[[orange-rgb]]*\/ !important;
+        --yellow: /*[[yellow-rgb]]*\/ !important;
+        --green: /*[[green-rgb]]*\/ !important;
+        --blue: /*[[blue-rgb]]*\/ !important;
+        --purple: /*[[purple-rgb]]*\/ !important;
+        --pink: /*[[pink-rgb]]*\/ !important;
+
+        --navy: /*[[navy-rgb]]*\/ !important;
+        --color-bluespace-background: /*[[navy]]*\/ !important;
+        --color-bluespace-card-background: /*[[navy]]*\/ !important;
+        --blog-background-color: /*[[navy]]*\/ !important;
+        --accent: /*[[accent-rgb]]*\/ !important; 
+        --secondary-accent: /*[[secondary-rgb]]*\/ !important; 
+        --blog-link-color: /*[[whiteondark]]*\/ !important;
+        --color-primary-link: /*[[whiteondark]]*\/ !important;
+        --blog-link-color-15: rgba(/*[[whiteondark-rgb]]*\/, 0.15) !important;
+        --blog-search-background-color: rgba(/*[[whiteondark-rgb]]*\/, 0.15) !important;
+
+        --link-hover: /*[[linkhover-rgb]]*\/ !important; 
+        --tertiary-accent: /*[[tertiary-rgb]]*\/ !important; 
+        --quaternary-accent: /*[[quaternary-rgb]]*\/ !important; 
+
+        background: rgb(var(--navy)) var(--custom-bg);
+        background-attachment: fixed;
+        background-position: var(--bg-position);
+        background-size: var(--bg-size);
+        background-repeat: var(--bg-repeat);
+    }
+    
+    /*recolor search*\/
+    #glass-container div[data-testid="searchWrapper"] input[aria-label="Search"] {
+        color: var(--blog-text-color) !important;
+    }
+    #glass-container div[data-testid="searchWrapper"] button[aria-label="Filter"] .EvhBA > svg,
+    #glass-container div[data-testid="searchWrapper"] button[aria-label="Collapse search"] .EvhBA > svg {
+        fill: var(--blog-text-color) !important;
+    }
+
+EOT;
+peepr2 "Override Posts Only" <<<EOT 
+    #glass-container .DCCfo.kXP4L, #glass-container .xm3hr.KwKKC.u10SL.raBdW {
+        --white: /*[[white-rgb]]*\/ !important;
+        --white-on-dark: /*[[whiteondark-rgb]]*\/ !important;
+        --black: /*[[black-rgb]]*\/ !important; 
+        
+        --color-modal-close-button-background: /*[[navy]]*\/ !important;
+        --color-modal-close-button: /*[[whiteondark]]*\/ !important;
+
+        --font-family: /*[[font]]*\/ !important;
+        --custom-font: /*[[customfont]]*\/ !important;
+        --base-font-size: /*[[fontsize]]*\/ !important;
+        --menu-font-size: /*[[menufontsize]]*\/ !important;
+
+        --blacktext: /*[[blacktext-rgb]]*\/ !important; 
+        --orange: /*[[orange-rgb]]*\/ !important;
+        --yellow: /*[[yellow-rgb]]*\/ !important;
+        --green: /*[[green-rgb]]*\/ !important;
+        --blue: /*[[blue-rgb]]*\/ !important;
+        --purple: /*[[purple-rgb]]*\/ !important;
+        --pink: /*[[pink-rgb]]*\/ !important;
+
+        --navy: /*[[navy-rgb]]*\/ !important;
+        --accent: /*[[accent-rgb]]*\/ !important; 
+        --secondary-accent: /*[[secondary-rgb]]*\/ !important; 
+        --color-primary-link: /*[[whiteondark]]*\/ !important;
+
+        --link-hover: /*[[linkhover-rgb]]*\/ !important; 
+        --tertiary-accent: /*[[tertiary-rgb]]*\/ !important; 
+        --quaternary-accent: /*[[quaternary-rgb]]*\/ !important;
+    } EOT;
+peepr3 "Default" <<<EOT  EOT;
+}
+
 @advanced dropdown postplus "Post+ Links In Blog Information" {
 postplus1 "Hide" <<<EOT 
     /*hide post plus buttons*\/
@@ -375,7 +483,7 @@ inlinesuggest2 "Hide" <<<EOT
         2. headers for the recommendations + 'youre caught up, check these out' header
         3. 'youre caught up, check these out' content
         4. tag recommedations on /tagged/ pages
-	5. bonecoin ad / answertime link
+        5. bonecoin ad / answertime link
     *\/
     body#tumblr .So6RQ > .ge_yK > .H14Pr.kDCXR,
     body#tumblr .So6RQ > .ge_yK > .HphhS,
@@ -629,6 +737,8 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr .BjErQ .jk63e {
         background-color: rgba(var(--accent),1)
     }
+    
+    /*[[peepr]]*/
     
     /*[[followlabel]]*/
     
@@ -917,6 +1027,10 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr #glass-container .ylQIH.DiyS1 button .EvhBA {
         line-height: 100%;
         font-size: 28px;
+    }
+    /*fix new blog peepr suggested blogs height*/
+    #glass-container ul[aria-label="Blogs like this one"] {
+        height: auto !important;
     }
     /*fix read more text*/
     .HNcZU .RNGu2 {
@@ -1221,6 +1335,12 @@ compactblockedpost2 "Enable" <<<EOT
         scrollbar-width: thin;
     }
 	
+    /*remove pointer events for tooltips on post buttons*/
+    footer.tOKgq.G6mnk .BPf9u > .ybmTG > div > .EZHUS,
+    footer.tOKgq.G6mnk .BPf9u > .ybmTG > div > .G75qL{
+        pointer-events: none;
+    }
+    
 	/*~~~*/
 	
     /*xkit rewritten fixes*/
