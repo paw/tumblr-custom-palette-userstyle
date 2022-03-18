@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.4.7
+@version        0.4.8
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -81,7 +81,7 @@ bgasidefix1 "Enable" <<<EOT
     body#tumblr aside ul.PwJi6 {
         width: 100%;
         padding: 0em;
-        box-sizing:border-box;
+        box-sizing: border-box;
     }
     /*fix hover background for recommended blogs to include the dismiss icon in the bg color *\/
     body#tumblr aside .PwJi6 .Ut4iZ:not(.veU9u):focus-within,
@@ -100,13 +100,15 @@ bgasidefix1 "Enable" <<<EOT
     explore page (.sM_HY),
     'follow some tags' msg (.ze1ym),
     followed tags div (.D3Fsg),
-    sidebar lists*\/
+    sidebar lists,
+    new search page divs (.MV1bs) *\/
     body#tumblr aside ._3RuXz,
     body#tumblr aside .ZN143,
     body#tumblr aside .sM_HY,
     body#tumblr aside .ze1ym,
     body#tumblr aside .D3Fsg,
-    body#tumblr aside ul {
+    body#tumblr aside ul,
+    body#tumblr aside .MV1bs {
         position: relative;
         z-index: 2;
     }
@@ -115,7 +117,8 @@ bgasidefix1 "Enable" <<<EOT
     body#tumblr aside .sM_HY::before,
     body#tumblr aside .ze1ym::before,
     body#tumblr aside .D3Fsg::before,
-    body#tumblr aside ul::before {
+    body#tumblr aside ul::before,
+    body#tumblr aside .MV1bs::before {
         content: '';
         top: 0; left: 0;
         width: 100%; height: 100%;
@@ -173,13 +176,15 @@ bgasidefix1 "Enable" <<<EOT
         border-radius: 0 0 3px 3px;
         margin: 0;
     }
-    /*search page header add bg*\/
-    body#tumblr .D5eCV > .hlDot /*header*\/ + .qzSws /*grid search page header*\/ {
+    /*old search page header add bg*\/
+    body#tumblr .D5eCV > .hlDot /*header*\/ + .qzSws /*grid search page header*\/
+    {
         z-index: 1;
         position: relative;
         margin-bottom: 1em;
     }
-    body#tumblr .D5eCV > .hlDot /*header*\/ + .qzSws::after /*grid search page header*\/ {
+    body#tumblr .D5eCV > .hlDot /*header*\/ + .qzSws::after /*grid search page header*\/
+    {
         content: '';
         height: 100%;
         position: absolute;
@@ -189,7 +194,31 @@ bgasidefix1 "Enable" <<<EOT
         z-index: -1;
         border-radius: 0 0 3px 3px;
     }
-    /*search page options add bg*\/
+    /*new search header add bg*\/
+    body#tumblr .gPQR5.QVP1P > .lSyOz > .eCMVP {
+        background: rgb(var(--navy));
+        margin-bottom: 0;
+        padding: 0.5em 0.5em 20px 0.5em;
+        border-radius: 5px 5px 0 0;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 5;
+    }
+    /*new search tags n stuff add bg*\/
+    body#tumblr .gPQR5.QVP1P > .lSyOz > .TVEoH {
+        margin-bottom: 10px;
+        padding: 5px 10px 10px;
+        background: rgb(var(--navy));
+        border-radius: 0 0 5px 5px;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 5;
+    }
+    /*new search remove semi transparent bg*\/
+    body#tumblr aside .MV1bs {
+        background: transparent;
+    }
+    /*old search page options add bg*\/
     body#tumblr .D5eCV .rXEMH > .AnRoZ {
         background: rgb(var(--navy));
         padding: 0.3em;
@@ -352,17 +381,19 @@ radar2 "Hide" <<<EOT
     } EOT;
 }
 
-@advanced dropdown peepr "Blog View Colors" {
+@advanced dropdown peepr "Blog View On Dashboard Colors" {
 peepr1 "Override All Colors" <<<EOT 
 
-#glass-container .DCCfo.kXP4L, #glass-container .xm3hr.KwKKC.u10SL.raBdW {
+body#tumblr #glass-container .DCCfo.kXP4L,
+body#tumblr #glass-container .xm3hr.KwKKC.u10SL.raBdW,
+body#tumblr .D5eCV > .RkANE > .DCCfo.Hmu5M /*blog view in separate tab*\/ {
         --white: /*[[white-rgb]]*\/ !important;
         --color-title: /*[[whiteondark]]*\/ !important;
         --color-text: /*[[whiteondark]]*\/ !important;
         --blog-text-color: /*[[black]]*\/ !important;
         --white-on-dark: /*[[whiteondark-rgb]]*\/ !important;
         --black: /*[[black-rgb]]*\/ !important; 
-        --blog-title-color: /*[[whiteondark-rgb]]*\/ !important;
+        --blog-title-color: /*[[black]]*\/ !important;
         
         --color-modal-close-button-background: /*[[navy]]*\/ !important;
         --color-modal-close-button: /*[[whiteondark]]*\/ !important;
@@ -416,10 +447,21 @@ peepr1 "Override All Colors" <<<EOT
     #glass-container div[data-testid="searchWrapper"] button[aria-label="Collapse search"] .EvhBA > svg {
         fill: var(--blog-text-color) !important;
     }
+    /*blog view in separate tab replace semi-transparent white with semi-transparent bg color*\/
+    body#tumblr .D5eCV > .RkANE > .DCCfo > .pKQCB {
+        background: rgba(var(--navy), 0.2);
+        border-radius: 5px;
+    }
+    /*blog view in modal replace semi-transparent white with semi-transparent bg color*\/
+    #glass-container .DCCfo.kXP4L > .pKQCB {
+        background: rgba(var(--navy),0.2);
+    }
 
 EOT;
 peepr2 "Override Posts Only" <<<EOT 
-    #glass-container .DCCfo.kXP4L, #glass-container .xm3hr.KwKKC.u10SL.raBdW {
+    body#tumblr #glass-container .DCCfo.kXP4L,
+    body#tumblr #glass-container .xm3hr.KwKKC.u10SL.raBdW,
+    body#tumblr .D5eCV > .RkANE > .DCCfo.Hmu5M /*blog view in separate tab*\/ {
         --white: /*[[white-rgb]]*\/ !important;
         --white-on-dark: /*[[whiteondark-rgb]]*\/ !important;
         --black: /*[[black-rgb]]*\/ !important; 
@@ -443,7 +485,6 @@ peepr2 "Override Posts Only" <<<EOT
         --navy: /*[[navy-rgb]]*\/ !important;
         --accent: /*[[accent-rgb]]*\/ !important; 
         --secondary-accent: /*[[secondary-rgb]]*\/ !important; 
-        --color-primary-link: /*[[whiteondark]]*\/ !important;
 
         --link-hover: /*[[linkhover-rgb]]*\/ !important; 
         --tertiary-accent: /*[[tertiary-rgb]]*\/ !important; 
@@ -460,6 +501,15 @@ postplus1 "Hide" <<<EOT
         display: none;
     } EOT;
 postplus2 "Show" <<<EOT  EOT;
+}
+
+@advanced dropdown adfree "AdFree Button" {
+adfree1 "Hide" <<<EOT 
+    /*hide adfree button*\/
+    body#tumblr .PsDsm .noQqZ.rCo6i li a[href*="/ad-free-browsing"] {
+        display: none;
+    } EOT;
+adfree2 "Show" <<<EOT  EOT;
 }
 
 @advanced dropdown sidebarblogs "Sidebar Blog Recommendations" {
@@ -707,9 +757,14 @@ compactblockedpost2 "Enable" <<<EOT
         font-family: var(--font-family);
     }
     
-    /*follow button styling, includes for recommended blogs in sidebar */
+    /*follow button styling
+    2. recommended blogs in sidebar (.f68ED)
+    3. follow tag button in new page sidebar (.MV1bs .hc4QI a)
+    4. follow blog button in new page sidebar (.MV1bs button) */
     body#tumblr article .f68ED,
-    body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED {
+    body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED,
+    body#tumblr aside .MV1bs .u8J1W .hc4QI a,
+    body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED {
         font-size: 0.8em;
         font-weight: bold;
         background-color: rgba(var(--black),0.4);
@@ -718,10 +773,18 @@ compactblockedpost2 "Enable" <<<EOT
         color: rgb(var(--white)) !important;
         vertical-align: middle;
     }
+    /*text alignment fix for new search page follow blog button */
+    body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED {
+        text-align: center;
+    }
     body#tumblr article .f68ED:hover,
     body#tumblr article .f68ED:focus,
     body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED:hover,
-    body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED:focus {
+    body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED:focus,
+    body#tumblr aside .u8J1W .hc4QI a:hover,
+    body#tumblr aside .u8J1W .hc4QI a:focus,
+    body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED:hover,
+    body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED:focus {
         text-decoration: none !important;
         color: rgb(var(--white)) !important;
         background-color: rgb(var(--green));
@@ -756,6 +819,8 @@ compactblockedpost2 "Enable" <<<EOT
     /*[[radar]]*/
 
     /*[[postplus]]*/
+    
+    /*[[adfree]]*/
     
     /*[[bgasidefix]]*/
     
@@ -1104,7 +1169,9 @@ compactblockedpost2 "Enable" <<<EOT
     /*minor bugfixes*/
     
     /*make sure that you can see all suggested blogs when your font is larger than 16px*/
-    body#tumblr ul[aria-label="Check out these blogs"], body#tumblr aside .PwJi6 {
+    body#tumblr ul[aria-label="Check out these blogs"],
+    body#tumblr aside .PwJi6,
+    body#tumblr .RkANE .PwJi6 {
         height: auto !important;
     }
     /*username of poster in reblog header before reblog icon*/
@@ -1283,13 +1350,31 @@ compactblockedpost2 "Enable" <<<EOT
         padding-left: 0.7em;
     }
     
+    body#tumblr #glass-container .B15CE ul.PwJi6 {
+        width: 100%;
+        padding: 0em;
+        box-sizing: border-box;
+    }
+    body#tumblr #glass-container .B15CE ul.PwJi6 .Ut4iZ:not(.veU9u):focus-within,
+    body#tumblr #glass-container .B15CE ul.PwJi6 .Ut4iZ:not(.veU9u):hover {
+        background: none;
+    }
+    body#tumblr #glass-container .B15CE ul.PwJi6 li.kqme1:focus-within,
+    body#tumblr #glass-container .B15CE ul.PwJi6 li.kqme1:hover {
+        background: rgba(var(--white-on-dark),.07);
+    }
+    
     /*more obvious remove suggested blog styling*/
-    body#tumblr aside ul.PwJi6 button[aria-label="Dismiss Recommendation"] svg {
+    body#tumblr aside ul.PwJi6 button[aria-label="Dismiss Recommendation"] svg,
+    body#tumblr #glass-container .B15CE ul.PwJi6 button[aria-label="Dismiss Recommendation"] svg {
         fill: rgba(var(--white-on-dark), 0.5);
         transition: 0.3s fill;
         margin: auto 8px;
     }
-    body#tumblr aside ul.PwJi6 button[aria-label="Dismiss Recommendation"]:hover svg, body#tumblr aside ul.PwJi6 button[aria-label="Dismiss Recommendation"]:focus svg {
+    body#tumblr aside ul.PwJi6 button[aria-label="Dismiss Recommendation"]:hover svg,
+    body#tumblr aside ul.PwJi6 button[aria-label="Dismiss Recommendation"]:focus svg,
+    body#tumblr #glass-container .B15CE ul.PwJi6 button[aria-label="Dismiss Recommendation"]:hover svg,
+    body#tumblr #glass-container .B15CE ul.PwJi6 button[aria-label="Dismiss Recommendation"]:focus svg{
         fill: rgb(var(--red)) !important;
     }
     /*search your followers h1 width fix*/
@@ -1373,6 +1458,9 @@ compactblockedpost2 "Enable" <<<EOT
     /*change quick reblog successful draft icon color match orange draft button color in the menu*/
     .draft svg[fill="rgba(var(--black), 0.65)"] {
         fill: rgb(var(--orange));
+    }
+    .draft a[role="button"]::after {
+        color: rgb(var(--green));
     }
     /*change quick reblog successful queue icon color match pink draft button color in the menu*/
     .queue svg[fill="rgba(var(--black), 0.65)"] {
