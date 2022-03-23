@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.4.8
+@version        0.4.9
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -363,10 +363,10 @@ EOT;
 oldfooter2 "Disabled" <<<EOT  EOT;
 }
 
-@advanced dropdown followlabel "Follow Label" {
+@advanced dropdown followlabel "Follow/Unfollow Labels" {
 followlabel1 "Hide" <<<EOT 
     /*hide follow button, .TRX6J main line 42*\/
-    body#tumblr article button.TRX6J[aria-label="Follow"] {
+    body#tumblr article button.TRX6J[aria-label="Follow"], body#tumblr article button.TRX6J[aria-label="Unfollow"] {
         display: none
     } EOT;
 followlabel2 "Show" <<<EOT  EOT;
@@ -410,6 +410,7 @@ body#tumblr .D5eCV > .RkANE > .DCCfo.Hmu5M /*blog view in separate tab*\/ {
         --menu-font-size: /*[[menufontsize]]*\/ !important;
 
         --blacktext: /*[[blacktext-rgb]]*\/ !important; 
+        --red: /*[[red-rgb]]*\/ !important;
         --orange: /*[[orange-rgb]]*\/ !important;
         --yellow: /*[[yellow-rgb]]*\/ !important;
         --green: /*[[green-rgb]]*\/ !important;
@@ -424,6 +425,7 @@ body#tumblr .D5eCV > .RkANE > .DCCfo.Hmu5M /*blog view in separate tab*\/ {
         --accent: /*[[accent-rgb]]*\/ !important; 
         --secondary-accent: /*[[secondary-rgb]]*\/ !important; 
         --blog-link-color: /*[[whiteondark]]*\/ !important;
+        --blog-link-color-40: rgba(/*[[whiteondark-rgb]]*\/,.4) !important;
         --color-primary-link: /*[[whiteondark]]*\/ !important;
         --blog-link-color-15: rgba(/*[[whiteondark-rgb]]*\/, 0.15) !important;
         --blog-search-background-color: rgba(/*[[whiteondark-rgb]]*\/, 0.15) !important;
@@ -474,7 +476,8 @@ peepr2 "Override Posts Only" <<<EOT
         --base-font-size: /*[[fontsize]]*\/ !important;
         --menu-font-size: /*[[menufontsize]]*\/ !important;
 
-        --blacktext: /*[[blacktext-rgb]]*\/ !important; 
+        --blacktext: /*[[blacktext-rgb]]*\/ !important;
+        --red: /*[[red-rgb]]*\/ !important;
         --orange: /*[[orange-rgb]]*\/ !important;
         --yellow: /*[[yellow-rgb]]*\/ !important;
         --green: /*[[green-rgb]]*\/ !important;
@@ -1094,8 +1097,37 @@ compactblockedpost2 "Enable" <<<EOT
         font-size: 28px;
     }
     /*fix new blog peepr suggested blogs height*/
-    #glass-container ul[aria-label="Blogs like this one"] {
+    body#tumblr #glass-container ul[aria-label="Blogs like this one"] {
         height: auto !important;
+    }
+    /*peepr fix icon buttons to be 16px in size to prevent stretching
+      1. more options button - modal popover
+      2. message button - modal popover
+      3. more options button - separate page
+      4. message button - separate page
+    */
+    body#tumblr #glass-container .F8bg3 .TRX6J[aria-label="More options"] > .EvhBA.wWci6,
+    body#tumblr #glass-container .F8bg3 .TRX6J[aria-label="Message"] > .EvhBA,
+    body#tumblr .RkANE .F8bg3 .TRX6J[aria-label="More options"] > .EvhBA.wWci6,
+    body#tumblr .RkANE  .F8bg3 .TRX6J[aria-label="Message"] > .EvhBA{
+        font-size: 16px;
+    }
+    /*peepr standardize button margins*/
+    body#tumblr #glass-container .F8bg3 > .uk9FI > *,
+    body#tumblr .RkANE .F8bg3 > .uk9FI > *{
+        margin-bottom: 12px;
+    }
+    /*peepr buttons will align in center for larger font sizes instead of stretching
+      1. message button - modal popover
+      2. message button - separate page
+      3. more options button - modal popover
+      4. more options button - separate page
+    */
+    body#tumblr #glass-container .F8bg3 > .uk9FI .oIdtb,
+    body#tumblr .RkANE .F8bg3 > .uk9FI .oIdtb,
+    body#tumblr #glass-container .BPf9u[data-testid="controlled-popover-wrapper"],
+    body#tumblr .RkANE .BPf9u[data-testid="controlled-popover-wrapper"] {
+        align-self: center;
     }
     /*fix read more text*/
     .HNcZU .RNGu2 {
