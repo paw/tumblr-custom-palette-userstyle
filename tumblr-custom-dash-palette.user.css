@@ -1358,20 +1358,35 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr button[aria-label="Conversation"] {
         font-size: 16px;
     }
-	/*1st is window holding messages, 2nd is messages parent */
+    /*1st is window holding messages, 2nd is messages parent */
     body#tumblr .hpABw,
     body#tumblr .hpABw .vwvdr {
         line-height: 1.2em;
         font-size: var(--menu-font-size);
     }
     /*blog description at top of messaging window will now scroll so you can read the whole thing*/
-	body#tumblr .b7hYL .X3v32 {
-		display: block;
-		max-height: 75px;
-		overflow-y: auto;
+    body#tumblr .b7hYL .X3v32 {
+	display: block;
+	max-height: 75px;
+	overflow-y: auto;
         padding: 0.2em;
         margin: 0.2em 0;
-	}
+    }
+
+    /*messaging icon color fixes*/
+    body#tumblr .cwvO0.QZ6XZ button[aria-label="Gif Search"] svg,
+    body#tumblr .cwvO0.QZ6XZ button[aria-label="Upload an image"] svg,
+    body#tumblr .cwvO0.QZ6XZ button[aria-label="Send"] svg {
+        fill: rgb(var(--accent)) !important;
+    }
+    body#tumblr .cwvO0.QZ6XZ button[aria-label="Gif Search"]:hover svg,
+    body#tumblr .cwvO0.QZ6XZ button[aria-label="Gif Search"]:focus svg,
+    body#tumblr .cwvO0.QZ6XZ button[aria-label="Upload an image"]:hover svg,
+    body#tumblr .cwvO0.QZ6XZ button[aria-label="Upload an image"]:focus svg,
+    body#tumblr .cwvO0.QZ6XZ button[aria-label="Send"]:not(:disabled):hover svg,
+    body#tumblr .cwvO0.QZ6XZ button[aria-label="Send"]:not(:disabled):focus svg {
+        fill: rgb(var(--link-hover)) !important;
+    }
 
     /*~~~*/
 
