@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.4.9
+@version        0.4.10
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -329,22 +329,22 @@ EOT;
 @advanced dropdown oldfooter 'Old post footer styling'{
 oldfooter1 "Enabled" <<<EOT 
 /*footer*\/
-body#tumblr footer.tOKgq.G6mnk {
+body#tumblr footer.tOKgq .m5KTc {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0px var(--post-padding) var(--post-padding);
 }
 /*footer - all children have equal padding*\/
-body#tumblr footer.tOKgq.G6mnk > * {
+body#tumblr footer.tOKgq .m5KTc > * {
     padding: 5px 0;
 }
 /*footer - notes container*\/
-body#tumblr footer.tOKgq.G6mnk .gstmW {
+body#tumblr footer.tOKgq .m5KTc .gstmW {
     display: inline-flex;
 }
 /*footer - post controls*\/
-body#tumblr .G6mnk .MCavR {
+body#tumblr .m5KTc .MCavR {
     justify-content: flex-end;
     margin: 0 0 0 auto;
     border-top: none;
@@ -352,12 +352,27 @@ body#tumblr .G6mnk .MCavR {
     padding: 5px 0;
 }
 /*footer - even post controls buttons margins + fix xkit quick tags margin*\/
-body#tumblr .G6mnk .MCavR .sfGru, .MCavR .xkit-quick-tags-button {
+body#tumblr .m5KTc .MCavR .sfGru, .MCavR .xkit-quick-tags-button {
     margin: 0 12px;
 }
 /*footer - remove unnecessary right padding on last post control button*\/
-body#tumblr .G6mnk .MCavR .sfGru:last-child {
+body#tumblr .m5KTc .MCavR .sfGru:last-child {
     margin-right: 0;
+}
+/*xkit timestamp fix specifically for this footer style*\/
+body#tumblr footer.tOKgq .gstmW:empty + .xkit-timestamp {
+    margin-left: 0 !important;
+}
+/*post footer text overflow fix for issue with large amount of notes*\/
+body#tumblr footer[aria-label="Post Footer"] .BPf9u[data-testid="controlled-popover-wrapper"],
+body#tumblr footer[aria-label="Post Footer"] .BPf9u[data-testid="controlled-popover-wrapper"] > .BPf9u {
+    max-width: 100%;
+}
+body#tumblr footer[aria-label="Post Footer"] .BPf9u[data-testid="controlled-popover-wrapper"] .TRX6J[aria-label="Notes"] .WNEhC + span {
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    text-overflow: ellipsis;
 }
 EOT;
 oldfooter2 "Disabled" <<<EOT  EOT;
@@ -1358,21 +1373,21 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr button[aria-label="Conversation"] {
         font-size: 16px;
     }
-    /*1st is window holding messages, 2nd is messages parent */
+	/*1st is window holding messages, 2nd is messages parent */
     body#tumblr .hpABw,
     body#tumblr .hpABw .vwvdr {
         line-height: 1.2em;
         font-size: var(--menu-font-size);
     }
     /*blog description at top of messaging window will now scroll so you can read the whole thing*/
-    body#tumblr .b7hYL .X3v32 {
-	display: block;
-	max-height: 75px;
-	overflow-y: auto;
+	body#tumblr .b7hYL .X3v32 {
+		display: block;
+		max-height: 75px;
+		overflow-y: auto;
         padding: 0.2em;
         margin: 0.2em 0;
-    }
-
+	}
+    
     /*messaging icon color fixes*/
     body#tumblr .cwvO0.QZ6XZ button[aria-label="Gif Search"] svg,
     body#tumblr .cwvO0.QZ6XZ button[aria-label="Upload an image"] svg,
@@ -1473,6 +1488,39 @@ compactblockedpost2 "Enable" <<<EOT
         pointer-events: none;
     }
     
+    /*tipping button*/
+    article.FtjPK button[aria-label="Tip"] {
+        margin-left: 1em;
+    }
+    article.FtjPK button[aria-label="Tip"] svg {
+        fill: rgb(var(--green));
+        align-self: center;
+    }
+    /*tipping agree*/
+    body#tumblr .kuEoR {
+        max-height: 500px;
+        overflow: auto;
+    }
+    /*tipping agree msg*/
+    body#tumblr .kuEoR .VA2AA {
+        opacity: 1;
+        background: rgb(var(--white));
+        color: rgb(var(--black));
+    }
+    body#tumblr .kuEoR .GRXS0 {
+        background: rgb(var(--accent));
+        border: rgb(var(--white)) 2px solid;
+        box-shadow: 5px 5px 0px rgba(0,0,0,0.4);
+        color: rgb(var(--white));
+    }
+    body#tumblr .kuEoR .GRXS0:hover,
+    body#tumblr .kuEoR .GRXS0:focus {
+        background: rgb(var(--link-hover));
+        border: rgb(var(--white)) 2px solid;
+        box-shadow: 5px 5px 0px rgba(0,0,0,0.4);
+        color: rgb(var(--white));
+    }
+    
 	/*~~~*/
 	
     /*xkit rewritten fixes*/
@@ -1512,5 +1560,9 @@ compactblockedpost2 "Enable" <<<EOT
     /*change quick reblog successful queue icon color match pink draft button color in the menu*/
     .queue svg[fill="rgba(var(--black), 0.65)"] {
         fill: rgb(var(--pink));
+    }
+    /*xkit footer timestamp general fix*/
+    body#tumblr footer.tOKgq .gstmW:empty + .xkit-timestamp {
+        margin-left: var(--post-padding);
     }
 }
