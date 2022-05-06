@@ -667,6 +667,9 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr article button[aria-label="More options"] svg {
         fill: rgb(var(--link-hover))
     }
+    body#tumblr article header .KFWnx {
+        align-items: start;
+    }
     /*link colors
         1. general
         2. main article header links
@@ -1532,7 +1535,6 @@ compactblockedpost2 "Enable" <<<EOT
         background-color: rgb(var(--black));
         color: rgb(var(--white));
     }
-	
     /*remove pointer events for tooltips on post buttons*/
     footer.eIaSl .ybmTG {
         pointer-events: none;
@@ -1547,6 +1549,14 @@ compactblockedpost2 "Enable" <<<EOT
     }
     .G75qL[data-placement*="right"]::after {
         border-right-color: rgb(var(--black));
+    }
+    /*footer close notes button - prevent breaking in cases of very squished footer*/
+    .rlv6m .ePsyd {
+        white-space: nowrap;
+    }
+    /*footer fix alignment on notes with really big fonts*/
+    footer[aria-label="Post Footer"] .BPf9u[data-testid="controlled-popover-wrapper"] > .BPf9u {
+        display: inline-flex;
     }
     
     /*tipping button*/
