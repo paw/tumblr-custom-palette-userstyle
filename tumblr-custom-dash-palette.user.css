@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.5.0
+@version        0.5.1
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -95,8 +95,11 @@ bgasidefix1 "Enable" <<<EOT
     body#tumblr aside .PwJi6 .kqme1:focus-within {
         background-color: rgba(var(--white-on-dark),.07);
     }
-    /*tag follow suggestion*\/
-    body#tumblr aside .lc7tb {
+    /*
+    1. tag follow suggestion box
+    2. followed tags sidebar container *\/
+    body#tumblr aside .lc7tb,
+    body#tumblr aside .Wlk_Y{
         background-color: rgb(var(--white));
     }
     /*pseudoelement bg added to:
@@ -344,7 +347,16 @@ radar1 "Show" <<<EOT  EOT;
 radar2 "Hide" <<<EOT 
     /*hide radar in sidebar while still showing blog stats when necessary*\/
     body#tumblr aside .FZkjV:nth-child(1) > *:not(aside),
-    body#tumblr aside .FZkjV:nth-child(1) + .FZkjV:nth-child(2) > *:not(aside){
+    body#tumblr aside .FZkjV:nth-child(1) + .FZkjV:nth-child(2) > *:not(aside),
+    body#tumblr aside .Wlk_Y:nth-child(1) + .FZkjV > *:not(aside) {
+        display: none;
+    } EOT;
+}
+@advanced dropdown tags "Followed Tags in Sidebar" {
+tags1 "Show" <<<EOT  EOT;
+tags2 "Hide" <<<EOT 
+    /*hide tags in sidebar*\/
+    body#tumblr aside .Wlk_Y:nth-child(1) {
         display: none;
     } EOT;
 }
@@ -785,6 +797,8 @@ compactblockedpost2 "Enable" <<<EOT
     /*[[modalsuggest]]*/
     
     /*[[radar]]*/
+    
+    /*[[tags]]*/
 
     /*[[postplus]]*/
     
