@@ -722,12 +722,14 @@ compactblockedpost2 "Enable" <<<EOT
     2. recommended blogs in sidebar (.f68ED)
     3. follow tag button in new page sidebar (.MV1bs .hc4QI a)
     4. follow blog button in new page sidebar (.MV1bs button)
-    5. follow button in blog peepr suggestions */
+    5. follow button in blog peepr suggestions
+    6. notes popover follow buttons */
     body#tumblr article .f68ED,
     body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED,
     body#tumblr aside .MV1bs .u8J1W .hc4QI a,
     body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED,
-    body#tumblr .DCCfo.kXP4L ul.PwJi6 button[aria-label="Follow"] .f68ED {
+    body#tumblr .DCCfo.kXP4L ul.PwJi6 button[aria-label="Follow"] .f68ED,
+    body#tumblr #glass-container .EnRJg.W5tdN[aria-label="Post Activity"] button[aria-label="Follow"] .f68ED {
         font-size: 0.8em;
         font-weight: bold;
         background-color: rgba(var(--black),0.4);
@@ -740,7 +742,7 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED {
         text-align: center;
     }
-    /*follow button hover*/
+    /*follow button hover/focus styling*/
     body#tumblr article .f68ED:hover,
     body#tumblr article .f68ED:focus,
     body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED:hover,
@@ -750,7 +752,9 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED:hover,
     body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED:focus,
     body#tumblr .DCCfo.kXP4L ul.PwJi6 button[aria-label="Follow"] .f68ED:hover,
-    body#tumblr .DCCfo.kXP4L ul.PwJi6 button[aria-label="Follow"] .f68ED:focus {
+    body#tumblr .DCCfo.kXP4L ul.PwJi6 button[aria-label="Follow"] .f68ED:focus,
+    body#tumblr #glass-container .EnRJg.W5tdN[aria-label="Post Activity"] button[aria-label="Follow"] .f68ED:hover,
+    body#tumblr #glass-container .EnRJg.W5tdN[aria-label="Post Activity"] button[aria-label="Follow"] .f68ED:focus {
         text-decoration: none !important;
         color: rgb(var(--white)) !important;
         background-color: rgb(var(--green));
@@ -1555,7 +1559,7 @@ compactblockedpost2 "Enable" <<<EOT
         white-space: nowrap;
     }
     /*footer fix alignment on notes with really big fonts*/
-    footer[aria-label="Post Footer"] .BPf9u[data-testid="controlled-popover-wrapper"] > .BPf9u {
+    footer[aria-label="Post Footer"] > .m5KTc > .gstmW .BPf9u[data-testid="controlled-popover-wrapper"] > .BPf9u {
         display: inline-flex;
     }
     
