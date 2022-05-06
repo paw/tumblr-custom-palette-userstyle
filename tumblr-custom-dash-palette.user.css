@@ -718,11 +718,13 @@ compactblockedpost2 "Enable" <<<EOT
     /*follow button styling
     2. recommended blogs in sidebar (.f68ED)
     3. follow tag button in new page sidebar (.MV1bs .hc4QI a)
-    4. follow blog button in new page sidebar (.MV1bs button) */
+    4. follow blog button in new page sidebar (.MV1bs button)
+    5. follow button in blog peepr suggestions */
     body#tumblr article .f68ED,
     body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED,
     body#tumblr aside .MV1bs .u8J1W .hc4QI a,
-    body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED {
+    body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED,
+    body#tumblr .DCCfo.kXP4L ul.PwJi6 button[aria-label="Follow"] .f68ED {
         font-size: 0.8em;
         font-weight: bold;
         background-color: rgba(var(--black),0.4);
@@ -735,6 +737,7 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED {
         text-align: center;
     }
+    /*follow button hover*/
     body#tumblr article .f68ED:hover,
     body#tumblr article .f68ED:focus,
     body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED:hover,
@@ -742,7 +745,9 @@ compactblockedpost2 "Enable" <<<EOT
     body#tumblr aside .u8J1W .hc4QI a:hover,
     body#tumblr aside .u8J1W .hc4QI a:focus,
     body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED:hover,
-    body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED:focus {
+    body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED:focus,
+    body#tumblr .DCCfo.kXP4L ul.PwJi6 button[aria-label="Follow"] .f68ED:hover,
+    body#tumblr .DCCfo.kXP4L ul.PwJi6 button[aria-label="Follow"] .f68ED:focus {
         text-decoration: none !important;
         color: rgb(var(--white)) !important;
         background-color: rgb(var(--green));
@@ -1546,8 +1551,8 @@ compactblockedpost2 "Enable" <<<EOT
     
     /*tipping button*/
     /*add margin to work with xkit timestamps*/
-    article.FtjPK .LaNUG button[aria-label="Tip"] {
-        margin-left: 1em;
+    article.FtjPK .fAAi8 button[aria-label="Tip"]{
+        margin-left: 0.5em;
     }
     /*make the $ icon green*/
     article.FtjPK button[aria-label="Tip"] svg {
