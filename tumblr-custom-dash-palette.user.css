@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.5.1
+@version        0.5.2
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -346,7 +346,7 @@ followlabel2 "Show" <<<EOT  EOT;
 radar1 "Show" <<<EOT  EOT;
 radar2 "Hide" <<<EOT 
     /*hide radar in sidebar while still showing blog stats when necessary*\/
-    body#tumblr aside .FZkjV:nth-child(1) > *:not(aside),
+    body#tumblr aside .FZkjV:last-child > *:not(aside),
     body#tumblr aside .FZkjV:nth-child(1) + .FZkjV:nth-child(2) > *:not(aside),
     body#tumblr aside .Wlk_Y:nth-child(1) + .FZkjV > *:not(aside) {
         display: none;
@@ -357,6 +357,96 @@ tags1 "Show" <<<EOT  EOT;
 tags2 "Hide" <<<EOT 
     /*hide tags in sidebar*\/
     body#tumblr aside .Wlk_Y:nth-child(1) {
+        display: none;
+    } EOT;
+}
+
+@advanced dropdown sidebarblogs "Sidebar Blog Recommendations" {
+sidebarblogs1 "Hide" <<<EOT 
+    /*hide suggested blogs in sidebar while still showing blog stats*\/
+    body#tumblr aside .FZkjV:nth-of-type(1):not(:last-child) > *:not(aside) {
+        display: none;
+    }
+    body#tumblr aside .FZkjV:nth-of-type(1):not(:last-child) aside {
+        margin-bottom: 38px;
+    }
+    body#tumblr aside .FZkjV:nth-of-type(1):not(:last-child) {
+        margin-bottom: 0;
+    } EOT;
+sidebarblogs2 "Show" <<<EOT  EOT;
+}
+
+@advanced dropdown inlinesuggest "Inline Recommendations" {
+inlinesuggest2 "Hide" <<<EOT 
+    /*hide inline recommendations.
+        1. blog recommendations
+        2. headers for the recommendations + 'youre caught up, check these out' header
+        3. 'youre caught up, check these out' content
+        4. tag recommedations on /tagged/ pages
+        5. bonecoin ad / answertime link
+    *\/
+    body#tumblr .So6RQ > .ge_yK > .H14Pr.kDCXR,
+    body#tumblr .So6RQ > .ge_yK > .HphhS,
+    body#tumblr .So6RQ > .ge_yK > .Oii0L.kDCXR,
+    body#tumblr .So6RQ > .ge_yK > .sKf2H > .luqhx > ._3fYLM,
+    body#tumblr .j8ha0 > div > .So6RQ:not([data-id]):first-child .ge_yK {
+        display: none !important;
+    } EOT;
+inlinesuggest1 "Show" <<<EOT  EOT;
+}
+@advanced dropdown modalsuggest "Modal Recommendations" {
+modalsuggest1 "Show" <<<EOT  EOT;
+modalsuggest2 "Hide" <<<EOT 
+    /*hide modal recommendations *\/
+    body#tumblr #glass-container .LaNhI {
+        display: none !important;
+    }
+    body#tumblr #glass-container .GHloH:not(.N8SnF) {
+        margin-top: 0;
+    }
+    /*fix modal padding when recommendations are hidden*\/
+    body#tumblr #glass-container .yPZfR:not(.xGwgY) {
+        height: auto;
+        margin-top: auto;
+    }
+    /*hide padding under modal reccomendations*\/
+    body#tumblr #glass-container .GHloH:not(.N8SnF) > .j8GND {
+        display: none;
+    } EOT;
+}
+
+@advanced dropdown compactblockedpost "Compact Filtered Posts" {
+compactblockedpost1 "Disable" <<<EOT  EOT;
+compactblockedpost2 "Enable" <<<EOT 
+    /*Compact blocked posts*\/
+    body#tumblr .So6RQ[data-id] .W0ros { /*container for filtered post*\/
+        flex-direction: row;
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: var(--post-padding);
+    }
+    body#tumblr .So6RQ[data-id] .W0ros > a { /*blacklisted tags*\/
+        margin: 0 0.5em 0 0;
+        max-width: 100%;
+        flex: 0 0 calc(70% - 0.5em);
+        word-wrap: break-word;
+        white-space: normal;
+    }
+    body#tumblr .So6RQ[data-id] .W0ros > a::before { /*shorter label *\/
+        content: 'Filtered Tags:';
+        padding-right: 0.5em;
+        color: rgb(var(--black)) !important;
+    }
+    body#tumblr .So6RQ[data-id] .W0ros .TRX6J { /*view post button*\/
+        margin-left: 0;
+        flex: 0 0 30%;
+    }
+    body#tumblr .So6RQ[data-id] .W0ros .TRX6J .NQQC8 {
+        margin-top: 0;
+    }
+    /*'This post contains filtered tags.'*\/
+    [data-id] .W0ros > p {
         display: none;
     } EOT;
 }
@@ -476,7 +566,7 @@ peepr2 "Override Posts Only" <<<EOT
 peepr3 "Default" <<<EOT  EOT;
 }
 
-@advanced dropdown postplus "Post+ Links In Blog Information" {
+@advanced dropdown postplus "Post+ Links In Account Dropdown & Blog Info" {
 postplus1 "Hide" <<<EOT 
     /*hide post plus buttons*\/
     body#tumblr .PsDsm .kbIQf li a[href*="/post-plus"],
@@ -495,80 +585,62 @@ adfree1 "Hide" <<<EOT
 adfree2 "Show" <<<EOT  EOT;
 }
 
-
-@advanced dropdown inlinesuggest "Inline Recommendations" {
-inlinesuggest2 "Hide" <<<EOT 
-    /*hide inline recommendations.
-        1. blog recommendations
-        2. headers for the recommendations + 'youre caught up, check these out' header
-        3. 'youre caught up, check these out' content
-        4. tag recommedations on /tagged/ pages
-        5. bonecoin ad / answertime link
-    *\/
-    body#tumblr .So6RQ > .ge_yK > .H14Pr.kDCXR,
-    body#tumblr .So6RQ > .ge_yK > .HphhS,
-    body#tumblr .So6RQ > .ge_yK > .Oii0L.kDCXR,
-    body#tumblr .So6RQ > .ge_yK > .sKf2H > .luqhx > ._3fYLM,
-    body#tumblr .j8ha0 > div > .So6RQ:not([data-id]):first-child .ge_yK {
-        display: none !important;
-    } EOT;
-inlinesuggest1 "Show" <<<EOT  EOT;
+@advanced dropdown oldfooter 'Old post footer styling'{
+oldfooter1 "Disabled" <<<EOT 
+/*xkit footer timestamp general fix*\/
+    body#tumblr footer.tOKgq:not(.eIaSl) .gstmW:empty + .xkit-timestamp {
+        margin-left: var(--post-padding);
+    }
+EOT;
+oldfooter2 "Enabled" <<<EOT 
+/*footer*\/
+body#tumblr footer.tOKgq .m5KTc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px var(--post-padding) var(--post-padding);
 }
-@advanced dropdown modalsuggest "Modal Recommendations" {
-modalsuggest1 "Show" <<<EOT  EOT;
-modalsuggest2 "Hide" <<<EOT 
-    /*hide modal recommendations *\/
-    body#tumblr #glass-container .LaNhI {
-        display: none !important;
-    }
-    body#tumblr #glass-container .GHloH:not(.N8SnF) {
-        margin-top: 0;
-    }
-    /*fix modal padding when recommendations are hidden*\/
-    body#tumblr #glass-container .yPZfR:not(.xGwgY) {
-        height: auto;
-        margin-top: auto;
-    }
-    /*hide padding under modal reccomendations*\/
-    body#tumblr #glass-container .GHloH:not(.N8SnF) > .j8GND {
-        display: none;
-    } EOT;
+/*footer - all children have equal padding*\/
+body#tumblr footer.tOKgq .m5KTc > * {
+    padding: 5px 0;
 }
+/*footer - notes container*\/
+body#tumblr footer.tOKgq .m5KTc .gstmW {
+    display: inline-flex;
+}
+/*footer - post controls*\/
+body#tumblr .m5KTc .MCavR {
+    justify-content: flex-end;
+    margin: 0 0 0 auto;
+    border-top: none;
+    display: inline-flex;
+    padding: 5px 0;
+}
+/*footer - even post controls buttons margins + fix xkit quick tags margin*\/
+body#tumblr .m5KTc .MCavR .sfGru, .MCavR .xkit-quick-tags-button {
+    margin: 0 12px;
+}
+/*footer - remove unnecessary right padding on last post control button*\/
+body#tumblr .m5KTc .MCavR .sfGru:last-child {
+    margin-right: 0;
+}
+/*xkit timestamp fix specifically for this footer style*\/
+body#tumblr footer.tOKgq .gstmW:empty + .xkit-timestamp {
+    margin-left: 0 !important;
+}
+/*post footer text overflow fix for issue with large amount of notes*\/
+body#tumblr footer[aria-label="Post Footer"] .BPf9u[data-testid="controlled-popover-wrapper"],
+body#tumblr footer[aria-label="Post Footer"] .BPf9u[data-testid="controlled-popover-wrapper"] > .BPf9u {
+    max-width: 100%;
+}
+body#tumblr footer[aria-label="Post Footer"] .BPf9u[data-testid="controlled-popover-wrapper"] .TRX6J[aria-label="Notes"] .WNEhC + span {
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    text-overflow: ellipsis;
+}
+EOT;
 
-@advanced dropdown compactblockedpost "Compact Filtered Posts" {
-compactblockedpost1 "Disable" <<<EOT  EOT;
-compactblockedpost2 "Enable" <<<EOT 
-    /*Compact blocked posts*\/
-    body#tumblr .So6RQ[data-id] .W0ros { /*container for filtered post*\/
-        flex-direction: row;
-        height: auto;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: var(--post-padding);
-    }
-    body#tumblr .So6RQ[data-id] .W0ros > a { /*blacklisted tags*\/
-        margin: 0 0.5em 0 0;
-        max-width: 100%;
-        flex: 0 0 calc(70% - 0.5em);
-        word-wrap: break-word;
-        white-space: normal;
-    }
-    body#tumblr .So6RQ[data-id] .W0ros > a::before { /*shorter label *\/
-        content: 'Filtered Tags:';
-        padding-right: 0.5em;
-        color: rgb(var(--black)) !important;
-    }
-    body#tumblr .So6RQ[data-id] .W0ros .TRX6J { /*view post button*\/
-        margin-left: 0;
-        flex: 0 0 30%;
-    }
-    body#tumblr .So6RQ[data-id] .W0ros .TRX6J .NQQC8 {
-        margin-top: 0;
-    }
-    /*'This post contains filtered tags.'*\/
-    [data-id] .W0ros > p {
-        display: none;
-    } EOT;
 }
 
 ==/UserStyle== */
@@ -735,13 +807,15 @@ compactblockedpost2 "Enable" <<<EOT
     3. follow tag button in new page sidebar (.MV1bs .hc4QI a)
     4. follow blog button in new page sidebar (.MV1bs button)
     5. follow button in blog peepr suggestions
-    6. notes popover follow buttons */
+    6. notes popover follow buttons
+    7. follow button in dashboard blog view suggested blogs*/
     body#tumblr article .f68ED,
     body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED,
     body#tumblr aside .MV1bs .u8J1W .hc4QI a,
     body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED,
     body#tumblr .DCCfo.kXP4L ul.PwJi6 button[aria-label="Follow"] .f68ED,
-    body#tumblr #glass-container .EnRJg.W5tdN[aria-label="Post Activity"] button[aria-label="Follow"] .f68ED {
+    body#tumblr #glass-container .EnRJg.W5tdN[aria-label="Post Activity"] button[aria-label="Follow"] .f68ED,
+    body#tumblr ul.PwJi6 button[aria-label="Follow"] .f68ED {
         font-size: 0.8em;
         font-weight: bold;
         background-color: rgba(var(--black),0.4);
@@ -755,18 +829,20 @@ compactblockedpost2 "Enable" <<<EOT
         text-align: center;
     }
     /*follow button hover/focus styling*/
-    body#tumblr article .f68ED:hover,
-    body#tumblr article .f68ED:focus,
+    body#tumblr article button[aria-label="Follow"] .f68ED:hover,
+    body#tumblr article button[aria-label="Follow"]:focus .f68ED,
     body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED:hover,
-    body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED:focus,
+    body#tumblr aside .PwJi6 button[aria-label="Follow"]:focus .f68ED,
     body#tumblr aside .u8J1W .hc4QI a:hover,
     body#tumblr aside .u8J1W .hc4QI a:focus,
     body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED:hover,
-    body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED:focus,
+    body#tumblr aside .MV1bs button[aria-label="Follow"]:focus .f68ED,
     body#tumblr .DCCfo.kXP4L ul.PwJi6 button[aria-label="Follow"] .f68ED:hover,
-    body#tumblr .DCCfo.kXP4L ul.PwJi6 button[aria-label="Follow"] .f68ED:focus,
+    body#tumblr .DCCfo.kXP4L ul.PwJi6 button[aria-label="Follow"]:focus .f68ED,
     body#tumblr #glass-container .EnRJg.W5tdN[aria-label="Post Activity"] button[aria-label="Follow"] .f68ED:hover,
-    body#tumblr #glass-container .EnRJg.W5tdN[aria-label="Post Activity"] button[aria-label="Follow"] .f68ED:focus {
+    body#tumblr #glass-container .EnRJg.W5tdN[aria-label="Post Activity"] button[aria-label="Follow"]:focus .f68ED,
+    body#tumblr ul.PwJi6 button[aria-label="Follow"] .f68ED:hover,
+    body#tumblr ul.PwJi6 button[aria-label="Follow"]:focus .f68ED {
         text-decoration: none !important;
         color: rgb(var(--white)) !important;
         background-color: rgb(var(--green));
@@ -786,6 +862,8 @@ compactblockedpost2 "Enable" <<<EOT
     /*[[peepr]]*/
     
     /*[[followlabel]]*/
+    
+    /*[[sidebarblogs]]*/
     
     /*hide sponsored posts in sidebar*/
     body#tumblr aside .ohi9S .Yc2Sp {
@@ -809,6 +887,8 @@ compactblockedpost2 "Enable" <<<EOT
     /*[[compactblockedpost]]*/
     
     /*[[jumpbtn]]*/
+    
+    /*[[oldfooter]]*/
     
     /*modal bg color*/
     body#tumblr button.SaLOl span.ZUy1d, body#tumblr .SaLOl[tabindex="-1"] {
@@ -1549,7 +1629,7 @@ compactblockedpost2 "Enable" <<<EOT
         fill: rgb(var(--white)) !important;
     }
     /*footer tooltip colors*/
-    footer.eIaSl .EZHUS {
+    footer.tOKgq[aria-label="Post Footer"] .EZHUS {
         background-color: rgb(var(--black));
         color: rgb(var(--white));
     }
@@ -1670,5 +1750,9 @@ compactblockedpost2 "Enable" <<<EOT
     /*quick reblog make checkmarks green*/
     .draft a[role="button"]::after, .queue a[role="button"]::after {
         color: rgb(var(--green));
+    }
+    /*timestamps*/
+    .xkit-reblog-timestamp {
+        text-align: right;
     }
 }
