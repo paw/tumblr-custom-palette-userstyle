@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.5.2
+@version        0.5.3
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -279,10 +279,25 @@ bgasidefix1 "Enable" <<<EOT
     body#tumblr .h1D5S.MsxAB {
         z-index:99;
     }
-    /*queue bg fix*\/
-    body#tumblr .R0TWs {
+    /*no posts on blog/in queue/in drafts bg fix*\/
+    body#tumblr .R0TWs,
+    body#tumblr .j8ha0[data-timeline] .cQqe6 {
         background: rgba(var(--navy),0.92);
         color: rgba(var(--white-on-dark),1);
+    }
+    /*queue time fix*\/
+    body#tumblr .FtjPK .AD_w7 > .SirwX {
+        background: rgba(var(--navy),0.92);
+        color: rgba(var(--white-on-dark),1);
+        border-radius: 3px;
+        padding: 0 0.3em;
+    }
+    body#tumblr .FtjPK .AD_w7 {
+        left: -90px;
+    }
+    body#tumblr .AD_w7 > .SirwX > * {
+        margin-left: 0;
+        margin-top: 0;
     }
     /*fix new blog peepr dropdown menu z-index*\/
     #glass-container .u2YPL.wFAw8 {
@@ -290,7 +305,7 @@ bgasidefix1 "Enable" <<<EOT
     }
     /*fix new blog peepr search z-index*\/
     #glass-container div[data-testid="searchWrapper"] {
-    z-index: 5;
+        z-index: 5;
     }
     EOT;
 }
@@ -384,12 +399,14 @@ inlinesuggest2 "Hide" <<<EOT
         3. 'youre caught up, check these out' content
         4. tag recommedations on /tagged/ pages
         5. bonecoin ad / answertime link
+        6. 'more like this'
     *\/
     body#tumblr .So6RQ > .ge_yK > .H14Pr.kDCXR,
     body#tumblr .So6RQ > .ge_yK > .HphhS,
     body#tumblr .So6RQ > .ge_yK > .Oii0L.kDCXR,
     body#tumblr .So6RQ > .ge_yK > .sKf2H > .luqhx > ._3fYLM,
-    body#tumblr .j8ha0 > div > .So6RQ:not([data-id]):first-child .ge_yK {
+    body#tumblr .j8ha0 > div > .So6RQ:not([data-id]):first-child .ge_yK,
+    body#tumblr .So6RQ + .So6RQ > .ge_yK > .hMigf {
         display: none !important;
     } EOT;
 inlinesuggest1 "Show" <<<EOT  EOT;
@@ -1634,7 +1651,8 @@ EOT;
         color: rgb(var(--white));
     }
     /*remove pointer events for tooltips on post buttons*/
-    footer.eIaSl .ybmTG {
+    footer.eIaSl .ybmTG,
+    footer.tOKgq .ybmTG {
         pointer-events: none;
         transition: 0.1s;
     }
@@ -1658,9 +1676,13 @@ EOT;
     }
     
     /*tipping button*/
-    /*add margin to work with xkit timestamps*/
-    article.FtjPK .fAAi8 button[aria-label="Tip"]{
+    /*add margin for alt dash code to work with xkit timestamps*/
+    article.FtjPK .fAAi8 button[aria-label="Tip"] {
         margin-left: 0.5em;
+    }
+    /*add margin to tip button when notes come before it */
+    article.FtjPK .tOKgq .BPf9u[data-testid="controlled-popover-wrapper"] + .BPf9u[data-testid="controlled-popover-wrapper"] button[aria-label="Tip"] {
+        margin-left: 0.8em;
     }
     /*make the $ icon green*/
     article.FtjPK button[aria-label="Tip"] svg {
