@@ -6,8 +6,8 @@ Just a simple userstyle for setting custom colors, font size, and font family fo
 Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/defaultpreview.png)
 
 
-[![Screenshot of my personal theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/wip/images/mythemepreview.png)\
-Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/wip/images/mythemepreview.png)
+[![Screenshot of my personal theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/mythemepreview.png)\
+Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/mythemepreview.png)
 
 [![Screenshot of a custom theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/custompalettepreview.png)\
 Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/custompalettepreview.png)
