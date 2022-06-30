@@ -5,6 +5,10 @@ Just a simple userstyle for setting custom colors, font size, and font family fo
 [![Screenshot of default theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/defaultpreview.png)\
 Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/defaultpreview.png)
 
+
+[![Screenshot of my personal theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/wip/images/mythemepreview.png)\
+Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/wip/images/mythemepreview.png)
+
 [![Screenshot of a custom theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/custompalettepreview.png)\
 Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/custompalettepreview.png)
 
@@ -20,6 +24,7 @@ Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-p
 ### Notes:
 * This style will only change the look of the beta post editor, the new dashboard, and any other pages that have been updated to use the new layout.
 * Most of the options are self-explanatory, but there are a few that might need clarification:
+  * **Dashboard Tabs** = See screenshot #2. If you're on a newer version of the dashboard, there is now a set of tabs under the post creation tools that allows you to switch between different 'feeds' of posts directly on the dashboard. The defaults are Following and Suggested Posts, but more experimental feeds can be added via Tumblr Labs. The dash shows your Following feed by default, so this option exists to allow you to hide the tabs menu if you don't like it/won't use it.
   * **Layout Fixes for Custom Backgrounds** = Adds solid backgrounds to many sidebar/header elements and pages (ex. the activity page) that don't have them by default.
   * **Modal Color** = The color of the semi-transparent overlay that appears when you open up the post editor, go to delete a post, block someone, etc.
   * **Menu Hover BG Color** = the bg color that appears when hovering over options in the settings dropdown, as well as when hovering over blogs on the following/followers pages and when hovering over notifications.
