@@ -554,7 +554,6 @@ modalsuggest2 "Hide" <<<EOT
     }
     /*fix modal padding when recommendations are hidden*\/
     body#tumblr #glass-container .yPZfR:not(.xGwgY) {
-        height: auto;
         margin-top: auto;
     }
     /*hide padding under modal reccomendations*\/
@@ -1080,6 +1079,14 @@ EOT;
         font-family: var(--font-family);
     }
     
+    /*make post footer pinned post text + pin svg green*/
+    body#tumblr .hAFp3 .AXXSZ > a[style^="color"] {
+        color: rgb(var(--green)) !important;
+    }
+    body#tumblr .hAFp3 .AXXSZ > a[style^="color"] svg {
+        fill: rgb(var(--green)) !important;
+    }
+    
     /*follow button styling
     2. recommended blogs in sidebar (.f68ED)
     3. follow tag button in new page sidebar (.MV1bs .hc4QI a)
@@ -1392,11 +1399,13 @@ EOT;
     /*make bgs of post editor tools solid text color
     1. all svgs that aren't for changing font color
     2. the font style dropdown
+    3. unsure
         also note to self: gutenberg-editor = .RupUR
     */
     .aoUoX > ._DlEg .PD0uZ:not([style*="background"]) svg,
     body#tumblr .aoUoX .TRX6J.LBAAV[aria-label="unstyled"],
-    .aoUoX .cBfTs {
+    .aoUoX .cBfTs,
+    .block-editor-writing-flow span[data-testid="controlled-popover-wrapper"] .KpIMI {
         background: rgb(var(--black));
     }
     /*active svgs now have the bg colored the accent color instead of only changing the font color of the icon*/
@@ -1404,45 +1413,87 @@ EOT;
         fill: rgb(var(--white));
         background: RGB(var(--accent));
     }
-    /*link input done button*/
+    /*new link input done button*/
     .aoUoX .jsRn4 {
         border-color: rgba(var(--white),0.3);
+        height: 100%;
+        border-radius: 0 15px 15px 0;
     }
-    /*link input done button*/
+    /*new link input done button hover*/
     .aoUoX .jsRn4:hover {
-        color: rgba(var(--accent),1);
+        background-color: rgba(var(--accent),1);
     }
-    /*link editor wrapper*/
-    div[data-testid="gutenberg-editor"] .KpIMI {
+    /*1. link editor - new link wrapper
+      2. link editor - menu to edit existing link */
+    div[data-testid="gutenberg-editor"] .KpIMI,
+    .block-editor-writing-flow span[data-testid="controlled-popover-wrapper"] .KpIMI {
         overflow: hidden;
     }
+    .KpIMI .avi_I {
+        display: flex;
+        width: 200px;
+        box-sizing: border-box;
+        padding: 0;
+    }
+    /*link editor url input*/
+    .KpIMI .avi_I input[type="url"] {
+        overflow: auto;
+        padding: 5px 3px 5px 10px;
+        font-size: 1em;
+    }
+    /*new link editor url input*/
+    .aoUoX .avi_I input[type="url"] {
+        font-size: 1em;
+    }
+    /*link editor 'done' button when editing existing link*/
+    .KpIMI .avi_I .jsRn4 {
+        position: static;
+        box-sizing: border-box;
+        padding-right: 13px;
+        flex-shrink: 0;
+        height: 100%;
+    }
+    .KpIMI .avi_I .jsRn4:hover {
+        background-color: rgba(var(--accent),1);
+    }
     /*link editor button wrapper*/
-    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB {
+    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB,
+    .block-editor-writing-flow span[data-testid="controlled-popover-wrapper"] .KpIMI > .P0AaB {
         padding: 0;
         height: 100%;
     }
+    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J,
+    .block-editor-writing-flow span[data-testid="controlled-popover-wrapper"] .KpIMI > .P0AaB > .TRX6J {
+        height: 100%;
+    }
     /*change bg color of buttons on hover, prevent text color from changing*/
-    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J:hover {
+    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J:hover,
+    .block-editor-writing-flow span[data-testid="controlled-popover-wrapper"] .KpIMI > .P0AaB > .TRX6J:hover {
 	    background-color: rgba(var(--accent),.87);
     }
-    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J .p8ZLW:hover {
+    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J .p8ZLW:hover,
+    .block-editor-writing-flow span[data-testid="controlled-popover-wrapper"] .KpIMI > .P0AaB > .TRX6J .p8ZLW:hover {
         color: rgb(var(--white));
     }
     /*fix button heights + padding*/
-    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J {
+    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J,
+    .block-editor-writing-flow span[data-testid="controlled-popover-wrapper"] .KpIMI > .P0AaB {
         display: inline-flex;
         align-items: center;
         height: 100%;
     }
-    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J .p8ZLW {
+    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J .p8ZLW,
+    .block-editor-writing-flow span[data-testid="controlled-popover-wrapper"] .KpIMI > .P0AaB > .TRX6J .p8ZLW {
         box-sizing: border-box;
         height: auto;
         padding: 0 9px;
     }
-    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J:first-child {
+    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J:first-child,
+    .block-editor-writing-flow span[data-testid="controlled-popover-wrapper"] .KpIMI > .P0AaB > .TRX6J:first-child {
         padding-left: 8px;
     }
-    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J:last-child {
+    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J:last-child,
+    .block-editor-writing-flow span[data-testid="controlled-popover-wrapper"] .KpIMI > .P0AaB > .TRX6J:last-child {
         padding-right: 8px;
     }
     /*plaintext/html editor block placeholder styling until i figure out how i want to deal with its customization*/
@@ -1936,8 +1987,9 @@ EOT;
     2. post reblogged icon by username svg color change
     */
     .TRX6J.rlv6m[aria-label="Notes"] svg path[fill="#ffffff"],
-    body#tumblr article .qgvik path[fill="#ffffff"] {
+    body#tumblr article .qgvik .CvcGO {
         fill: rgb(var(--white)) !important;
+        --icon-color-accent: rgb(var(--white)) !important;
     }
     /*footer tooltip colors*/
     footer.tOKgq[aria-label="Post Footer"] .EZHUS {
@@ -1980,14 +2032,14 @@ EOT;
     }
     /*make the $ icon green*/
     article.FtjPK button[aria-label="Tip"] svg {
-        fill: rgb(var(--green));
+        --icon-color-primary: rgb(var(--green)) !important;
+        fill: rgb(var(--green)) !important;
         align-self: center;
-        transition: fill 0.3s;
     }
     article.FtjPK button[aria-label="Tip"]:hover svg,
     article.FtjPK button[aria-label="Tip"]:focus svg {
-        fill: rgb(var(--yellow));
-        align-self: center;
+        --icon-color-primary: rgb(var(--yellow)) !important;
+        fill: rgb(var(--yellow)) !important;
     }
     /*hide tip text*/
     article.FtjPK button[aria-label="Tip"] span[data-testid="tipLabel"] {
@@ -2020,10 +2072,14 @@ EOT;
     /*tumblr blaze icon*/
     /*tumblr blaze icon colors*/
     button.TRX6J[aria-label="Blaze"] svg {
-        fill: rgb(var(--orange));  
+        fill: rgb(var(--orange)) !important;
+        --icon-color-primary: rgb(var(--orange)) !important;
+        transition: 0.3s;
     }
-    button.TRX6J[aria-label="Blaze"]:hover svg, button.TRX6J[aria-label="Blaze"]:focus svg {
-        fill: rgb(var(--red));   
+    button.TRX6J[aria-label="Blaze"]:hover svg, button.TRX6J[aria-label="Blaze"]:focus svg { 
+        fill: rgb(var(--red)) !important;
+        --icon-color-primary: rgb(var(--red)) !important;
+        transition: fill 0.3s;
     }
     /*hide blaze text*/
     body#tumblr button[aria-label="Blaze"] svg + span.y56NR {
@@ -2109,6 +2165,10 @@ EOT;
     /*post+ profile sidebar description font color*/
     .mK27Z.lSnEI .MSdS7 {
         color: rgb(var(--black))
+    }
+    /*post+ support modal buttons stay equal in height when font is big enough for 1 button to have 2 lines of text*/
+    .XuT0g.HqCuZ .Rtfxi {
+        align-self: normal;
     }
     
 	/*~~~*/
