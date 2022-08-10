@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.6.1
+@version        0.6.2
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -439,6 +439,7 @@ sitefooter1 "Left Side Minimal" <<<EOT
     }
     /*style links & make font size smaller*\/
     body#tumblr aside footer.m8mN_[role="contentinfo"] {
+        --element-height: auto !important;
         display: flex;
         opacity: 1;
         transition: 0.3s opacity;
@@ -451,6 +452,13 @@ sitefooter1 "Left Side Minimal" <<<EOT
         left: -90px;
         box-sizing: border-box;
         transition: left 0.5s ease-out;
+    }
+    /*new class used for a newer iteration of the site footer styling.
+        targeting the new class specifically just in case not everyone has this version *\/
+    body#tumblr aside footer.m8mN_._qHCt[role="contentinfo"] {
+        position: fixed;
+        bottom: 0px;
+        margin-bottom: 0;
     }
     body#tumblr aside footer.m8mN_[role="contentinfo"]:hover,
     body#tumblr aside footer.m8mN_[role="contentinfo"]:focus-within {
@@ -503,7 +511,8 @@ sitefooter1 "Left Side Minimal" <<<EOT
 EOT;
 sitefooter2 "Default" <<<EOT EOT;
 sitefooter3 "Hide" <<<EOT 
-    body#tumblr aside .R0U51 {
+    body#tumblr aside .R0U51,
+    body#tumblr aside footer.m8mN_[role="contentinfo"] {
         display: none;
     }
 EOT;
@@ -549,14 +558,22 @@ modalsuggest2 "Hide" <<<EOT
     body#tumblr #glass-container .LaNhI {
         display: none !important;
     }
+    /*not needed w/ most recent update (.yPZfR.WYaZw change) but keeping for at least 1 ver jic*\/
     body#tumblr #glass-container .GHloH:not(.N8SnF) {
         margin-top: 0;
     }
     /*fix modal padding when recommendations are hidden*\/
+    /*old padding fix, not removing quite yet for legacy support*\/
     body#tumblr #glass-container .yPZfR:not(.xGwgY) {
         margin-top: auto;
     }
-    /*hide padding under modal reccomendations*\/
+    /*new padding fix*\/
+    body#tumblr #glass-container .yPZfR.WYaZw {
+        margin-bottom: auto;
+    }
+    /*old function - hide padding under modal reccomendations
+        new function - hide the recommendations themselves
+    *\/
     body#tumblr #glass-container .GHloH:not(.N8SnF) > .j8GND {
         display: none;
     } EOT;
@@ -1250,6 +1267,10 @@ EOT;
     body#tumblr svg rect[fill*="#FF8A00"] /*post editor tools read more icon lines*/ {
         fill: rgb(var(--orange));
     }
+    /*bug fix for post editor controls read more icon missing primary color variable*/
+    body#tumblr div[data-testid="gutenberg-editor"] .FM4hq.iiac_ button[aria-label="Add read more"] svg {
+        --icon-color-primary: RGB(var(--orange));
+    }
     
     /*YELLOW*/
     /*yellow text in posts*/
@@ -1409,7 +1430,8 @@ EOT;
         background: rgb(var(--black));
     }
     /*active svgs now have the bg colored the accent color instead of only changing the font color of the icon*/
-    .aoUoX > ._DlEg .PD0uZ:not([style]) svg[fill="RGB(var(--accent))"] {
+    .aoUoX > ._DlEg .PD0uZ:not([style*="background"]) svg[style*="--icon-color-primary: RGB(var(--accent))"] {
+        --icon-color-primary: RGB(var(--white)) !important;
         fill: rgb(var(--white));
         background: RGB(var(--accent));
     }
