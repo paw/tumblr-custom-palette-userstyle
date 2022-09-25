@@ -1,1 +1,1 @@
-Mirroring tumblr's css files here so that I can hopefully easily reference these to repair the style in the off chance that they re-generate all the obfuscated names again.
+Mirroring tumblr's css files here so that I can hopefully easily reference these to repair the style in the off chance that they re-generate all the obfuscated names again. Newly obfuscated files (the # names) will be renamed once I figure out what part of the dash they correspond to.
