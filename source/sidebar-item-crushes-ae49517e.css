@@ -1,0 +1,47 @@
+._45C1,
+.dBC_L {
+ align-items:center;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ margin-bottom:20px
+}
+.dBC_L {
+ height:336px;
+ width:100%
+}
+.BUJbj {
+ display:flex;
+ flex-wrap:wrap;
+ width:100%
+}
+.BUJbj .EZcEJ {
+ margin-bottom:16px;
+ margin-right:16px;
+ position:relative
+}
+.BUJbj .EZcEJ:nth-child(3n) {
+ margin-right:0
+}
+.BUJbj .EZcEJ .vuL16 {
+ background:linear-gradient(180deg,hsla(0,0%,100%,0) 0,#000 150%);
+ border-radius:3px;
+ bottom:0;
+ box-sizing:border-box;
+ color:#fff;
+ font-size:.875rem;
+ padding-left:10px;
+ position:absolute;
+ width:100%
+}
+.BUJbj .EZcEJ .vuL16,
+.ou0Pr {
+ font-family:var(--font-family);
+ font-weight:400;
+ line-height:1.5
+}
+.ou0Pr {
+ color:RGB(var(--white-on-dark));
+ font-size:1rem;
+ text-align:center
+}

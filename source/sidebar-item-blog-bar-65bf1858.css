@@ -1,0 +1,237 @@
+.YVQVW {
+ overflow:visible
+}
+.YVQVW svg,
+.m6Aaa text,
+.x6vpr text {
+ font-family:var(--font-family);
+ font-size:.78125rem;
+ font-weight:400;
+ line-height:1.44
+}
+.m6Aaa text,
+.x6vpr text {
+ fill:rgba(var(--white-on-dark),.65)
+}
+.x6vpr text {
+ text-anchor:middle
+}
+.UNfwm {
+ position:absolute;
+ z-index:1
+}
+.RRPPS {
+ height:250px;
+ margin-bottom:20px;
+ position:relative;
+ width:100%
+}
+.RRPPS[role=button] {
+ cursor:pointer
+}
+.bjh13 {
+ background:RGB(var(--white));
+ border-radius:6px;
+ box-shadow:0 0 15px 0 rgba(0,0,0,.5);
+ box-sizing:border-box;
+ color:RGB(var(--black));
+ display:flex;
+ flex-direction:column;
+ font-family:var(--font-family);
+ font-size:.875rem;
+ font-weight:700;
+ line-height:1.5;
+ max-width:200px;
+ min-width:150px;
+ padding:16px
+}
+.jv0eS {
+ display:flex;
+ justify-content:space-between;
+ padding-top:8px
+}
+.jv0eS:first-child {
+ padding-top:0
+}
+.jv0eS>:nth-child(2) {
+ margin-left:10px
+}
+.zwo86 {
+ color:rgba(var(--black),.65);
+ font-family:var(--font-family);
+ font-size:.875rem;
+ font-weight:400;
+ line-height:1.5;
+ overflow:hidden;
+ text-overflow:ellipsis
+}
+@supports(display:-webkit-box) and (-webkit-box-orient:vertical) and (-webkit-line-clamp:1) {
+ .zwo86 {
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:1;
+  display:-webkit-box
+ }
+}
+@supports not ((display:-webkit-box) and (-webkit-box-orient:vertical) and (-webkit-line-clamp:1)) {
+ .zwo86 {
+  white-space:nowrap
+ }
+}
+.unQb3 {
+ border-radius:3px;
+ height:24px;
+ width:24px
+}
+.lBOuH {
+ background:RGB(var(--navy));
+ border-radius:6px;
+ left:50%;
+ overflow:hidden;
+ position:relative;
+ position:absolute;
+ top:50%;
+ transform:translateX(-50%) translateY(-50%)
+}
+.lBOuH .McSyH {
+ background:rgba(var(--white-on-dark),.13);
+ color:RGB(var(--white-on-dark));
+ font-family:var(--font-family);
+ font-size:.875rem;
+ font-weight:400;
+ line-height:1.5;
+ padding:15px;
+ text-align:center
+}
+.pQPKq {
+ align-items:center;
+ display:flex;
+ justify-content:center
+}
+.nWTbj {
+ color:RGB(var(--white-on-dark));
+ font-family:var(--font-family);
+ font-size:1.125rem;
+ font-weight:400;
+ line-height:1.333;
+ padding-left:0;
+ width:100%
+}
+.nWTbj .Sm2Nj {
+ padding:5px 10px
+}
+.nWTbj .IVQu3 {
+ background:rgba(var(--white-on-dark),.07)
+}
+.nWTbj .djzNH {
+ color:rgba(var(--white-on-dark),.65);
+ display:inline-block;
+ font-family:var(--font-family);
+ font-size:1rem;
+ font-weight:400;
+ line-height:1.5;
+ margin-left:5px;
+ text-align:right
+}
+.nWTbj .arAIK {
+ align-items:center;
+ color:inherit;
+ display:flex;
+ justify-content:space-between;
+ min-height:36px;
+ text-decoration:none
+}
+.nWTbj .MHLp7 {
+ list-style:none;
+ margin-left:15px;
+ padding:5px 10px
+}
+.nWTbj .MHLp7:hover {
+ background-color:rgba(var(--white-on-dark),.07)
+}
+.FZkjV {
+ margin-bottom:38px;
+ width:100%
+}
+.FZkjV:last-child {
+ margin-bottom:0
+}
+.hF8Wr {
+ border-bottom:2px solid rgba(var(--white-on-dark),.13);
+ color:var(--color-title);
+ font-family:var(--font-family);
+ font-size:1.3125rem;
+ font-weight:700;
+ line-height:1.5238;
+ line-height:1.2;
+ padding:0 10px 10px
+}
+.palette--tml2007 .hF8Wr {
+ background:#c8c8c8;
+ border:0;
+ padding-top:10px
+}
+.BYHpC {
+ align-items:center;
+ display:flex;
+ justify-content:center;
+ min-height:200px
+}
+.Vt7qF {
+ color:RGB(var(--white-on-dark));
+ font-family:var(--font-family);
+ font-size:1.125rem;
+ font-weight:400;
+ line-height:1.333;
+ width:100%
+}
+.Vt7qF .VsKKv {
+ background:rgba(var(--white-on-dark),.07)
+}
+.Vt7qF .etiBG p {
+ word-wrap:break-word;
+ -webkit-hyphens:auto;
+ hyphens:auto;
+ margin:0;
+ overflow-wrap:break-word
+}
+.Vt7qF .KlOKT,
+.Vt7qF .etiBG .EN5yb {
+ color:rgba(var(--white-on-dark),.65)
+}
+.Vt7qF .KlOKT {
+ display:inline-block;
+ font-family:var(--font-family);
+ font-size:1rem;
+ font-weight:400;
+ line-height:1.5;
+ margin-left:5px;
+ text-align:right
+}
+.Vt7qF .LmLMT,
+.Vt7qF .UKMyb,
+.Vt7qF .jk3gM,
+.Vt7qF ul {
+ list-style:none;
+ margin:0;
+ padding:0
+}
+.Vt7qF .jk3gM {
+ padding:5px 10px
+}
+.Vt7qF .jk3gM a {
+ align-items:center;
+ color:inherit;
+ display:flex;
+ justify-content:space-between;
+ min-height:36px;
+ text-decoration:none
+}
+.Vt7qF .jk3gM:hover {
+ background-color:rgba(var(--white-on-dark),.07)
+}
+.Vt7qF .jk3gM:first-child {
+ border:none
+}
+.Vt7qF .jk3gM:first-child:hover {
+ background-color:unset
+}

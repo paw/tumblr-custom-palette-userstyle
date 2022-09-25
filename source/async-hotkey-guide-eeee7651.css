@@ -1,0 +1,61 @@
+.bsmhp {
+ padding:20px
+}
+.bsmhp h1 {
+ font-size:2rem;
+ font-weight:400;
+ line-height:1.25
+}
+.bsmhp h1,
+.bsmhp h2 {
+ font-family:var(--font-family)
+}
+.bsmhp h2 {
+ border-bottom:2px solid rgba(var(--black),.13);
+ font-size:1.3125rem;
+ font-weight:700;
+ line-height:1.5238;
+ margin:20px 0;
+ padding-bottom:5px
+}
+.bsmhp .eHj45 {
+ align-items:center;
+ display:flex;
+ flex-direction:row;
+ font-family:var(--font-family);
+ font-size:1rem;
+ font-weight:400;
+ justify-content:center;
+ line-height:1.5;
+ margin:-10px -10px 10px;
+ padding:10px
+}
+.bsmhp .eHj45 dt {
+ flex:1;
+ padding-right:20px
+}
+.bsmhp .eHj45 dd {
+ white-space:nowrap
+}
+.bsmhp .eHj45:hover {
+ background:rgba(var(--black),.07);
+ border-radius:3px
+}
+.bsmhp .WU1l3,
+.bsmhp .tFqqu {
+ display:inline-block
+}
+.bsmhp .tFqqu {
+ background:rgba(var(--black),.13);
+ border-radius:3px;
+ font-family:var(--font-family);
+ font-size:1rem;
+ font-weight:400;
+ line-height:1.5;
+ min-width:1em;
+ padding:5px;
+ text-align:center
+}
+.bsmhp .WU1l3 {
+ margin:0 5px
+}

@@ -1,0 +1,38 @@
+.FZkjV {
+ margin-bottom:38px;
+ width:100%
+}
+.FZkjV:last-child {
+ margin-bottom:0
+}
+.hF8Wr {
+ border-bottom:2px solid rgba(var(--white-on-dark),.13);
+ color:var(--color-title);
+ font-family:var(--font-family);
+ font-size:1.3125rem;
+ font-weight:700;
+ line-height:1.5238;
+ line-height:1.2;
+ padding:0 10px 10px
+}
+.palette--tml2007 .hF8Wr {
+ background:#c8c8c8;
+ border:0;
+ padding-top:10px
+}
+.Q55_h {
+ --post-padding:10px;
+ --post-header-vertical-padding:10px;
+ margin-top:10px;
+ width:100%
+}
+.QfN0z {
+ padding:0 10px
+}
+.SiwT6 {
+ align-items:center;
+ display:flex;
+ height:300px;
+ justify-content:center;
+ width:100%
+}
