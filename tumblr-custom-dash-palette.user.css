@@ -354,6 +354,11 @@ bgasidefix1 "Enable" <<<EOT
     #glass-container div[data-testid="searchWrapper"] {
         z-index: 5;
     }
+    /*fix blog peeper posts wrapper bg*\/
+    body#tumblr header.uYpYy,
+    body#tumblr .Q05ZE {
+        background: var(--blog-background-color);
+    }
     EOT;
 }
 
@@ -609,8 +614,8 @@ peepr1 "Override All Colors" <<<EOT
     *\/
     body#tumblr #glass-container .DCCfo.kXP4L,
     body#tumblr #glass-container .DCCfo.kXP4L .gJ6yV > div[style],
-    body#tumblr .D5eCV > .RkANE > .DCCfo.Hmu5M,
-    body#tumblr .D5eCV > .RkANE > .DCCfo.Hmu5M .gJ6yV > div[style],
+    body#tumblr .D5eCV > .RkANE > .DCCfo,
+    body#tumblr .D5eCV > .RkANE > .DCCfo .gJ6yV > div[style],
     body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style],
     body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style] ._l9x2[style],
     body#tumblr div[data-testid="tipping-modal"] {
@@ -622,7 +627,7 @@ peepr1 "Override All Colors" <<<EOT
         --blog-text-color: /*[[black]]*\/ !important;
         --white-on-dark: /*[[whiteondark-rgb]]*\/ !important;
         --black: /*[[black-rgb]]*\/ !important; 
-        --blog-title-color: /*[[black]]*\/ !important;
+        --blog-title-color: /*[[whiteondark]]*\/ !important;
         --blog-title-color-15: rgba(var(--black),.15) !important;
 
         --blog-contrasting-title-color: /*[[black]]*\/ !important;
@@ -687,6 +692,14 @@ peepr1 "Override All Colors" <<<EOT
     body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style] ._l9x2[style],
     body#tumblr div[data-testid="tipping-modal"] {
         background: rgb(var(--navy));
+    }
+
+    /*change blog peeper posts wrapper bg to account for no custom bg*\/
+    body#tumblr .Q05ZE {
+        background: rgba(var(--white-on-dark),0.1)
+    }
+    body#tumblr header.uYpYy {
+        background: none;
     }
     
     /*blogs like this one border fix*\/
@@ -760,10 +773,10 @@ EOT;
 peepr3 "Default" <<<EOT  EOT;
 }
 
-@advanced dropdown alt "Hide Image ALT Label Until Focus/Hover" {
-alt1 "Disabled" <<<EOT  EOT;
-al2 "Enabled" <<<EOT
-/*alt text label over photo will not be visible unless...*\/
+@advanced dropdown alt "Image ALT Label" {
+alt1 "Default" <<<EOT  EOT;
+alt2 "Visible Only On Hover/Focus" <<<EOT
+    /*alt text label over photo will not be visible unless...*\/
     figure.DdFPj > .Vcrhu {
         opacity: 0;
         transition: opacity 0.3s;
@@ -774,6 +787,22 @@ al2 "Enabled" <<<EOT
     figure.DdFPj:focus-within > .Vcrhu,
     body#tumblr article button[aria-label^="Image:"]:focus figure.DdFPj > .Vcrhu {
         opacity: 1;
+    } EOT;
+alt3 "Label Under Image" <<<EOT
+    /*expand alt text wrapper*\/
+    figure.DdFPj > .Vcrhu[style*="width"] {
+        width: 100% !important;
+        box-sizing: border-box;
+        margin: 0 !important;
+        padding: 0;
+    }
+    /*restyle alt text label to be same width as image*\/
+    body#tumblr article .Vcrhu > a.Dt_Mi {
+        font-size: var(--menu-font-size);
+        position: unset;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
     } EOT;
 }
 
@@ -979,6 +1008,10 @@ EOT;
         fill: rgb(var(--quaternary-accent));
         --icon-color-primary: rgb(var(--quaternary-accent)) !important;
     }
+    /*top bar fix new post pencil color*/
+    body#tumblr div.hlDot ._3kR_ .xxqHJ {
+        --icon-color-primary: rgb(var(--tertiary-accent)) !important;
+    }
     /*account settings popover icons color*/
     body#tumblr .hlDot ul.noQqZ.rCo6i svg {
         fill: rgb(var(--accent));
@@ -1167,6 +1200,11 @@ EOT;
     body#tumblr .hAFp3 .AXXSZ > a[style^="color"] svg {
         --icon-color-primary: RGB(var(--green)) !important;
         fill: rgb(var(--green)) !important;
+    }
+    /*post footer in drafts/queue post button hover styling*/
+    body#tumblr footer.tOKgq button[aria-label="Post"]:hover .EvhBA.UUr5c,
+    body#tumblr footer.tOKgq button[aria-label="Post"]:focus .EvhBA.UUr5c{
+        background: rgb(var(--link-hover));
     }
     
     /*follow button styling
@@ -1766,6 +1804,14 @@ EOT;
         margin-top: 0;
         border-radius: 0 0 8px 8px;
     }
+    /*peepr unset height of buttons*/
+    body#tumblr .IMvK3.Z8Ux2[style*="height"] {
+        height: 100% !important;
+        min-height: 40px !important;
+    }
+    body#tumblr #glass-container .F8bg3 > .uk9FI > span.BPf9u:last-child {
+        align-self: center;
+    }
     /*bg color for image alt text textarea*/
     body#tumblr #glass-container .CXPww .JYYzJ {
         background: rgba(var(--black),0.1);
@@ -2180,6 +2226,10 @@ EOT;
         color: rgb(var(--white-on-dark));
         opacity: 0.5;
         transition: opacity 0.3s;
+    }
+    /*post image linked*/
+    body#tumblr article .Pr7R3 .eqBap:hover {
+        background: rgba(var(--link-hover),0.1);
     }
     body#tumblr article .Vcrhu > a.Dt_Mi:hover,
     body#tumblr article .Vcrhu > a.Dt_Mi:focus {
