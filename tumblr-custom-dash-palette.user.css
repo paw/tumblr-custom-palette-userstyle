@@ -351,15 +351,32 @@ bgasidefix1 "Enable" <<<EOT
         1. on blog
         2. in queue/in drafts
         3. on blaze page
+        4. gifts
+        5. purchases
+        6/7. no tags found on tagged page
     *\/
     body#tumblr .R0TWs,
     body#tumblr .j8ha0[data-timeline] .cQqe6,
     body#tumblr .j8ha0[data-timeline] .t3NIG,
     body#tumblr .s9s8Q.gifts,
-    body#tumblr .s9s8Q.purchases {
+    body#tumblr .s9s8Q.purchases,
+    body#tumblr .j8ha0.qr36f[data-timeline] + .pf0It {
         background: rgba(var(--navy),0.92);
         color: rgba(var(--white-on-dark),1);
     }
+    body#tumblr .j8ha0.qr36f[data-timeline] + .pf0It {
+        padding: 0.3em;
+    }
+    /*separated into own blocks jic :has() selector isn't enabled on ff bc it will cause entire section to fail.*\/
+    body#tumblr .j8ha0.qr36f[data-timeline]:has(.sazBU),
+    body#tumblr .So6RQ.YSitt .Y_M3_:has([data-testid="tag-link"]) {
+        background: rgba(var(--navy),0.92);
+        color: rgba(var(--white-on-dark),1);
+        border-radius: 3px;
+    }
+    body#tumblr .So6RQ.YSitt .Y_M3_:has([data-testid="tag-link"]) {
+    padding: 0.3em;
+}
     /*queue time fix*\/
     body#tumblr .FtjPK .AD_w7 > .SirwX {
         background: rgba(var(--navy),0.92);
