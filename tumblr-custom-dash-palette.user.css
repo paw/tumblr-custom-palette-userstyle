@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.6.5
+@version        0.6.6
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -73,6 +73,12 @@ bgasidefix1 "Enable" <<<EOT
     body#tumblr .lSyOz > .NLCTe {
         position: relative;
         z-index: 3;
+    }
+    /*return button
+    blog search*\/
+    body#tumblr .RkANE.r1Zq6 .a5Orv > button[style],
+    body#tumblr .RkANE .DCCfo[style] .tUznf {
+        z-index: 4;
     }
     body#tumblr aside > div {
         border-radius: 3px;
@@ -337,7 +343,8 @@ bgasidefix1 "Enable" <<<EOT
         z-index: 98;
     }
     /*docked post fix z-index*\/
-    body#tumblr .h1D5S.MsxAB {
+    body#tumblr .h1D5S.MsxAB,
+    body#tumblr .GIwnm.ZXjCv {
         z-index:99;
     }
     /*bg fix for no posts:
@@ -634,11 +641,13 @@ peepr1 "Override All Colors" <<<EOT
         7. tipping modal
     *\/
     body#tumblr #glass-container .DCCfo.kXP4L,
-    body#tumblr #glass-container .DCCfo.kXP4L .gJ6yV > div[style],
+    body#tumblr #glass-container .DCCfo.kXP4L .gJ6yV > div[style*="--accent:"],
+    body#tumblr .RkANE > .a5Orv + .DCCfo.ZmMA3[style*="--accent:"],
+    body#tumblr .RkANE .DCCfo.Hmu5M.ZmMA3 .gJ6yV > div[style*="--accent:"],
     body#tumblr .D5eCV > .ZkG01 > ._3xgk > .RkANE > .DCCfo.Hmu5M,
-    body#tumblr .D5eCV > .ZkG01 > ._3xgk > .RkANE.r1Zq6 div[style],
-    body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style],
+    body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style*="--accent:"],
     body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style] ._l9x2[style],
+    body#tumblr .RkANE > .a5Orv + .DCCfo.ZmMA3[style] .vM8CJ div[style*="--accent:"],
     body#tumblr div[data-testid="tipping-modal"] {
         --white: /*[[white-rgb]]*\/ !important;
         --blog-paywall-background-color: /*[[white]]*\/ !important;
@@ -735,6 +744,7 @@ peepr1 "Override All Colors" <<<EOT
     }
     #glass-container div[data-testid="searchWrapper"] button[aria-label="Filter"] .EvhBA > svg,
     #glass-container div[data-testid="searchWrapper"] button[aria-label="Collapse search"] .EvhBA > svg {
+        --icon-color-primary: var(--blog-text-color) !important;
         fill: var(--blog-text-color) !important;
     }
     /*blog view in separate tab replace semi-transparent white with semi-transparent bg color*\/
@@ -747,8 +757,8 @@ peepr1 "Override All Colors" <<<EOT
         background: rgba(var(--navy),0.2);
     }
     /*fix blog suggestion link colors*\/
-    .ZOX9S .wmRou .fTJAC,
-    .ZOX9S .wmRou .gLEkw {
+    body#tumblr .ZOX9S .wmRou .fTJAC,
+    body#tumblr .ZOX9S .wmRou .gLEkw {
         color: rgb(var(--white-on-dark));
     }
     /*fix peepr suggested blogs follow button*\/
@@ -766,9 +776,16 @@ peepr1 "Override All Colors" <<<EOT
     }
     /*change modal close & return buttons*\/
     #glass-container button.TRX6J[aria-label="Close"][style],
-    #glass-container button.TRX6J[aria-label="Return"][style] {
-        background: /*[[navy]]*\/ !important;
-        --icon-color-primary: rgb(/*[[whiteondark-rgb]]*\/) !important;
+    #glass-container button.TRX6J[aria-label="Return"][style],
+    body#tumblr .RkANE.r1Zq6 .a5Orv > button[style] {
+        background: rgb(var(--accent)) !important;
+        --icon-color-primary: rgb(var(--navy)) !important;
+    }
+    /*blog search fix*\/
+    body#tumblr .RkANE .DCCfo[style] div[data-testid="searchWrapper"] input[style],
+    body#tumblr .RkANE .DCCfo[style] div[data-testid="searchWrapper"] button[aria-label] svg {
+        --icon-color-primary: rgb(var(--black)) !important;
+        color: rgb(var(--black)) !important;
     }
 
 EOT;
@@ -805,6 +822,8 @@ peepr2 "Override Posts Only" <<<EOT
         --link-hover: /*[[linkhover-rgb]]*\/ !important; 
         --tertiary-accent: /*[[tertiary-rgb]]*\/ !important; 
         --quaternary-accent: /*[[quaternary-rgb]]*\/ !important;
+
+        --blog-search-background-color: rgba(/*[[whiteondark-rgb]]*\/, 0.15) !important;
     }
     /*subscribe fix*\/
     body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style] {
@@ -813,6 +832,12 @@ peepr2 "Override Posts Only" <<<EOT
     body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style] ._l9x2[style],
     body#tumblr div[data-testid="tipping-modal"] {
         background: rgb(var(--navy));
+    }
+    /*blog search fix*\/
+    body#tumblr .RkANE .DCCfo[style] div[data-testid="searchWrapper"] input[style],
+    body#tumblr .RkANE .DCCfo[style] div[data-testid="searchWrapper"] button[aria-label] svg {
+        --icon-color-primary: rgb(var(--black)) !important;
+        color: rgb(var(--black)) !important;
     }
 EOT;
 peepr3 "Default" <<<EOT  EOT;
@@ -1735,6 +1760,9 @@ EOT;
         margin-bottom: 0;
     }
     /*fix text style dropdown*/
+    body#tumblr .G16EK {
+        font-size: 1em;
+    }
     /*inactive selection + text style dropdown solid bg*/
     body#tumblr .G16EK:not(.EiaN0), body#tumblr .b8emt {
         color: rgb(var(--white));
@@ -1854,8 +1882,9 @@ EOT;
         box-shadow: 0 0 0 1px rgba(var(--black),.07);
     }*/
     /*peepr 'more like this' change header styling to work with custom bgs*/
-    body#tumblr #glass-container .FZkjV > h1.hF8Wr,
-    body#tumblr .RkANE .FZkjV > h1.hF8Wr {
+    body#tumblr #glass-container .DCCfo.kXP4L .gJ6yV > div[style] + .FZkjV .hF8Wr.YkQj_,
+    body#tumblr .RkANE .DCCfo.Hmu5M.ZmMA3 .gJ6yV > div[style] + .FZkjV .hF8Wr.YkQj_,
+    body#tumblr .RkANE .vM8CJ div[style*="--accent:"] ~ .FZkjV .hF8Wr.YkQj_ {
         padding: 10px;
 	    background: var(--color-bluespace-card-background);
 	    border-radius: var(--border-radius-small) var(--border-radius-small) 0 0;
