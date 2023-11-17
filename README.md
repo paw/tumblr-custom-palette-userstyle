@@ -29,9 +29,8 @@ Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-p
   * **Dashboard Tabs** = See screenshot #2. If you're on a newer version of the dashboard, there is now a set of tabs under the post creation tools that allows you to switch between different 'feeds' of posts directly on the dashboard. The defaults are Following and Suggested Posts, but more experimental feeds can be added via Tumblr Labs. The dash shows your Following feed by default, so this option exists to allow you to hide the tabs menu if you don't like it/won't use it.
   * **Layout Fixes for Custom Backgrounds** = Adds solid backgrounds to many sidebar/header elements and pages (ex. the activity page) that don't have them by default.
   * **Modal Color** = The color of the semi-transparent overlay that appears when you open up the post editor, go to delete a post, block someone, etc.
-  * **Menu Hover BG Color** = the bg color that appears when hovering over options in the settings dropdown, as well as when hovering over blogs on the following/followers pages and when hovering over notifications.
-  * **Follower Notifications** = the custom background color for notifications from people you follow.
-  * **Modal Reccomendations** = when clicked to view full size, some images now rarely suggest similar posts directly inside the modal itself underneath the fullsize picture. this toggle gives you the option to hide or show these suggested posts.
+  * **Menus Hover BG Color** = the bg color that appears when hovering over some menu options. Main places it's currently seen is suggested blogs lists, list of blogs, activity popup, activity page, following/followers pages
+  * **Modal Reccomendations** = when clicked to view full size, some images now suggest similar posts directly inside the modal itself underneath the fullsize picture. this toggle gives you the option to hide or show these suggested posts.
   * **Inline Recommendations** = this will hide the following inline recommendations:
       * bonecoin ad / answertime link
       * inline blog suggestions ('check out these blogs')
