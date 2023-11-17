@@ -2606,7 +2606,7 @@ EOT;
     /*xkit rewritten fixes*/
 	
 	/*quick reblog menu fixes*/
-    #quick-reblog .quick-tags button:hover, #quick-reblog .action-buttons:enabled button:hover, body#tumblr .Ut4iZ:not(.veU9u):hover {
+    #quick-reblog .quick-tags button:hover, #quick-reblog .action-buttons:enabled button:hover {
         background-color: rgba(var(--secondary-accent),1) !important;
     }
     body#tumblr .xkit-long-timestamp {
