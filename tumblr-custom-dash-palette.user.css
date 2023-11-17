@@ -412,7 +412,7 @@ bgasidefix1 "Enable" <<<EOT
 @advanced color black "Font Color" #444444
 @advanced color accent "Primary Accent & Links Color" #529ecc
 @advanced color linkhover "Link Hover Color" #14518e
-@advanced color secondary "Settings Menu Hover BG Color" #f0f8ff
+@advanced color secondary "Menus Hover BG Color" #f0f8ff
 @advanced color whiteondark "Secondary Accent" #b9b9b9
 @advanced color tertiary "Top Bar BG Color" #14263e
 @advanced color quaternary "Top Bar Icon Color" #ffffff
@@ -1084,30 +1084,59 @@ EOT;
         background-repeat: var(--bg-repeat);
     }
     /*change bg color of top bar - NOT the header, but its parent */
-    body#tumblr div.hlDot {
+    body#tumblr div.FA5JM {
         background-color: rgb(var(--tertiary-accent))
     }
-	/*top bar svg icons color */
-    body#tumblr .KTRcB .TRX6J .PK7qG > svg,
-    body#tumblr .KTRcB .TRX6J .PK7qG use,
+    /*gradient above post pencil on the new dash style*/
+    body#tumblr .FA5JM .FnmoN::after {
+        background-image: linear-gradient(0deg,rgb(var(--tertiary-accent))0%,rgba(var(--tertiary-accent),.987)8.1%,rgba(var(--tertiary-accent),.951)15.5%,rgba(var(--tertiary-accent),.896)22.5%,rgba(var(--tertiary-accent),.825)29%,rgba(var(--tertiary-accent),.741)35.3%,rgba(var(--tertiary-accent),.648)41.2%,rgba(var(--tertiary-accent),.55)47.1%,rgba(var(--tertiary-accent),.45)52.9%,rgba(var(--tertiary-accent),.352)58.8%,rgba(var(--tertiary-accent),.259)64.7%,rgba(var(--tertiary-accent),.175)71%,rgba(var(--tertiary-accent),.104)77.5%,rgba(var(--tertiary-accent),.049)84.5%,rgba(var(--tertiary-accent),.013)91.9%,transparent 100%);
+    }
+	/*left menu aka old top bar svg icons color */
+    body#tumblr .FA5JM .gM9qK .IYrO9 .kn4U3 svg,
     .xkit--react #xkit_button svg {
         fill: rgb(var(--quaternary-accent));
         --icon-color-primary: rgb(var(--quaternary-accent)) !important;
     }
-    /*top bar fix new post pencil color*/
-    body#tumblr div.hlDot ._3kR_ .xxqHJ {
-        --icon-color-primary: rgb(var(--tertiary-accent)) !important;
+    /*left menu aka old top bar change pencil color*/
+    body#tumblr .FA5JM .jGgIg .ML6ef {
+        background: linear-gradient(115deg, rgb(var(--accent)), rgb(var(--link-hover)));
+        color: RGB(var(--navy));
     }
-    /*account settings popover icons color*/
-    body#tumblr .hlDot ul.noQqZ.rCo6i svg {
-        fill: rgb(var(--accent));
-        --icon-color-primary: rgb(var(--accent)) !important;
+    /*left menu aka old top bar change pencil color on hover*/
+    body#tumblr .FA5JM .jGgIg .ML6ef:hover, body#tumblr .FA5JM .jGgIg .ML6ef:focus {
+        background: linear-gradient(115deg, rgb(var(--quaternary-accent)), rgb(var(--link-hover)));
+        color: RGB(var(--navy));
     }
-    body#tumblr .hlDot ul.noQqZ.rCo6i li:hover svg,
-    body#tumblr .hlDot ul.noQqZ.rCo6i li:focus-within svg {
-        fill: rgb(var(--link-hover));
-        --icon-color-primary: rgb(var(--link-hover)) !important;
+    /*left menu aka old top bar search - fix bg*/
+    body#tumblr .N5wJr {
+        z-index: 10;
+        background-color: rgb(var(--tertiary-accent));
+        height: auto;
+        min-height: 54px;
+        border-radius: 0px;
+        padding: 8px;
     }
+    /*search dropdown fix font sizes*/
+    body#tumblr .N5wJr .Mw2UR .oPa7v .NaqPB,
+    body#tumblr .N5wJr .Mw2UR .CNtNZ,
+    body#tumblr .a132D > .jF6A2 > .jpu7k.jDcIV.SmqzX.D0OOd.XnKJk {
+        font-size: var(--menu-font-size)
+    }
+    /*search dropdown - header sizes*/
+    body#tumblr .N5wJr .Mw2UR .pBLQq {
+        font-size: 1.2em;
+        height: auto;
+    }
+    /*search dropdown - suggested search & followed tags text*/
+    body#tumblr .N5wJr .Mw2UR .gD5c2,
+    body#tumblr .N5wJr .Mw2UR .Cj0nW {
+        font-size: 1em;
+    }
+    /*left menu aka old top bar search - fix color of gradient following it*/
+    body#tumblr .zmjaW {
+        background-image: linear-gradient(180deg,rgb(var(--tertiary-accent))0%,rgba(var(--tertiary-accent),.987)8.1%,rgba(var(--tertiary-accent),.951)15.5%,rgba(var(--tertiary-accent),.896)22.5%,rgba(var(--tertiary-accent),.825)29%,rgba(var(--tertiary-accent),.741)35.3%,rgba(var(--tertiary-accent),.648)41.2%,rgba(var(--tertiary-accent),.55)47.1%,rgba(var(--tertiary-accent),.45)52.9%,rgba(var(--tertiary-accent),.352)58.8%,rgba(var(--tertiary-accent),.259)64.7%,rgba(var(--tertiary-accent),.175)71%,rgba(var(--tertiary-accent),.104)77.5%,rgba(var(--tertiary-accent),.049)84.5%,rgba(var(--tertiary-accent),.013)91.9%,transparent 100%);
+}
+    
     /*acct settings page*/
     body#tumblr .e1knl aside .g44JE a[href="/settings/domains"] span.Rp8gp.Qj_pr[style] {
         display: none;
@@ -2144,35 +2173,32 @@ EOT;
     }
 
     /*style share button colors*/
-    body#tumblr article.FtjPK .AzqQv .Z8bqG {
+    body#tumblr .AzqQv .oea_J .Z8bqG {
         background-color: rgb(var(--tertiary-accent)) !important;
     }
-    body#tumblr article.FtjPK .AzqQv .Z8bqG svg {
-        fill: rgb(var(--quaternary-accent));
+    body#tumblr .AzqQv .oea_J .Z8bqG svg {
+        --icon-color-primary: rgb(var(--quaternary-accent)) !important;
     }
-    body#tumblr article.FtjPK .AzqQv .Z8bqG:hover svg,
-    body#tumblr article.FtjPK .AzqQv button:focus .Z8bqG svg {
-        fill: rgb(var(--black));
+    body#tumblr .AzqQv .oea_J .Z8bqG:hover svg,
+    body#tumblr .AzqQv .oea_J:focus .Z8bqG svg {
+        --icon-color-primary: rgb(var(--black)) !important;
     }
-    /*facebook share*/
-    body#tumblr article.FtjPK .AzqQv button[aria-label="Facebook"] .Z8bqG:hover svg,
-    body#tumblr article.FtjPK .AzqQv button[aria-label="Facebook"]:focus .Z8bqG svg {
-        fill: #3b5998;
-    }
-    /*twitter share*/
-    body#tumblr article.FtjPK .AzqQv button[aria-label="Twitter"] .Z8bqG:hover svg,
-    body#tumblr article.FtjPK .AzqQv button[aria-label="Twitter"]:focus .Z8bqG svg {
-        fill: #55acee;
+    /*facebook & twitter share*/
+    body#tumblr .AzqQv .oea_J[aria-label="Facebook"] .Z8bqG:hover svg,
+    body#tumblr .AzqQv .oea_J[aria-label="Facebook"]:focus .Z8bqG svg,
+    body#tumblr .AzqQv .oea_J[aria-label="Twitter"] .Z8bqG:hover svg,
+    body#tumblr .AzqQv .oea_J[aria-label="Twitter"]:focus .Z8bqG svg {
+        --icon-color-primary: rgb(var(--blue)) !important;
     }
     /*pinterest share*/
-    body#tumblr article.FtjPK .AzqQv button[aria-label="Pinterest"] .Z8bqG:hover svg,
-    body#tumblr article.FtjPK .AzqQv button[aria-label="Pinterest"]:focus .Z8bqG svg {
-        fill: #bd081c;
+    body#tumblr .AzqQv .oea_J[aria-label="Pinterest"] .Z8bqG:hover svg,
+    body#tumblr .AzqQv .oea_Jn[aria-label="Pinterest"]:focus .Z8bqG svg {
+        --icon-color-primary: rgb(var(--red)) !important;
     }
     /*reddit share*/
-    body#tumblr article.FtjPK .AzqQv button[aria-label="Reddit"] .Z8bqG:hover svg,
-    body#tumblr article.FtjPK .AzqQv button[aria-label="Reddit"]:focus .Z8bqG svg {
-        fill: #ff4500;
+    body#tumblr .AzqQv .oea_J[aria-label="Reddit"] .Z8bqG:hover svg,
+    body#tumblr .AzqQv .oea_J[aria-label="Reddit"]:focus .Z8bqG svg {
+        --icon-color-primary: rgb(var(--orange)) !important;
     }
     
     /*messaging fixes*/
@@ -2189,11 +2215,31 @@ EOT;
     body#tumblr button[aria-label="Conversation"] {
         font-size: 16px;
     }
-	/*1st is window holding messages, 2nd is messages parent */
+    /*mini popup that shows list of everyone you're messaging. accessed by clicking message in left menu*/
+    body#tumblr .leMd5 .GyW8v {
+        font-size: var(--menu-font-size);
+    }
+    /*fixes username in mini messaging popup*/
+    body#tumblr .leMd5 .GyW8v .uX3_z {
+        font-size: 1em;
+        line-height: 1.2em;
+    }
+    /*fixes msg preview in mini popup*/
+    body#tumblr .leMd5 .GyW8v .FZe6i {
+        font-size: 0.8em;
+        line-height: 1.4em;
+    }
+	/*1st is window holding messages, 2nd is messages list parent, 3rd is div holding the text of a message */
     body#tumblr .hpABw,
-    body#tumblr .hpABw .vwvdr {
+    body#tumblr .hpABw .vwvdr,
+    body#tumblr .hpABw .CX_9D > div {
         line-height: 1.2em;
         font-size: var(--menu-font-size);
+    }
+    /*messaging timestamp*/
+    body#tumblr .hpABw .vwvdr .cuHJ6 {
+         font-size: 0.75em;
+        line-height: 2em;
     }
     /*blog description at top of messaging window will now scroll so you can read the whole thing*/
 	body#tumblr .b7hYL .X3v32 {
@@ -2205,18 +2251,21 @@ EOT;
 	}
     
     /*messaging icon color fixes*/
-    body#tumblr .cwvO0.QZ6XZ button[aria-label="Gif Search"] svg,
+    body#tumblr .cwvO0.QZ6XZ button[aria-label="GIF Search"] svg,
+     body#tumblr .cwvO0.QZ6XZ button[aria-label="Conversation Menu"] svg,
     body#tumblr .cwvO0.QZ6XZ button[aria-label="Upload an image"] svg,
     body#tumblr .cwvO0.QZ6XZ button[aria-label="Send"] svg {
-        fill: rgb(var(--accent)) !important;
+        --icon-color-primary: rgb(var(--accent));
     }
-    body#tumblr .cwvO0.QZ6XZ button[aria-label="Gif Search"]:hover svg,
-    body#tumblr .cwvO0.QZ6XZ button[aria-label="Gif Search"]:focus svg,
+    body#tumblr .cwvO0.QZ6XZ button[aria-label="GIF Search"]:hover svg,
+    body#tumblr .cwvO0.QZ6XZ button[aria-label="GIF Search"]:focus svg,
+    body#tumblr .cwvO0.QZ6XZ button[aria-label="Conversation Menu"]:hover svg,
+    body#tumblr .cwvO0.QZ6XZ button[aria-label="Conversation Menu"]:focus svg,
     body#tumblr .cwvO0.QZ6XZ button[aria-label="Upload an image"]:hover svg,
     body#tumblr .cwvO0.QZ6XZ button[aria-label="Upload an image"]:focus svg,
     body#tumblr .cwvO0.QZ6XZ button[aria-label="Send"]:not(:disabled):hover svg,
     body#tumblr .cwvO0.QZ6XZ button[aria-label="Send"]:not(:disabled):focus svg {
-        fill: rgb(var(--link-hover)) !important;
+        --icon-color-primary: rgb(var(--link-hover));
     }
 
     /*~~~*/
@@ -2557,8 +2606,8 @@ EOT;
     /*xkit rewritten fixes*/
 	
 	/*quick reblog menu fixes*/
-    #quick-reblog .quick-tags button:hover, #quick-reblog .action-buttons:enabled button:hover {
-        background-color: rgba(var(--secondary-accent),0.1) !important;
+    #quick-reblog .quick-tags button:hover, #quick-reblog .action-buttons:enabled button:hover, body#tumblr .Ut4iZ:not(.veU9u):hover {
+        background-color: rgba(var(--secondary-accent),1) !important;
     }
     body#tumblr .xkit-long-timestamp {
         height: auto !important;
