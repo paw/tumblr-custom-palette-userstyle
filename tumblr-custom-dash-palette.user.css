@@ -414,8 +414,8 @@ bgasidefix1 "Enable" <<<EOT
 @advanced color linkhover "Link Hover Color" #14518e
 @advanced color secondary "Menus Hover BG Color" #f0f8ff
 @advanced color whiteondark "Secondary Accent" #b9b9b9
-@advanced color tertiary "Top Bar BG Color" #14263e
-@advanced color quaternary "Top Bar Icon Color" #ffffff
+@advanced color tertiary "Left Menu BG Color" #14263e
+@advanced color quaternary "Left Menu Icon Color" #ffffff
 @advanced color modal "Modal BG" #050e1e
 
 @advanced color red "Red" #FF492F
