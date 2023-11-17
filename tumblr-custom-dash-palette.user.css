@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.6.6
+@version        0.6.7
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -416,7 +416,6 @@ bgasidefix1 "Enable" <<<EOT
 @advanced color whiteondark "Secondary Accent" #b9b9b9
 @advanced color tertiary "Top Bar BG Color" #14263e
 @advanced color quaternary "Top Bar Icon Color" #ffffff
-@advanced color follow "Notifications From Followed Blogs BG Color" #e7f7e9
 @advanced color modal "Modal BG" #050e1e
 
 @advanced color red "Red" #FF492F
@@ -660,8 +659,8 @@ peepr1 "Override All Colors" <<<EOT
     body#tumblr #glass-container .DCCfo.kXP4L,
     body#tumblr #glass-container .DCCfo.kXP4L .gJ6yV > div[style*="--accent:"],
     body#tumblr .RkANE > .a5Orv + .DCCfo.ZmMA3[style*="--accent:"],
-    body#tumblr .RkANE .DCCfo.Hmu5M.ZmMA3 .gJ6yV > div[style*="--accent:"],
-    body#tumblr .D5eCV > .ZkG01 > ._3xgk > .RkANE > .DCCfo.Hmu5M,
+    body#tumblr .RkANE .DCCfo .gJ6yV > div[style*="--accent:"],
+    body#tumblr .D5eCV > .ZkG01 > ._3xgk > .RkANE > .DCCfo,
     body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style*="--accent:"],
     body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style] ._l9x2[style],
     body#tumblr .RkANE > .a5Orv + .DCCfo.ZmMA3[style] .vM8CJ div[style*="--accent:"],
@@ -679,7 +678,6 @@ peepr1 "Override All Colors" <<<EOT
 
         --blog-contrasting-title-color: /*[[black]]*\/ !important;
         --blog-contrasting-link-color: /*[[whiteondark]]*\/ !important;
-        --follow: /*[[secondary-rgb]]*\/ !important;
 
         --blog-border-color: rgba(var(--white-on-dark),.25) !important;
         
@@ -1075,7 +1073,6 @@ EOT;
 
         --post-controls-scale: /*[[editorsize]]*/;
         --modal: /*[[modal-rgb]]*/;
-        --follow: /*[[follow-rgb]]*/; /*notifications from followers*/
     }
     
     /*custom background  */
@@ -1348,9 +1345,15 @@ EOT;
         color: rgb(var(--white)) !important;
         vertical-align: middle;
     }
+    /*mutuals label*/
     body#tumblr .ZbEyz {
         color: rgba(var(--accent),1);
         background-color: rgba(var(--accent),0.2);
+    }
+    /*following label*/
+    body#tumblr .f4Y1Y {
+	    color: rgba(var(--green),1);
+        background-color: rgba(var(--green),0.2);
     }
     /*text alignment fix for new search page follow blog button */
     body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED {
