@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.6.7
+@version        0.6.8
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -75,9 +75,11 @@ bgasidefix1 "Enable" <<<EOT
         z-index: 3;
     }
     /*return button
-    blog search*\/
+    blog search
+    tagged page sidebar*\/
     body#tumblr .RkANE.r1Zq6 .a5Orv > button[style],
-    body#tumblr .RkANE .DCCfo[style] .tUznf {
+    body#tumblr .RkANE .DCCfo[style] .tUznf,
+    body#tumblr .YOf31.FLoBV {
         z-index: 4;
     }
     body#tumblr aside > div {
@@ -404,16 +406,53 @@ bgasidefix1 "Enable" <<<EOT
     body#tumblr .Q05ZE {
         background: var(--blog-background-color);
     }
+    /*fix text color of right sidebar elements
+    1. entire aside
+    2. 
+    3.
+    4.
+    *\/
+    .e1knl aside,
+    .Vt7qF,
+    .nWTbj,
+    .Vt7qF .jk3gM.VsKKv,
+    .xkit-sidebar-item li {
+        color: rgb(var(--black))
+    }
+    .Vt7qF .KlOKT,
+    .xkit-sidebar-item li .count {
+        color: rgb(var(--accent))
+    }
+    .Vt7qF .jk3gM svg {
+        --icon-color-primary: rgb(var(--accent)) !important;
+    }
+    .Vt7qF .jk3gM svg path {
+        stroke: rgb(var(--accent)) !important;
+    }
+    
     EOT;
+}
+
+@advanced dropdown otdpixiel "Compatibility Fixes for Old Tumblr Dashboard by Pixiel" {
+otdpixiel1 "Disabled" <<<EOT EOT;
+otdpixiel2 "Enabled" <<<EOT 
+    body#tumblr .N5wJr {
+        background: none;
+        padding-top: 14px;
+    }
+    body#tumblr .zmjaW {
+        display: none;
+    }
+EOT;
 }
 
 @advanced color navy "Background Color" #36465d
 @advanced color white "Posts Color" #ffffff
-@advanced color black "Font Color" #444444
+@advanced color black "Font Color" #212121
 @advanced color accent "Primary Accent & Links Color" #529ecc
 @advanced color linkhover "Link Hover Color" #14518e
 @advanced color secondary "Menus Hover BG Color" #f0f8ff
-@advanced color whiteondark "Secondary Accent" #b9b9b9
+@advanced color whiteondark "Secondary Accent" #c4c4c4
 @advanced color tertiary "Left Menu BG Color" #14263e
 @advanced color quaternary "Left Menu Icon Color" #ffffff
 @advanced color modal "Modal BG" #050e1e
@@ -1097,24 +1136,40 @@ EOT;
         fill: rgb(var(--quaternary-accent));
         --icon-color-primary: rgb(var(--quaternary-accent)) !important;
     }
+    /*left menu aka old top bar svg icons color */
+    body#tumblr .FA5JM .gM9qK .IYrO9:hover .kn4U3 svg,
+    body#tumblr .FA5JM .gM9qK .IYrO9:focus-within .kn4U3 svg,
+    .xkit--react #xkit_button svg:hover {
+        fill: rgb(var(--accent));
+        --icon-color-primary: rgb(var(--accent)) !important;
+    }
     /*left menu aka old top bar change pencil color*/
     body#tumblr .FA5JM .jGgIg .ML6ef {
-        background: linear-gradient(115deg, rgb(var(--accent)), rgb(var(--link-hover)));
-        color: RGB(var(--navy));
+        background: rgb(var(--accent));
+        color: RGB(var(--post));
     }
     /*left menu aka old top bar change pencil color on hover*/
     body#tumblr .FA5JM .jGgIg .ML6ef:hover, body#tumblr .FA5JM .jGgIg .ML6ef:focus {
-        background: linear-gradient(115deg, rgb(var(--quaternary-accent)), rgb(var(--link-hover)));
-        color: RGB(var(--navy));
+        background: rgb(var(--quaternary-accent));
+    }
+    /*left menu aka old top bar - new post count icon*/
+    body#tumblr .FA5JM .jDcIV {
+        color: rgb(var(--tertiary-accent))
     }
     /*left menu aka old top bar search - fix bg*/
     body#tumblr .N5wJr {
         z-index: 10;
-        background-color: rgb(var(--tertiary-accent));
         height: auto;
         min-height: 54px;
         border-radius: 0px;
         padding: 8px;
+    }
+    /*left menu aka old top bar - fix font color*/
+    body#tumblr .FA5JM .IYrO9 {
+        color: rgba(var(--quaternary-accent),0.8);
+    }
+    body#tumblr .FA5JM .IYrO9:hover, body#tumblr .FA5JM .IYrO9:focus-within {
+        color: rgba(var(--quaternary-accent),1);
     }
     /*search dropdown fix font sizes*/
     body#tumblr .N5wJr .Mw2UR .oPa7v .NaqPB,
@@ -1123,7 +1178,7 @@ EOT;
         font-size: var(--menu-font-size)
     }
     /*search dropdown - header sizes*/
-    body#tumblr .N5wJr .Mw2UR .pBLQq {
+    body#tumblr .N5wJr .Mw2UR .pBLQq.pvZtw {
         font-size: 1.2em;
         height: auto;
     }
@@ -1132,11 +1187,23 @@ EOT;
     body#tumblr .N5wJr .Mw2UR .Cj0nW {
         font-size: 1em;
     }
-    /*left menu aka old top bar search - fix color of gradient following it*/
-    body#tumblr .zmjaW {
-        background-image: linear-gradient(180deg,rgb(var(--tertiary-accent))0%,rgba(var(--tertiary-accent),.987)8.1%,rgba(var(--tertiary-accent),.951)15.5%,rgba(var(--tertiary-accent),.896)22.5%,rgba(var(--tertiary-accent),.825)29%,rgba(var(--tertiary-accent),.741)35.3%,rgba(var(--tertiary-accent),.648)41.2%,rgba(var(--tertiary-accent),.55)47.1%,rgba(var(--tertiary-accent),.45)52.9%,rgba(var(--tertiary-accent),.352)58.8%,rgba(var(--tertiary-accent),.259)64.7%,rgba(var(--tertiary-accent),.175)71%,rgba(var(--tertiary-accent),.104)77.5%,rgba(var(--tertiary-accent),.049)84.5%,rgba(var(--tertiary-accent),.013)91.9%,transparent 100%);
-}
-    
+    /*left menu aka old top bar search - fix bg*/
+    body#tumblr .N5wJr {
+        z-index: 10;
+        background-color: rgb(var(--navy));
+        height: auto;
+        min-height: 54px;
+        border-radius: 0px;
+        padding: 8px;
+    }
+    /*posts - removing semi-transparent font in post headers because i don't like it
+        1. post header timestamp
+        2. post header 'reblogged'
+        3. new post type bar - text under icons
+    */
+    body#tumblr article .M_e0U, body#tumblr article .WJ6ij.KwsKc, body#tumblr .wttFd .FOqaP {
+        color: rgb(var(--black))
+    }
     /*acct settings page*/
     body#tumblr .e1knl aside .g44JE a[href="/settings/domains"] span.Rp8gp.Qj_pr[style] {
         display: none;
@@ -1193,10 +1260,13 @@ EOT;
     body#tumblr #blaze-post-title + ._I4db .ws4bG {
         font-size: var(--menu-font-size);
     }
-    /*dashboard tabs fix chevron size*/
-    body#tumblr main.O4V_R > .ZaYRY .WojaA .hXMYF {
-        font-size: 16px;
+    /*dashboard tabs fix font color of settings svg and l/r chevrons*/
+    body#tumblr .KO5EN svg,
+    body#tumblr .vli36 a > svg {
+        --icon-color-primary: rgb(var(--white-on-dark));
+        opacity: 1;
     }
+    
     /*[[dashtabs]]*/
     /*fix issue with "my tags" popover border styling*/
     hr + .tBdaa {
@@ -1208,7 +1278,7 @@ EOT;
         fill: rgb(var(--black))
     }
     body#tumblr article button[aria-label="More options"] svg {
-        fill: rgb(var(--link-hover))
+        --icon-color-primary: rgb(var(--link-hover))
     }
     body#tumblr article header .KFWnx {
         align-items: start;
@@ -2012,6 +2082,14 @@ EOT;
 
     /*minor bugfixes*/
     
+    /*hovering over poll options color fix*/
+    body#tumblr .GhhyY.SHz7w:hover .VVJno, body#tumblr .GhhyY.SHz7w:focus .VVJno {
+        color: rgb(var(--white));
+    }
+    body#tumblr .GhhyY.SHz7w:focus {
+        background: rgb(var(--accent))
+    }
+    
     /*make sure that you can see all suggested blogs when your font is larger than 16px*/
     body#tumblr ul[aria-label="Check out these blogs"],
     body#tumblr aside .PwJi6,
@@ -2358,7 +2436,7 @@ EOT;
     2. post reblogged icon by username svg color change
     */
     .TRX6J.rlv6m[aria-label="Notes"] svg path[fill="#ffffff"],
-    body#tumblr article .qgvik .CvcGO {
+    body#tumblr .CvcGO {
         fill: rgb(var(--white)) !important;
         --icon-color-accent: rgb(var(--white)) !important;
     }
@@ -2399,6 +2477,18 @@ EOT;
         display: block;
         padding: 6px 12px 11px;
         background-color:  rgba(var(--white-on-dark),0.1);
+    }
+    /*like what you see? popup*/
+    .YSVS3 {
+        display: none;
+        background-color: rgb(var(--tertiary-accent));
+        color: rgb(var(--white-on-dark));
+    }
+    .YSVS3:before {
+        border-color: transparent rgb(var(--tertiary-accent)) rgb(var(--tertiary-accent)) transparent;
+    }
+    .YSVS3:after {
+        border-color: transparent transparent rgb(var(--tertiary-accent)) rgb(var(--tertiary-accent));
     }
     /*alt text label over photo restyling*/
     body#tumblr article .Vcrhu > a.Dt_Mi {
@@ -2602,6 +2692,8 @@ EOT;
     }
     
 	/*~~~*/
+    
+    /*[[otdpixiel]]*/
 	
     /*xkit rewritten fixes*/
 	
