@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.6.8
+@version        0.6.9
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -168,6 +168,7 @@ bgasidefix1 "Enable" <<<EOT
         19. blaze page blog dropdown
         20. blaze page title
         21. div holding suggested tags on /tagged/ page
+        22. q&a page 'live now'
     *\/
     body#tumblr main.FdbiI > .qF_aN,
     body#tumblr .gPQR5 > .lSyOz > .usqcu,
@@ -190,7 +191,8 @@ bgasidefix1 "Enable" <<<EOT
     body#tumblr main.jFZSo > .xOkYn,
     body#tumblr .e1knl .u0h7H.axfMS, /*blaze page blog dropdown*\/
     body#tumblr #blaze-post-title,
-    body#tumblr .ovT1K {
+    body#tumblr .ovT1K,
+    body#tumblr .zKC5L.P39Zg .EXJlM {
         background: rgb(var(--navy));
         padding: 0.2em;
         border-radius: 3px;
@@ -210,11 +212,13 @@ bgasidefix1 "Enable" <<<EOT
     #blaze-post-title::before {
         padding: 0.2em;
     }
-    /*blaze page blog dropdown fix z-index + styling*\/
+    /*1. blaze page blog dropdown fix z-index + styling
+      2. fix z-index of post controls
+    *\/
     body#tumblr .e1knl .u0h7H.axfMS {
         padding: 0;
     }
-    body#tumblr .e1knl .u0h7H.axfMS .ybmTG {
+    body#tumblr .e1knl .u0h7H.axfMS .ybmTG, body#tumblr .W9hfZ .ybmTG {
         z-index: 4;
     }
     /*post plus full width header*\/
@@ -330,9 +334,9 @@ bgasidefix1 "Enable" <<<EOT
         text-align: center;
     }
     /*answertime container link fix*\/
-    body#tumblr .j8ha0 > div > .So6RQ:not([data-id]):first-child .ge_yK {
+    body#tumblr .j8ha0 .zAlrA .So6RQ.YSitt .ge_yK .c79Av:not(:has(article)) {
         background: RGB(var(--navy));
-        border-radius: 6px;
+        border-radius: 0.2em;
         overflow: hidden;
     }
     /*docked post fix overlay bg*\/
@@ -514,12 +518,16 @@ EOT;
 sidebarblogs1 "Hide" <<<EOT 
     /*hide suggested blogs in sidebar while still showing blog stats*\/
     body#tumblr aside > .N5wJr + .zmjaW + .FZkjV h1.hF8Wr.YkQj_,
+    body#tumblr aside > .N5wJr + .zmjaW + .FZkjV div[class=""] h1.hF8Wr,
     body#tumblr aside > .N5wJr + .zmjaW + .FZkjV ul[aria-label="Check out these blogs"],
     body#tumblr aside > .N5wJr + .zmjaW + .FZkjV a.I_SFh[href="/explore"] {
         display: none;
     }
     body#tumblr aside > .N5wJr + .zmjaW + .FZkjV {
         margin-bottom: 0;
+    }
+    body#tumblr aside > .N5wJr + .zmjaW + .FZkjV div[class=""]:empty + aside {
+        margin-bottom: 38px;
     }
 EOT;
 sidebarblogs2 "Show" <<<EOT  EOT;
@@ -628,7 +636,7 @@ EOT;
 dashtabs1 "Show" <<<EOT  EOT;
 dashtabs2 "Hide" <<<EOT 
     /* hide dashboard tabs *\/
-    body#tumblr main.O4V_R > .Dk06o.X4W3M.tMMUn {
+    body#tumblr main.O4V_R > .Dk06o.X4W3M {
         display: none !important;
     }
     /* make sure icon doesn't move *\/
@@ -646,13 +654,15 @@ inlinesuggest2 "Hide" <<<EOT
         4. tag recommedations on /tagged/ pages
         5. bonecoin ad / answertime link
         6. 'more like this'
+        7. 'owo whats this' (changes on tumblr / staff picks / trending)
     *\/
     body#tumblr .So6RQ > .ge_yK > .H14Pr.kDCXR,
     body#tumblr .So6RQ > .ge_yK > .HphhS,
     body#tumblr .So6RQ > .ge_yK > .Oii0L.kDCXR,
     body#tumblr .So6RQ > .ge_yK > .sKf2H > .luqhx > ._3fYLM,
-    body#tumblr .j8ha0 > div > .So6RQ:not([data-id]):first-child .ge_yK,
-    body#tumblr .So6RQ + .So6RQ > .ge_yK > .hMigf {
+    body#tumblr .j8ha0 .zAlrA .So6RQ.YSitt .ge_yK .c79Av:not(:has(article)),
+    body#tumblr .So6RQ + .So6RQ > .ge_yK > .hMigf,
+    body#tumblr .j8ha0 .zAlrA .So6RQ.YSitt .ge_yK > .q1ZAL {
         display: none !important;
     } EOT;
 inlinesuggest1 "Show" <<<EOT  EOT;
@@ -831,6 +841,7 @@ peepr1 "Override All Colors" <<<EOT
     /*change modal close & return buttons*\/
     #glass-container button.TRX6J[aria-label="Close"][style],
     #glass-container button.TRX6J[aria-label="Return"][style],
+    #glass-container button.TRX6J[aria-label="Back to top"][style],
     body#tumblr .RkANE.r1Zq6 .a5Orv > button[style] {
         background: rgb(var(--accent)) !important;
         --icon-color-primary: rgb(var(--navy)) !important;
@@ -1014,64 +1025,6 @@ blazeit2 "Hide" <<<EOT
     body#tumblr .EWtXS {
         display: none;
     } EOT;
-}
-
-@advanced dropdown oldfooter 'Old post footer styling'{
-oldfooter1 "Disabled" <<<EOT 
-/*xkit footer timestamp general fix*\/
-    body#tumblr footer.tOKgq:not(.eIaSl) .gstmW:empty + .xkit-timestamp {
-        margin-left: var(--post-padding);
-    }
-EOT;
-oldfooter2 "Enabled" <<<EOT 
-/*footer*\/
-body#tumblr footer.tOKgq .m5KTc {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px var(--post-padding) var(--post-padding);
-}
-/*footer - all children have equal padding*\/
-body#tumblr footer.tOKgq .m5KTc > * {
-    padding: 5px 0;
-}
-/*footer - notes container*\/
-body#tumblr footer.tOKgq .m5KTc .gstmW {
-    display: inline-flex;
-}
-/*footer - post controls*\/
-body#tumblr .m5KTc .MCavR {
-    justify-content: flex-end;
-    margin: 0 0 0 auto;
-    border-top: none;
-    display: inline-flex;
-    padding: 5px 0;
-}
-/*footer - even post controls buttons margins + fix xkit quick tags margin*\/
-body#tumblr .m5KTc .MCavR .sfGru, .MCavR .xkit-quick-tags-button {
-    margin: 0 12px;
-}
-/*footer - remove unnecessary right padding on last post control button*\/
-body#tumblr .m5KTc .MCavR .sfGru:last-child {
-    margin-right: 0;
-}
-/*xkit timestamp fix specifically for this footer style*\/
-body#tumblr footer.tOKgq .gstmW:empty + .xkit-timestamp {
-    margin-left: 0 !important;
-}
-/*post footer text overflow fix for issue with large amount of notes*\/
-body#tumblr footer[aria-label="Post Footer"] .BPf9u[data-testid="controlled-popover-wrapper"],
-body#tumblr footer[aria-label="Post Footer"] .BPf9u[data-testid="controlled-popover-wrapper"] > .BPf9u {
-    max-width: 100%;
-}
-body#tumblr footer[aria-label="Post Footer"] .BPf9u[data-testid="controlled-popover-wrapper"] .TRX6J[aria-label="Notes"] .WNEhC + span {
-    overflow: hidden;
-    white-space: nowrap;
-    max-width: 100%;
-    text-overflow: ellipsis;
-}
-EOT;
-
 }
 
 ==/UserStyle== */
@@ -1526,8 +1479,6 @@ EOT;
     /*[[compactblockedpost]]*/
     
     /*[[jumpbtn]]*/
-    
-    /*[[oldfooter]]*/
     
     /*modal bg color*/
     body#tumblr button.SaLOl span.ZUy1d, body#tumblr .SaLOl[tabindex="-1"] {
@@ -2576,6 +2527,10 @@ EOT;
         box-shadow: 5px 5px 0px rgba(0,0,0,0.4);
         color: rgb(var(--white));
     }
+    /*explore page dropdown 'More' chevron fix*/
+    body#tumblr .vBp1h .WojaA .hXMYF {
+        line-height: 16px;
+    }
     /*tumblr blaze icon*/
     /*tumblr blaze icon colors*/
     button.TRX6J[aria-label="Blaze"] svg {
@@ -2719,7 +2674,7 @@ EOT;
         background-color: rgba(var(--orange), 0.2) !important;
     }
     /*change quick reblog menu color to be green to match post footer reblogged icon color*/
-    #quick-reblog button[data-state="published"] {
+    body#tumblr #quick-reblog button[data-state="published"] {
         color: rgb(var(--green));
     }
     /*change quick reblog successful post icon color to match green post button color in the menu*/
