@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.6.9
+@version        0.6.10
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -499,8 +499,8 @@ followlabel2 "Show" <<<EOT  EOT;
 @advanced dropdown radar "Radar" {
 radar1 "Show" <<<EOT  EOT;
 radar2 "Hide (Compatible W/ New XKit Sidebar)" <<<EOT 
-    body#tumblr aside > .N5wJr + .zmjaW + .FZkjV + .FZkjV,
-    body#tumblr aside > .N5wJr + .zmjaW + .FZkjV + #xkit-sidebar + .FZkjV {
+    body#tumblr aside > .N5wJr + .zmjaW ~ .FZkjV + .FZkjV,
+    body#tumblr aside > .N5wJr + .zmjaW ~ .FZkjV + #xkit-sidebar + .FZkjV {
         display: none;
     } EOT;
 }
@@ -516,17 +516,17 @@ EOT;
 
 @advanced dropdown sidebarblogs "Sidebar Blog Recommendations" {
 sidebarblogs1 "Hide" <<<EOT 
-    /*hide suggested blogs in sidebar while still showing blog stats*\/
-    body#tumblr aside > .N5wJr + .zmjaW + .FZkjV h1.hF8Wr.YkQj_,
-    body#tumblr aside > .N5wJr + .zmjaW + .FZkjV div[class=""] h1.hF8Wr,
-    body#tumblr aside > .N5wJr + .zmjaW + .FZkjV ul[aria-label="Check out these blogs"],
-    body#tumblr aside > .N5wJr + .zmjaW + .FZkjV a.I_SFh[href="/explore"] {
+    /*hide suggested blogs in sidebar while still showing blog stats.*\/
+    body#tumblr aside > .N5wJr + .zmjaW ~ .FZkjV h1.hF8Wr.YkQj_,
+    body#tumblr aside > .N5wJr + .zmjaW ~ .FZkjV div[class=""] h1.hF8Wr,
+    body#tumblr aside > .N5wJr + .zmjaW ~ .FZkjV ul[aria-label="Check out these blogs"],
+    body#tumblr aside > .N5wJr + .zmjaW ~ .FZkjV a.I_SFh[href="/explore"] {
         display: none;
     }
-    body#tumblr aside > .N5wJr + .zmjaW + .FZkjV {
+    body#tumblr aside > .N5wJr + .zmjaW ~ .FZkjV {
         margin-bottom: 0;
     }
-    body#tumblr aside > .N5wJr + .zmjaW + .FZkjV div[class=""]:empty + aside {
+    body#tumblr aside > .N5wJr + .zmjaW ~ .FZkjV div[class=""]:empty + aside {
         margin-bottom: 38px;
     }
 EOT;
