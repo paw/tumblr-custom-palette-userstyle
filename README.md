@@ -1,27 +1,42 @@
 # Tumblr – Custom Dashboard Palette
 
-**Use it alongside [Old Tumblr Dashboard (2023) by Pixiel](https://userstyles.world/style/11286/old-tumblr-dashboard-2023) to get the old dashboard layout back.**
+### **Use alongside [Old Tumblr Dashboard (2023) by Pixiel](https://userstyles.world/style/11286/old-tumblr-dashboard-2023) to get the old dashboard layout back.**
 
-Just a simple userstyle for setting custom colors, font size, and font family for the tumblr dashboard. This theme will update automatically when I make changes to the code here on github if you have auto update enabled in Stylus. The default theme is inspired by the old dashboard and uses its old blue hue. [Skip directly to installation instructions.](#how-to-install)
+## About
+Just a simple userstyle for setting custom colors, font sizes, and font family for the tumblr dashboard. Supports full and tiling backgrounds.
 
-[![Screenshot of default theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/defaultpreview.png)\
-Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/defaultpreview.png)
+This theme will update automatically when I make changes to the code here on github if you have auto update enabled in Stylus. The default theme is inspired by the old dashboard and uses its old blue hue.
 
+[Click here to skip directly to installation instructions.](#how-to-install)
 
-[![Screenshot of my personal theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/mythemepreview.png)\
-Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/mythemepreview.png)
+## Screenshots (Updated Jun. 2024)
 
-[![Screenshot of a custom theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/custompalettepreview.png)\
-Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/custompalettepreview.png)
+Default theme:
+[![Screenshot of default theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/tumblr_default.png)\
+Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/tumblr_default.png)
 
-[![Screenshot of the tagged dragons page with a custom theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/taggedpage.png)\
-Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/taggedpage.png)
+This style is also compatible with [Old Tumblr Dashboard by Pixiel](https://userstyles.world/style/11286/old-tumblr-dashboard-2023):
+[![Screenshot of default theme plus Old Tumblr Dashboard by Pixiel.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/tumblr_default_old.png)\
+Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/tumblr_default_old.png)
+
+Custom example #1:
+[![Screenshot of my personal theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/tumblr_custom_1.png)\
+Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/tumblr_custom_1.png)
+
+Custom example #2:
+[![Screenshot of a custom theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/tumblr_custom_2.png)\
+Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/tumblr_custom_2.png)
+
+Custom example #3:
+[![Screenshot of the tagged dragons page with a custom theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/tumblr_custom_3.png)\
+Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/tumblr_custom_3.png)
 
 ## How to Install:
 1. Get the userstyle manager [Stylus](https://github.com/openstyles/stylus#readme), if you don't already have it.
 2. Click [this link](https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css) to view the raw user.css or install it through the [Userstyles.world Mirror](https://userstyles.world/style/192/tumblr-custom-dashboard-palette), which will automatically open it in Stylus for you to review.
 3. Click 'Install Style', and leave 'Check for Updates' checked for automatic updates.
 4. Customize away! If you don't know how to customize styles, check out [these](https://github.com/openstyles/stylus/wiki/Usercss#how-do-i-customize-usercss) [pages](https://github.com/openstyles/stylus/wiki/Popup#interface).
+5. If installing with [Old Tumblr Dashboard (2023) by Pixiel](https://userstyles.world/style/11286/old-tumblr-dashboard-2023), don't forget to enable the old dashboard compatibility fixes.
 
 ### Notes:
 * This style will only change the look of the beta post editor, the new dashboard, and any other pages that have been updated to use the new layout.
