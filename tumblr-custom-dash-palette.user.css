@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.6.10
+@version        0.6.11
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -1065,6 +1065,9 @@ blazeit2 "Hide" <<<EOT
 
         --post-controls-scale: /*[[editorsize]]*/;
         --modal: /*[[modal-rgb]]*/;
+        
+        --color-primary-link: rgb(var(--accent));
+        --deprecated-accent: var(--accent);
     }
     
     /*custom background  */
@@ -1099,15 +1102,25 @@ blazeit2 "Hide" <<<EOT
     /*left menu aka old top bar change pencil color*/
     body#tumblr .FA5JM .jGgIg .ML6ef {
         background: rgb(var(--accent));
-        color: RGB(var(--post));
+        color: RGB(var(--navy));
     }
     /*left menu aka old top bar change pencil color on hover*/
     body#tumblr .FA5JM .jGgIg .ML6ef:hover, body#tumblr .FA5JM .jGgIg .ML6ef:focus {
         background: rgb(var(--quaternary-accent));
     }
-    /*left menu aka old top bar - new post count icon*/
-    body#tumblr .FA5JM .jDcIV {
-        color: rgb(var(--tertiary-accent))
+    /*make sure number badges aren't too big*/
+    body#tumblr header._3kR_ .jpu7k.D0OOd.XnKJk,
+    body#tumblr .a132D > .jF6A2 > .jpu7k.jDcIV.SmqzX.D0OOd[role="status"],
+    body#tumblr .jpu7k {
+        font-family: "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+        font-size: 16px;
+    }
+    /*new posts badge and activity badge bg fix*/
+    body#tumblr .a132D > .jF6A2 > .jpu7k.jDcIV.SmqzX.D0OOd[role="status"],
+    body#tumblr .jpu7k {
+        background-color: rgb(var(--accent));
+        color: rgb(var(--tertiary-accent));
+        border-color: rgb(var(--tertiary-accent));
     }
     /*left menu aka old top bar search - fix bg*/
     body#tumblr .N5wJr {
@@ -1158,7 +1171,9 @@ blazeit2 "Hide" <<<EOT
         color: rgb(var(--black))
     }
     /*acct settings page*/
-    body#tumblr .e1knl aside .g44JE a[href="/settings/domains"] span.Rp8gp.Qj_pr[style] {
+    /*hide 'new' on domains and go-ad free button*/
+    body#tumblr .e1knl aside .g44JE a[href="/settings/domains"] span.Rp8gp.Qj_pr[style],
+    body#tumblr aside button.HOjIH {
         display: none;
     }
     /*account settings popover locked blog icon*/
@@ -1325,6 +1340,11 @@ blazeit2 "Hide" <<<EOT
     body#tumblr .X1uIE.XLZRW.v_1X3:hover, body#tumblr .X1uIE.XLZRW.v_1X3:focus {
         color: rgb(var(--red)) !important;
         background-color: rgba(var(--red), 0.2) !important;
+    }
+    /*post options menu copy link bg*/
+    body#tumblr .X1uIE.tVEfy:hover, body#tumblr .X1uIE.tVEfy:focus {
+        color: rgb(var(--green)) !important;
+        background-color: rgba(var(--green), 0.2) !important;
     }
     /*fix tag focus color*/
     body#tumblr .hAFp3 a.KSDLH:focus {
@@ -1514,6 +1534,18 @@ blazeit2 "Hide" <<<EOT
     }
     body#tumblr #glass-container .XP0zm .rTiqc .k_NeV {
         align-self: center;
+    }
+    /*polls*/
+    body#tumblr .VVJno {
+        color: rgb(var(--accent))
+    }
+    body#tumblr .GhhyY.SHz7w {
+        border-color:  rgb(var(--accent));
+        background-color: rgba(var(--link-hover),0.05)
+    }
+    body#tumblr .GhhyY.SHz7w:hover,
+    body#tumblr .GhhyY.SHz7w:focus {
+        background-color: rgba(var(--link-hover),1)
     }
     
     /*change rainbow text colors to custom colors*/
@@ -2033,7 +2065,8 @@ blazeit2 "Hide" <<<EOT
 
     /*minor bugfixes*/
     
-    /*hovering over poll options color fix*/
+    /*overwriting --depreciated-accent vars...*/
+    /*...for polls*/
     body#tumblr .GhhyY.SHz7w:hover .VVJno, body#tumblr .GhhyY.SHz7w:focus .VVJno {
         color: rgb(var(--white));
     }
@@ -2065,10 +2098,11 @@ blazeit2 "Hide" <<<EOT
     body#tumblr header._3kR_ span.BPf9u {
         display: block;
     }
-    /*make sure new posts number isn't too big in top bar*/
-    body#tumblr header._3kR_ .jpu7k.D0OOd.XnKJk {
-        font-family: "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
-        font-size: 16px;
+    body#tumblr .a132D:hover > .jF6A2 > .jpu7k.jDcIV.SmqzX.D0OOd[role="status"],
+    body#tumblr .a132D:focus-within > .jF6A2 > .jpu7k.jDcIV.SmqzX.D0OOd[role="status"],
+    body#tumblr #glass-container .tosY3 button.TRX6J.AHkyw:hover .jpu7k,
+    body#tumblr #glass-container .tosY3 button.TRX6J.AHkyw:focus .jpu7k {
+        background-color: RGB(var(--link-hover));
     }
     /*make sure blaze page doesn't overwrite custom colors*/
     body#tumblr header._3kR_ .jpu7k.D0OOd.XnKJk[role="status"] {
@@ -2076,7 +2110,7 @@ blazeit2 "Hide" <<<EOT
         border: 2px solid rgb(var(--navy));
         color: RGB(var(--navy));
     }
-    /*header new post button*/
+    /*header new post button; not sure if these are relevant any longer*/
     body#tumblr ._qs2B header._3kR_ a[role="button"] {
         background-color: RGB(var(--accent));
     }
