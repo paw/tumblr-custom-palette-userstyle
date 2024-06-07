@@ -932,7 +932,7 @@ alt3 "Label Under Image" <<<EOT
         padding: 0;
     }
     /*restyle alt text label to be same width as image*\/
-    body#tumblr article .Vcrhu > a.Dt_Mi {
+    body#tumblr article .Vcrhu > .Dt_Mi {
         font-size: var(--menu-font-size);
         position: unset;
         width: 100%;
@@ -2471,7 +2471,7 @@ blazeit2 "Hide" <<<EOT
         border-color: transparent transparent rgb(var(--tertiary-accent)) rgb(var(--tertiary-accent));
     }
     /*alt text label over photo restyling*/
-    body#tumblr article .Vcrhu > a.Dt_Mi {
+    body#tumblr article .Vcrhu > .Dt_Mi {
         background: rgba(var(--navy),1);
         color: rgb(var(--white-on-dark));
         opacity: 0.5;
@@ -2481,8 +2481,8 @@ blazeit2 "Hide" <<<EOT
     body#tumblr article .Pr7R3 .eqBap:hover {
         background: rgba(var(--link-hover),0.1);
     }
-    body#tumblr article .Vcrhu > a.Dt_Mi:hover,
-    body#tumblr article .Vcrhu > a.Dt_Mi:focus {
+    body#tumblr article .Vcrhu > .Dt_Mi:hover,
+    body#tumblr article .Vcrhu > .Dt_Mi:focus {
         opacity: 1;
     }
     /*[[alt]]*/
