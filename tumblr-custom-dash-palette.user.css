@@ -1536,16 +1536,20 @@ blazeit2 "Hide" <<<EOT
         align-self: center;
     }
     /*polls*/
-    body#tumblr .VVJno {
+    body#tumblr .GhhyY.SHz7w .VVJno {
         color: rgb(var(--accent))
     }
     body#tumblr .GhhyY.SHz7w {
         border-color:  rgb(var(--accent));
-        background-color: rgba(var(--link-hover),0.05)
+        background-color: rgba(var(--accent),0.05)
     }
     body#tumblr .GhhyY.SHz7w:hover,
     body#tumblr .GhhyY.SHz7w:focus {
-        background-color: rgba(var(--link-hover),1)
+        background-color: rgba(var(--accent),1)
+    }
+    body#tumblr .GhhyY.SHz7w:hover .VVJno,
+    body#tumblr .GhhyY.SHz7w:focus .VVJno {
+        color: rgb(var(--white));
     }
     
     /*change rainbow text colors to custom colors*/
@@ -2064,15 +2068,6 @@ blazeit2 "Hide" <<<EOT
     /*~~~*/
 
     /*minor bugfixes*/
-    
-    /*overwriting --depreciated-accent vars...*/
-    /*...for polls*/
-    body#tumblr .GhhyY.SHz7w:hover .VVJno, body#tumblr .GhhyY.SHz7w:focus .VVJno {
-        color: rgb(var(--white));
-    }
-    body#tumblr .GhhyY.SHz7w:focus {
-        background: rgb(var(--accent))
-    }
     
     /*make sure that you can see all suggested blogs when your font is larger than 16px*/
     body#tumblr ul[aria-label="Check out these blogs"],
