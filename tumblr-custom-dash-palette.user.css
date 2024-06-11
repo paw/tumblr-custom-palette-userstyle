@@ -447,52 +447,61 @@ bgasidefix1 "Enable" <<<EOT
 @advanced dropdown leftmenustyle "Alt Nav Styling" {
 lms1 "Default" <<<EOT  EOT;
 lms2 "Pills" <<<EOT 
-
-/*tumblr logo in menu*\/
-body#tumblr div.FA5JM {
-    background: none !important;
-}
-/*hide gradient fade in header*\/
-body#tumblr .FA5JM .FnmoN::after {
-    display: none;
-}
-/*tumblr logo header*\/
-body#tumblr .gM9qK > .Gav7q,
-body#tumblr .gM9qK ul.jL4Qq {
-    background: rgb(var(--tertiary-accent));
-    border-radius: 0 0 8px 8px;
-}
-/*add bg to each item in list
-1. most items
-2. covers activity + messages buttons
-*\/
-body#tumblr .FA5JM .gM9qK > .IYrO9,
-body#tumblr .FA5JM .gM9qK .ZQMrc .IYrO9 {
-    position: relative;
-    margin: 0.2em 0;
-}
-body#tumblr .FA5JM .gM9qK > .IYrO9::before,
-body#tumblr .FA5JM .gM9qK .ZQMrc .IYrO9::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    background: rgb(var(--tertiary-accent));
-    border-radius: 8px;
-}
-/*account nav menu fixes*\/
-body#tumblr .FA5JM .gM9qK > .IYrO9.XuIoh.g8SYn {
-margin-bottom: -0.1em;
-}
-body#tumblr .FA5JM .gM9qK > .IYrO9.XuIoh.g8SYn::before {
-    border-radius: 8px 8px 0 0;
-}
-/*add border to create post button*\/
-body#tumblr .FA5JM .jGgIg .ML6ef {
-    border: 2px solid rgb(var(--navy));
-}
-    EOT;
+    /*tumblr logo in menu*\/
+    body#tumblr div.FA5JM {
+        background: none !important;
+    }
+    /*hide gradient fade in header*\/
+    body#tumblr .FA5JM .FnmoN::after {
+        display: none;
+    }
+    /*tumblr logo header*\/
+    body#tumblr .gM9qK > .Gav7q,
+    body#tumblr .gM9qK ul.jL4Qq {
+        background: rgb(var(--tertiary-accent));
+        border-radius: 0 0 8px 8px;
+    }
+    /*add bg to each item in list
+    1. most items
+    2. covers activity + messages buttons
+    *\/
+    body#tumblr .FA5JM .gM9qK > .IYrO9,
+    body#tumblr .FA5JM .gM9qK .ZQMrc .IYrO9 {
+        position: relative;
+        margin: 0.2em 0;
+    }
+    body#tumblr .FA5JM .gM9qK > .IYrO9::before,
+    body#tumblr .FA5JM .gM9qK .ZQMrc .IYrO9::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+        background: rgb(var(--tertiary-accent));
+        border-radius: 8px;
+    }
+    /*account nav menu fixes*\/
+    body#tumblr .FA5JM .gM9qK > .IYrO9.XuIoh.g8SYn {
+    margin-bottom: -0.1em;
+    }
+    body#tumblr .FA5JM .gM9qK > .IYrO9.XuIoh.g8SYn::before {
+        border-radius: 8px 8px 0 0;
+    }
+    /*add border to create post button*\/
+    body#tumblr .FA5JM .jGgIg .ML6ef {
+        border: 2px solid rgb(var(--navy));
+    }
+EOT;
+lms3 "No BG" <<<EOT 
+    /*tumblr logo in menu*\/
+    body#tumblr div.FA5JM {
+        background: none !important;
+    }
+    /*hide gradient fade in header*\/
+    body#tumblr .FA5JM .FnmoN::after {
+        display: none;
+    }
+EOT;
 }
 
 @advanced dropdown otdpixiel "Compatibility Fixes for Old Tumblr Dashboard by Pixiel" {
