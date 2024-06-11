@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.6.11
+@version        0.6.12
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -169,6 +169,7 @@ bgasidefix1 "Enable" <<<EOT
         20. blaze page title
         21. div holding suggested tags on /tagged/ page
         22. q&a page 'live now'
+        23. 
     *\/
     body#tumblr main.FdbiI > .qF_aN,
     body#tumblr .gPQR5 > .lSyOz > .usqcu,
@@ -194,6 +195,12 @@ bgasidefix1 "Enable" <<<EOT
     body#tumblr .ovT1K,
     body#tumblr .zKC5L.P39Zg .EXJlM {
         background: rgb(var(--navy));
+        padding: 0.2em;
+        border-radius: 3px;
+    }
+    /*more like this blog view header*\/
+    body#tumblr .DCCfo h1.hF8Wr {
+        background: var(--color-bluespace-card-background);
         padding: 0.2em;
         border-radius: 3px;
     }
@@ -706,13 +713,13 @@ peepr1 "Override All Colors" <<<EOT
         7. tipping modal
     *\/
     body#tumblr #glass-container .DCCfo.kXP4L,
-    body#tumblr #glass-container .DCCfo.kXP4L .gJ6yV > div[style*="--accent:"],
-    body#tumblr .RkANE > .a5Orv + .DCCfo.ZmMA3[style*="--accent:"],
-    body#tumblr .RkANE .DCCfo .gJ6yV > div[style*="--accent:"],
+    body#tumblr #glass-container .DCCfo.kXP4L .gJ6yV > div[style*="--blog-title-color:"],
+    body#tumblr .RkANE > .a5Orv + .DCCfo.ZmMA3[style*="--blog-title-color:"],
+    body#tumblr .RkANE .DCCfo .gJ6yV > div[style*="--blog-title-color:"],
     body#tumblr .D5eCV > .ZkG01 > ._3xgk > .RkANE > .DCCfo,
-    body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style*="--accent:"],
+    body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style*="--blog-title-color:"],
     body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style] ._l9x2[style],
-    body#tumblr .RkANE > .a5Orv + .DCCfo.ZmMA3[style] .vM8CJ div[style*="--accent:"],
+    body#tumblr .RkANE > .a5Orv + .DCCfo.ZmMA3[style] .vM8CJ div[style*="--blog-title-color:"],
     body#tumblr div[data-testid="tipping-modal"] {
         --white: /*[[white-rgb]]*\/ !important;
         --blog-paywall-background-color: /*[[white]]*\/ !important;
@@ -772,6 +779,9 @@ peepr1 "Override All Colors" <<<EOT
 
         --blog-background-overlay-color: rgba(var(--navy), 0.10) !important;
 
+        --color-primary-link: rgb(var(--accent)) !important;
+        --deprecated-accent: var(--accent) !important;
+
         background: rgb(var(--navy)) var(--custom-bg);
         background-attachment: fixed;
         background-position: var(--bg-position);
@@ -786,6 +796,11 @@ peepr1 "Override All Colors" <<<EOT
     body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style] ._l9x2[style],
     body#tumblr div[data-testid="tipping-modal"] {
         background: rgb(var(--navy));
+    }
+    
+    /*badges bg fix*\/
+    body#tumblr .GIEHd[style] {
+        background: rgba(var(--white-on-dark),0.3) !important;
     }
 
     /*change blog peeper posts wrapper bg to account for no custom bg*\/
@@ -887,6 +902,9 @@ peepr2 "Override Posts Only" <<<EOT
         --link-hover: /*[[linkhover-rgb]]*\/ !important; 
         --tertiary-accent: /*[[tertiary-rgb]]*\/ !important; 
         --quaternary-accent: /*[[quaternary-rgb]]*\/ !important;
+
+        --color-primary-link: rgb(var(--accent)) !important;
+        --deprecated-accent: var(--accent) !important;
 
         --blog-search-background-color: rgba(/*[[whiteondark-rgb]]*\/, 0.15) !important;
     }
@@ -1130,8 +1148,14 @@ blazeit2 "Hide" <<<EOT
         border-radius: 0px;
         padding: 8px;
     }
-    /*left menu aka old top bar - fix font color*/
-    body#tumblr .FA5JM .IYrO9 {
+    /*left menu aka old top bar - fix font color
+        1. main links
+        2. blogs header
+        3. blog url
+    */
+    body#tumblr .FA5JM .IYrO9,
+    body#tumblr .FA5JM .IZU9t h4,
+    body#tumblr .FA5JM .IZU9t .UulOO {
         color: rgba(var(--quaternary-accent),0.8);
     }
     body#tumblr .FA5JM .IYrO9:hover, body#tumblr .FA5JM .IYrO9:focus-within {
