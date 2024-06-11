@@ -31,6 +31,10 @@ Custom example #3:
 [![Screenshot of the tagged dragons page with a custom theme.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/tumblr_custom_3.png)\
 Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/tumblr_custom_3.png)
 
+Screenshot of alternate navigation styling (Pills):
+[![Screenshot of my personal theme featuring the Pills navigation style](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/tumblr_custom_5.png)\
+Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-palette-userstyle/main/images/tumblr_custom_5.png)
+
 ## How to Install:
 1. Get the userstyle manager [Stylus](https://github.com/openstyles/stylus#readme), if you don't already have it.
 2. Click [this link](https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css) to view the raw user.css or install it through the [Userstyles.world Mirror](https://userstyles.world/style/192/tumblr-custom-dashboard-palette), which will automatically open it in Stylus for you to review.
@@ -41,6 +45,7 @@ Click for larger preview.](https://raw.githubusercontent.com/paw/tumblr-custom-p
 ### Notes:
 * This style will only change the look of the beta post editor, the new dashboard, and any other pages that have been updated to use the new layout.
 * Most of the options are self-explanatory, but there are a few that might need clarification:
+  * **Alt Nav Styling** = Changes the look of the left hand column since the large solid bar can be ugly, especially with custom backgrounds. Allows for no BG or a list of rounded pills.
   * **Dashboard Tabs** = See screenshot #2. If you're on a newer version of the dashboard, there is now a set of tabs under the post creation tools that allows you to switch between different 'feeds' of posts directly on the dashboard. The defaults are Following and Suggested Posts, but more experimental feeds can be added via Tumblr Labs. The dash shows your Following feed by default, so this option exists to allow you to hide the tabs menu if you don't like it/won't use it.
   * **Layout Fixes for Custom Backgrounds** = Adds solid backgrounds to many sidebar/header elements and pages (ex. the activity page) that don't have them by default.
   * **Modal Color** = The color of the semi-transparent overlay that appears when you open up the post editor, go to delete a post, block someone, etc.
