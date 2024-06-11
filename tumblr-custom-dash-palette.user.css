@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.6.11
+@version        0.6.12
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -169,6 +169,7 @@ bgasidefix1 "Enable" <<<EOT
         20. blaze page title
         21. div holding suggested tags on /tagged/ page
         22. q&a page 'live now'
+        23. 
     *\/
     body#tumblr main.FdbiI > .qF_aN,
     body#tumblr .gPQR5 > .lSyOz > .usqcu,
@@ -194,6 +195,12 @@ bgasidefix1 "Enable" <<<EOT
     body#tumblr .ovT1K,
     body#tumblr .zKC5L.P39Zg .EXJlM {
         background: rgb(var(--navy));
+        padding: 0.2em;
+        border-radius: 3px;
+    }
+    /*more like this blog view header*\/
+    body#tumblr .DCCfo h1.hF8Wr {
+        background: var(--color-bluespace-card-background);
         padding: 0.2em;
         border-radius: 3px;
     }
@@ -437,6 +444,66 @@ bgasidefix1 "Enable" <<<EOT
     EOT;
 }
 
+@advanced dropdown leftmenustyle "Alt Nav Styling" {
+lms1 "Default" <<<EOT  EOT;
+lms2 "Pills" <<<EOT 
+    /*tumblr logo in menu*\/
+    body#tumblr div.FA5JM {
+        background: none !important;
+    }
+    /*hide gradient fade in header*\/
+    body#tumblr .FA5JM .FnmoN::after {
+        display: none;
+    }
+    /*tumblr logo header*\/
+    body#tumblr .gM9qK > .Gav7q,
+    body#tumblr .gM9qK ul.jL4Qq {
+        background: rgb(var(--tertiary-accent));
+        border-radius: 0 0 8px 8px;
+    }
+    /*add bg to each item in list
+    1. most items
+    2. covers activity + messages buttons
+    *\/
+    body#tumblr .FA5JM .gM9qK > .IYrO9,
+    body#tumblr .FA5JM .gM9qK .ZQMrc .IYrO9 {
+        position: relative;
+        margin: 0.2em 0;
+    }
+    body#tumblr .FA5JM .gM9qK > .IYrO9::before,
+    body#tumblr .FA5JM .gM9qK .ZQMrc .IYrO9::before {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        height: 100%;
+        width: 100%;
+        background: rgb(var(--tertiary-accent));
+        border-radius: 8px;
+    }
+    /*account nav menu fixes*\/
+    body#tumblr .FA5JM .gM9qK > .IYrO9.XuIoh.g8SYn {
+    margin-bottom: -0.1em;
+    }
+    body#tumblr .FA5JM .gM9qK > .IYrO9.XuIoh.g8SYn::before {
+        border-radius: 8px 8px 0 0;
+    }
+    /*add border to create post button*\/
+    body#tumblr .FA5JM .jGgIg .ML6ef {
+        border: 2px solid rgb(var(--navy));
+    }
+EOT;
+lms3 "No BG" <<<EOT 
+    /*tumblr logo in menu*\/
+    body#tumblr div.FA5JM {
+        background: none !important;
+    }
+    /*hide gradient fade in header*\/
+    body#tumblr .FA5JM .FnmoN::after {
+        display: none;
+    }
+EOT;
+}
+
 @advanced dropdown otdpixiel "Compatibility Fixes for Old Tumblr Dashboard by Pixiel" {
 otdpixiel1 "Disabled" <<<EOT EOT;
 otdpixiel2 "Enabled" <<<EOT 
@@ -535,98 +602,95 @@ sidebarblogs2 "Show" <<<EOT  EOT;
 
 @advanced dropdown sitefooter "Site Footer" {
 sitefooter1 "Left Side Minimal" <<<EOT 
-    /*tumblr site footer - left side minimal*\/
-    body#tumblr aside .R0U51 {
+    /*tumblr site footer - Left side minimal*\/
+    body#tumblr footer.m8mN_[role="contentinfo"] {
+        --element-height: auto !important;
         padding-top: 19px;
         padding-bottom: 0;
         position: fixed;
-        left: 0;
         bottom: 0;
         height: 100vh;
         box-sizing: border-box;
         margin: 0 !important;
-        padding: 0;
         display: flex;
         justify-content: flex-end;
         align-items: flex-end;
-    }
-    /*style links & make font size smaller*\/
-    body#tumblr aside footer.m8mN_[role="contentinfo"] {
-        --element-height: auto !important;
-        display: flex;
-        opacity: 1;
-        transition: 0.3s opacity;
+        z-index: 99;
         flex-direction: column;
         width: 100px;
-        justify-content: flex-end;
         font-size: 12px;
-        position: relative;
         padding: 19px 10px 1em;
-        left: -90px;
+        left: -120px;
         box-sizing: border-box;
         transition: left 0.5s ease-out;
     }
-    /*new class used for a newer iteration of the site footer styling.
-        targeting the new class specifically just in case not everyone has this version *\/
-    body#tumblr aside footer.m8mN_._qHCt[role="contentinfo"] {
-        position: fixed;
-        bottom: 0px;
-        margin-bottom: 0;
+    body#tumblr footer.m8mN_[role="contentinfo"] a {
+        width: 100%;
     }
-    body#tumblr aside footer.m8mN_[role="contentinfo"]:hover,
-    body#tumblr aside footer.m8mN_[role="contentinfo"]:focus-within {
+    body#tumblr footer.m8mN_[role="contentinfo"]:hover,
+    body#tumblr footer.m8mN_[role="contentinfo"]:focus-within {
         left: 0;
     }
-    body#tumblr aside footer.m8mN_[role="contentinfo"]:hover::after,
-    body#tumblr aside footer.m8mN_[role="contentinfo"]:focus-within::after{
+    body#tumblr footer.m8mN_[role="contentinfo"]:hover::after,
+    body#tumblr footer.m8mN_[role="contentinfo"]:focus-within::after{
         opacity: 0;
     }
-    body#tumblr aside footer.m8mN_[role="contentinfo"]::after {
+    body#tumblr footer.m8mN_[role="contentinfo"]::after {
         content: '💌';
         position: absolute;
-        bottom: 1em;
-        right: -1em;
+        bottom: 0;
+        left: 100%;
         color: rgb(var(--white-on-dark));
-        padding: 0;
+        padding: 0 1em 2em 1.8em;
         text-align: center;
         border-radius: 3px;
         font-weight: bold;
         font-size: 16px;
         height: 1em;
-        width: 1em;
+        width: auto;
         box-sizing: border-box;
         transition: 0.3s;
         opacity: 1;
+        z-index: -1;
     }
-    body#tumblr aside footer.m8mN_[role="contentinfo"]:hover,
-    body#tumblr aside footer.m8mN_[role="contentinfo"]:focus-within {
+    body#tumblr footer.m8mN_[role="contentinfo"]:hover,
+    body#tumblr footer.m8mN_[role="contentinfo"]:focus-within {
         opacity: 1;
     }
-    body#tumblr aside footer.m8mN_[role="contentinfo"] a {
+    body#tumblr footer.m8mN_[role="contentinfo"] a {
         background: rgba(var(--navy), 1);
         padding: 0.1em 0.5em;
         border-radius: 3px;
         font-weight: bold;
         font-size: 1em;
-        flex-grow: 0;
+        flex-grow: 0 !important;
         text-align: center;
         opacity: 1;
     }
-    body#tumblr aside footer.m8mN_[role="contentinfo"] a:not(:first-child) {
-        margin-left: 0;
+    body#tumblr footer.m8mN_[role="contentinfo"] a {
+        margin-right: 0;
     }
-    body#tumblr aside footer.m8mN_[role="contentinfo"] a:hover,
-    body#tumblr aside footer.m8mN_[role="contentinfo"] a:focus {
+    body#tumblr footer.m8mN_[role="contentinfo"] a:hover,
+    body#tumblr footer.m8mN_[role="contentinfo"] a:focus {
         text-decoration: none;
         color: rgba(var(--link-hover),1);
         background: rgba(var(--navy), 1);
         opacity: 1;
     }
+    /*remove padding on footer wrapper when footer is located within the left menu*\/
+    body#tumblr .FA5JM > .GCrNv {
+        padding: 0;
+    }
 EOT;
 sitefooter2 "Default" <<<EOT EOT;
-sitefooter3 "Hide" <<<EOT 
+sitefooter3 "Hide" <<<EOT
+    /*  1. older footer class
+        2. both footers
+        3. footer wrapper when footer is located within the left menu
+    *\/
     body#tumblr aside .R0U51,
-    body#tumblr aside footer.m8mN_[role="contentinfo"] {
+    body#tumblr footer.m8mN_[role="contentinfo"],
+    body#tumblr .FA5JM > .GCrNv {
         display: none;
     }
 EOT;
@@ -706,13 +770,13 @@ peepr1 "Override All Colors" <<<EOT
         7. tipping modal
     *\/
     body#tumblr #glass-container .DCCfo.kXP4L,
-    body#tumblr #glass-container .DCCfo.kXP4L .gJ6yV > div[style*="--accent:"],
-    body#tumblr .RkANE > .a5Orv + .DCCfo.ZmMA3[style*="--accent:"],
-    body#tumblr .RkANE .DCCfo .gJ6yV > div[style*="--accent:"],
+    body#tumblr #glass-container .DCCfo.kXP4L .gJ6yV > div[style*="--blog-title-color:"],
+    body#tumblr .RkANE > .a5Orv + .DCCfo.ZmMA3[style*="--blog-title-color:"],
+    body#tumblr .RkANE .DCCfo .gJ6yV > div[style*="--blog-title-color:"],
     body#tumblr .D5eCV > .ZkG01 > ._3xgk > .RkANE > .DCCfo,
-    body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style*="--accent:"],
+    body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style*="--blog-title-color:"],
     body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style] ._l9x2[style],
-    body#tumblr .RkANE > .a5Orv + .DCCfo.ZmMA3[style] .vM8CJ div[style*="--accent:"],
+    body#tumblr .RkANE > .a5Orv + .DCCfo.ZmMA3[style] .vM8CJ div[style*="--blog-title-color:"],
     body#tumblr div[data-testid="tipping-modal"] {
         --white: /*[[white-rgb]]*\/ !important;
         --blog-paywall-background-color: /*[[white]]*\/ !important;
@@ -772,6 +836,9 @@ peepr1 "Override All Colors" <<<EOT
 
         --blog-background-overlay-color: rgba(var(--navy), 0.10) !important;
 
+        --color-primary-link: rgb(var(--accent)) !important;
+        --deprecated-accent: var(--accent) !important;
+
         background: rgb(var(--navy)) var(--custom-bg);
         background-attachment: fixed;
         background-position: var(--bg-position);
@@ -786,6 +853,11 @@ peepr1 "Override All Colors" <<<EOT
     body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style] ._l9x2[style],
     body#tumblr div[data-testid="tipping-modal"] {
         background: rgb(var(--navy));
+    }
+    
+    /*badges bg fix*\/
+    body#tumblr .GIEHd[style] {
+        background: rgba(var(--white-on-dark),0.3) !important;
     }
 
     /*change blog peeper posts wrapper bg to account for no custom bg*\/
@@ -887,6 +959,9 @@ peepr2 "Override Posts Only" <<<EOT
         --link-hover: /*[[linkhover-rgb]]*\/ !important; 
         --tertiary-accent: /*[[tertiary-rgb]]*\/ !important; 
         --quaternary-accent: /*[[quaternary-rgb]]*\/ !important;
+
+        --color-primary-link: rgb(var(--accent)) !important;
+        --deprecated-accent: var(--accent) !important;
 
         --blog-search-background-color: rgba(/*[[whiteondark-rgb]]*\/, 0.15) !important;
     }
@@ -1130,8 +1205,14 @@ blazeit2 "Hide" <<<EOT
         border-radius: 0px;
         padding: 8px;
     }
-    /*left menu aka old top bar - fix font color*/
-    body#tumblr .FA5JM .IYrO9 {
+    /*left menu aka old top bar - fix font color
+        1. main links
+        2. blogs header
+        3. blog url
+    */
+    body#tumblr .FA5JM .IYrO9,
+    body#tumblr .FA5JM .IZU9t h4,
+    body#tumblr .FA5JM .IZU9t .UulOO {
         color: rgba(var(--quaternary-accent),0.8);
     }
     body#tumblr .FA5JM .IYrO9:hover, body#tumblr .FA5JM .IYrO9:focus-within {
@@ -1283,38 +1364,42 @@ blazeit2 "Hide" <<<EOT
     }
     /*tumblr site footer in sidebar fixes*/
     /*remove padding + add to footer links container to make the window for making it appear smaller*/
-    body#tumblr aside .R0U51 {
+    body#tumblr .R0U51 {
         padding-top: 19px;
         padding-bottom: 0;
     }
     /*style links & make font size smaller*/
-    body#tumblr aside footer.m8mN_[role="contentinfo"] {
+    body#tumblr footer.m8mN_[role="contentinfo"] {
         display: flex;
         opacity: 0.3;
-        padding: 19px 0 1em 0;
+        padding: 19px 8px 1em;
         font-size: 12px;
         transition: opacity 0.3s;
     }
-    body#tumblr aside footer.m8mN_[role="contentinfo"]:hover,
-    body#tumblr aside footer.m8mN_[role="contentinfo"]:focus-within {
+    body#tumblr footer.m8mN_[role="contentinfo"]:hover,
+    body#tumblr footer.m8mN_[role="contentinfo"]:focus-within {
         opacity: 1;
     }
-    body#tumblr aside footer.m8mN_[role="contentinfo"] a {
+    body#tumblr footer.m8mN_[role="contentinfo"] a {
+        color: rgb(var(--accent));
         background: rgba(var(--navy), 0.5);
         padding: 0.1em 0.5em;
         border-radius: 3px;
         font-weight: bold;
         font-size: 1em;
-        flex-grow: 1;
         text-align: center;
         opacity: 1;
         transition: background 0.3s;
+        margin: 0.2em;
+    }
+    body#tumblr aside footer.m8mN_[role="contentinfo"] a {
+        flex-grow: 1;
     }
     body#tumblr aside footer.m8mN_[role="contentinfo"] a:not(:first-child) {
         margin-left: 0;
     }
-    body#tumblr aside footer.m8mN_[role="contentinfo"] a:hover,
-    body#tumblr aside footer.m8mN_[role="contentinfo"] a:focus {
+    body#tumblr footer.m8mN_[role="contentinfo"] a:hover,
+    body#tumblr footer.m8mN_[role="contentinfo"] a:focus {
         text-decoration: none;
         color: rgba(var(--link-hover),1);
         background: rgba(var(--navy), 1);
@@ -2674,6 +2759,8 @@ blazeit2 "Hide" <<<EOT
     .XuT0g.HqCuZ .Rtfxi {
         align-self: normal;
     }
+    
+    /*[[leftmenustyle]]*/
     
 	/*~~~*/
     
