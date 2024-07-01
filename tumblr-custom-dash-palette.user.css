@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.6.12
+@version        0.6.13
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -382,14 +382,16 @@ bgasidefix1 "Enable" <<<EOT
     }
     /*separated into own blocks jic :has() selector isn't enabled on ff bc it will cause entire section to fail.*\/
     body#tumblr .j8ha0.qr36f[data-timeline]:has(.sazBU),
-    body#tumblr .So6RQ.YSitt .Y_M3_:has([data-testid="tag-link"]) {
+    body#tumblr .So6RQ.YSitt .Y_M3_:has([data-testid="tag-link"]),
+    body#tumblr .sazBU {
         background: rgba(var(--navy),0.92);
         color: rgba(var(--white-on-dark),1);
         border-radius: 3px;
     }
-    body#tumblr .So6RQ.YSitt .Y_M3_:has([data-testid="tag-link"]) {
-    padding: 0.3em;
-}
+    body#tumblr .So6RQ.YSitt .Y_M3_:has([data-testid="tag-link"]),
+    body#tumblr .sazBU {
+        padding: 0.3em;
+    }
     /*queue time fix*\/
     body#tumblr .FtjPK .AD_w7 > .SirwX {
         background: rgba(var(--navy),0.92);
@@ -681,16 +683,22 @@ sitefooter1 "Left Side Minimal" <<<EOT
     body#tumblr .FA5JM > .GCrNv {
         padding: 0;
     }
+    /*hide footer wrapper that shows within account popup on small screen size layout*\/
+    body#tumblr .PsDsm .s1cla {
+        display: none;
+    }
 EOT;
 sitefooter2 "Default" <<<EOT EOT;
 sitefooter3 "Hide" <<<EOT
     /*  1. older footer class
         2. both footers
         3. footer wrapper when footer is located within the left menu
+        4. footer wrapper when footer is located in account popup on small screen size layout
     *\/
     body#tumblr aside .R0U51,
     body#tumblr footer.m8mN_[role="contentinfo"],
-    body#tumblr .FA5JM > .GCrNv {
+    body#tumblr .FA5JM > .GCrNv,
+    body#tumblr .PsDsm .s1cla {
         display: none;
     }
 EOT;
@@ -1640,10 +1648,11 @@ blazeit2 "Hide" <<<EOT
     /*change rainbow text colors to custom colors*/
     /*RED*/
     /*red text in posts*/
-    body#tumblr span[style="color: rgb(255, 73, 48);"],
+    body#tumblr span[style*="color: rgb(255, 73, 48)"],
     body#tumblr .DraftEditor-root span[style*="rgb(255, 73, 48)"],
     body#tumblr span[style*="color:#ff4930"],
-    body#tumblr span[color="#ff4930"] {
+    body#tumblr span[color="#ff4930"],
+    body#tumblr span[style*="color: rgb(255, 73, 47)"] {
         color: rgb(var(--red)) !important;
     }
     /*red circle in popover menu*/
@@ -1715,6 +1724,11 @@ blazeit2 "Hide" <<<EOT
     body#tumblr svg path[fill*="#01CF35"] /*post editor tools link icon*/ {
         fill: rgb(var(--green));
     }
+    /*green following button in activity*/
+    body#tumblr .Id3fJ, body#tumblr .XGAPj {
+        color: rgb(var(--green)) !important;
+        background: rgba(var(--green),0.2) !important;
+    }
     
     /*BLUE*/
     /*blue text in posts*/
@@ -1773,6 +1787,11 @@ blazeit2 "Hide" <<<EOT
     body#tumblr svg[fill*="#7c5cff"],
     body#tumblr svg path[fill*="#7C5CFF"] /*post editor tools audio icon*/ {
         fill: rgb(var(--purple));
+    }
+    /*purple mutuals button in activity*/
+    body#tumblr .SW1rE {
+        color: rgb(var(--purple)) !important;
+        background: rgba(var(--purple),0.2) !important;
     }
     
     /*BLACK*/
@@ -2178,8 +2197,8 @@ blazeit2 "Hide" <<<EOT
     body#tumblr header._3kR_ span.BPf9u {
         display: block;
     }
-    body#tumblr .a132D:hover > .jF6A2 > .jpu7k.jDcIV.SmqzX.D0OOd[role="status"],
-    body#tumblr .a132D:focus-within > .jF6A2 > .jpu7k.jDcIV.SmqzX.D0OOd[role="status"],
+    body#tumblr .tDT48:hover .a132D .jF6A2 .jpu7k.jDcIV.SmqzX.D0OOd[role="status"],
+    body#tumblr .tDT48:focus .a132D .jF6A2 .jpu7k.jDcIV.SmqzX.D0OOd[role="status"],
     body#tumblr #glass-container .tosY3 button.TRX6J.AHkyw:hover .jpu7k,
     body#tumblr #glass-container .tosY3 button.TRX6J.AHkyw:focus .jpu7k {
         background-color: RGB(var(--link-hover));
