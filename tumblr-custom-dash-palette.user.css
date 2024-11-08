@@ -787,11 +787,12 @@ inlinesuggest2 "Hide" <<<EOT
         1. blog recommendations + 'changes on tumblr / staff picks / trending' carousel
         2. headers for recommendations
         3. 'youre caught up, check these out' content (possibly legacy)
+        4. check out these communities
     *\/
     body#tumblr .So6RQ.YSitt .ge_yK > .q1ZAL,
     body#tumblr .So6RQ > .ge_yK > .HphhS,
     body#tumblr .So6RQ > .ge_yK > .Oii0L.kDCXR,
-    body#tumblr .So6RQ > .ge_yK > .q1ZAL.kDCXR {
+    body#tumblr .So6RQ > .ge_yK .q1ZAL.kDCXR {
         display: none !important;
 }  EOT;
 inlinesuggest1 "Show" <<<EOT  EOT;
