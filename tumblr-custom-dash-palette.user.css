@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.6.17
+@version        0.7.0
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -788,20 +788,52 @@ dashtabs2 "Hide" <<<EOT
 }
 
 @advanced dropdown inlinesuggest "Inline Recommendations" {
-inlinesuggest2 "Hide" <<<EOT 
+inlinesuggest2 "Hide Everywhere" <<<EOT 
     /*hide inline recommendations.
         1. blog recommendations + 'changes on tumblr / staff picks / trending' carousel
         2. headers for recommendations
         3. 'youre caught up, check these out' content (possibly legacy)
         4. check out these communities
+        5. posts from communities you are not a part of in for you tab
     *\/
     body#tumblr .So6RQ.YSitt .ge_yK > .q1ZAL,
     body#tumblr .So6RQ > .ge_yK > .HphhS,
     body#tumblr .So6RQ > .ge_yK > .Oii0L.kDCXR,
-    body#tumblr .So6RQ > .ge_yK .q1ZAL.kDCXR {
+    body#tumblr .So6RQ > .ge_yK .q1ZAL.kDCXR,
+    body#tumblr .So6RQ > .ge_yK:has(.zn53i.EF4A5.r21y5[href*="/join?source"]) {
         display: none !important;
 }  EOT;
-inlinesuggest1 "Show" <<<EOT  EOT;
+inlinesuggest3 "Hide Only on 'Following' Tab" <<<EOT 
+    /*hide inline recommendations.
+        1. blog recommendations + 'changes on tumblr / staff picks / trending' carousel
+        2. headers for recommendations
+        3. 'youre caught up, check these out' content (possibly legacy)
+        4. check out these communities
+        5. posts from communities you are not a part of in for you tab
+    *\/
+    body#tumblr .Evcyl[data-timeline-id*="/dashboard/following"] .So6RQ.YSitt .ge_yK > .q1ZAL,
+    body#tumblr .Evcyl[data-timeline-id*="/dashboard/following"] .So6RQ > .ge_yK > .HphhS,
+    body#tumblr .Evcyl[data-timeline-id*="/dashboard/following"] .So6RQ > .ge_yK > .Oii0L.kDCXR,
+    body#tumblr .Evcyl[data-timeline-id*="/dashboard/following"] .So6RQ > .ge_yK .q1ZAL.kDCXR,
+    body#tumblr .Evcyl[data-timeline-id*="/dashboard/following"] .So6RQ > .ge_yK:has(.zn53i.EF4A5.r21y5[href*="/join?source"]) {
+        display: none !important;
+}  EOT;
+inlinesuggest4 "Show Only on 'For You' Tab" <<<EOT 
+    /*hide inline recommendations.
+        1. blog recommendations + 'changes on tumblr / staff picks / trending' carousel
+        2. headers for recommendations
+        3. 'youre caught up, check these out' content (possibly legacy)
+        4. check out these communities
+        5. posts from communities you are not a part of in for you tab
+    *\/
+    body#tumblr .Evcyl:not([data-timeline-id*="/dashboard/stuff_for_you"]) .So6RQ.YSitt .ge_yK > .q1ZAL,
+    body#tumblr .Evcyl:not([data-timeline-id*="/dashboard/stuff_for_you"]) .So6RQ > .ge_yK > .HphhS,
+    body#tumblr .Evcyl:not([data-timeline-id*="/dashboard/stuff_for_you"]) .So6RQ > .ge_yK > .Oii0L.kDCXR,
+    body#tumblr .Evcyl:not([data-timeline-id*="/dashboard/stuff_for_you"]) .So6RQ > .ge_yK .q1ZAL.kDCXR,
+    body#tumblr .Evcyl:not([data-timeline-id*="/dashboard/stuff_for_you"]) .So6RQ > .ge_yK:has(.zn53i.EF4A5.r21y5[href*="/join?source"]) {
+        display: none !important;
+}  EOT;
+inlinesuggest1 "Show Everywhere" <<<EOT  EOT;
 }
 @advanced dropdown modalsuggest "Modal Recommendations" {
 modalsuggest1 "Show" <<<EOT  EOT;
@@ -1181,6 +1213,8 @@ adfree2 "Show" <<<EOT  EOT;
         --purple: /*[[purple-rgb]]*/;
         --pink: /*[[pink-rgb]]*/;
         
+        --success: rgb(var(--green));
+        
         
         --brand-red: rgb(var(--red));
         --brand-orange: rgb(var(--orange));
@@ -1228,6 +1262,7 @@ adfree2 "Show" <<<EOT  EOT;
         
         --chrome-fg: rgb(var(--black));
         --color-fg: rgb(var(--navy));
+        --accent-fg: rgb(var(--white));
         
         --content-fg-secondary: rgba(var(--black),0.5);
         --chrome-fg-secondary: rgba(var(--black),0.5);
@@ -1776,7 +1811,10 @@ adfree2 "Show" <<<EOT  EOT;
     body#tumblr .Fs5NP .D63Wc {
         background-color: rgba(var(--green),0.2);
     }
-    
+    /*new post icons make sure they're rainbow*/
+    .palette--pumpkin .FOqaP use, .palette--vampire .FOqaP use {
+        --icon-color-primary: inherit;
+    }
     /*change rainbow text colors to custom colors*/
     /*RED*/
     /*red text in posts*/
@@ -2591,6 +2629,11 @@ adfree2 "Show" <<<EOT  EOT;
     body#tumblr .kCzoF .oehtt .iszjU button.TRX6J[aria-label="Settings"]:hover svg {
         fill: rgb(var(--link-hover)) !important;
     }
+    
+    /*post editor 140 chars or less popup*/
+    body#tumblr .CkEXb .a0A37.Td0xZ {
+        background: rgb(var(--accent));
+    }
 
     /*~~~*/
 
@@ -2693,6 +2736,11 @@ adfree2 "Show" <<<EOT  EOT;
     /*fix messaging color*/
     body#tumblr .CX_9D {
         color: rgb(var(--black));
+    }
+    /*messages you sent*/
+    body#tumblr .CX_9D.qWqk3 {
+        color: rgb(var(--accent));
+        background-color: rgba(var(--accent),0.07)
     }
     /*messaging timestamp*/
     body#tumblr .hpABw .vwvdr .cuHJ6 {
