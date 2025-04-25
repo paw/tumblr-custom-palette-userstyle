@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.7.0
+@version        0.7.1
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -209,6 +209,24 @@ bgasidefix1 "Enable" <<<EOT
         background: rgb(var(--navy));
         padding: 0.2em;
         border-radius: 3px;
+    }
+    /*search timeline*\/
+    /*1. give bg to the tags section in single col mode 
+      2. give bg to all multi-columns that don't contain posts
+    *\/
+    body#tumblr main:not(.GJbUx) div[data-timeline-id*="searchTimeline"] .zAlrA:has(.uQnmG[style]),
+    body#tumblr div[data-timeline-id*="searchTimeline"] .USr9U:not(:has(article)) {
+        border-radius: 10px;
+        background: var(--content-panel);
+    }
+    /*follow tag button*\/
+    body#tumblr div[data-timeline-id*="searchTimeline"] .WdYx4,
+    body#tumblr div[data-timeline-id*="searchTimeline"] .uQnmG {
+        border: 2px solid rgba(var(--navy),1);
+    }
+    body#tumblr .hd9yU .x66yu,
+    body#tumblr .hd9yU .pLL0g {
+        color: var(--chrome-fg);
     }
     /*more like this blog view header*\/
     body#tumblr .DCCfo h1.hF8Wr {
@@ -489,10 +507,6 @@ bgasidefix1 "Enable" <<<EOT
     body#tumblr .Av6XX .pasN9 {
         border: 2px solid rgb(var(--navy));
     }
-    /*community member bg color on hover*\/
-    body#tumblr .FMZnY:hover {
-        background: rgb(var(--secondary-accent));
-    }
     /*community desc small screen size*\/
     @media (max-width: 989px) {
         body#tumblr .bln7g {
@@ -514,7 +528,16 @@ bgasidefix1 "Enable" <<<EOT
         flex-grow: 1;
     }
     body#tumblr .jk3gM.wL4YA {
-        background: RGBa(var(--navy),1);
+        background: rgba(var(--navy),1);
+    }
+    /*community menu buttons fixes*\/
+    body#tumblr .Sn8rD {
+        background: rgba(var(--navy),1);
+        border: 1px solid rgba(var(--navy),1);
+        color: var(--chrome-fg-secondary);
+    }
+    body#tumblr .Sn8rD:hover, body#tumblr .Sn8rD:focus {
+        color: var(--chrome-fg);
     }
     
     EOT;
@@ -630,10 +653,10 @@ jumpbtn2 "Hide" <<<EOT
 EOT;
 }
 
-@advanced dropdown followlabel "Follow/Unfollow Labels" {
+@advanced dropdown followlabel "Follow/Unfollow Buttons In Posts" {
 followlabel1 "Hide" <<<EOT 
     /*hide follow button, .TRX6J main line 42*\/
-    body#tumblr article button.TRX6J[aria-label="Follow"], body#tumblr article button.TRX6J[aria-label="Unfollow"] {
+    body#tumblr article button.TRX6J[aria-label="Follow"], body#tumblr article button.TRX6J[aria-label="Unfollow"], body#tumblr article .zn53i.EF4A5.r21y5, body#tumblr article button.TRX6J[aria-label="Unfollow"] {
         display: none
     } EOT;
 followlabel2 "Show" <<<EOT  EOT;
@@ -875,8 +898,10 @@ peepr1 "Override All Colors" <<<EOT
     *\/
     body#tumblr #glass-container .DCCfo.kXP4L,
     body#tumblr #glass-container .DCCfo.kXP4L .gJ6yV > div[style*="--blog-title-color:"],
+    body#tumblr #glass-container .xm3hr,
     body#tumblr .RkANE > .a5Orv + .DCCfo.ZmMA3[style*="--blog-title-color:"],
     body#tumblr .RkANE .DCCfo .gJ6yV > div[style*="--blog-title-color:"],
+    body#tumblr .D5eCV > .c9lq9 > ._3xgk > .RkANE, /*blog view in separate tab*\/
     body#tumblr .D5eCV > .c9lq9 > ._3xgk > .RkANE > .DCCfo, /*blog view in separate tab*\/
     body#tumblr .D5eCV > .ZYef7 > ._3xgk > .RkANE > .DCCfo  /*blog view in separate tab smaller screen size*\/,
     body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style*="--blog-title-color:"],
@@ -902,6 +927,9 @@ peepr1 "Override All Colors" <<<EOT
         --color-modal-close-button-background: /*[[navy]]*\/ !important;
         --color-modal-close-button: /*[[whiteondark]]*\/ !important;
 
+        --content-fg: rgba(var(--black))  !important;
+        --content-fg-secondary: rgba(var(--black),0.7) !important;
+        --content-panel: rgba(var(--white),1)  !important;
         
         --custom-bg: url(/*[[bgimage]]*\/) !important;
         --bg-position: /*[[bgpos]]*\/ !important;
@@ -943,6 +971,67 @@ peepr1 "Override All Colors" <<<EOT
 
         --color-primary-link: rgb(var(--accent)) !important;
         --deprecated-accent: var(--accent) !important;
+
+        --badge-icon: rgb(var(--white)) !important;
+
+        --brand-red: rgb(var(--red)) !important;
+        --brand-orange: rgb(var(--orange)) !important;
+        --brand-yellow: rgb(var(--yellow)) !important;
+        --brand-green: rgb(var(--green)) !important;
+        --brand-blue: rgb(var(--blue)) !important;
+        --brand-purple: rgb(var(--purple)) !important;
+        --brand-pink: rgb(var(--pink)) !important;
+        
+        --brand-red-hover: rgba(var(--red),0.8) !important;
+        --brand-orange-hover: rgba(var(--orange),0.8) !important;
+        --brand-yellow-hover: rgba(var(--yellow),0.8) !important;
+        --brand-green-hover: rgba(var(--green),0.8) !important;
+        --brand-blue-hover: rgba(var(--blue),0.8) !important;
+        --brand-purple-hover: rgba(var(--purple),0.8) !important;
+        --brand-pink-hover: rgba(var(--pink),0.8) !important;
+        
+        --brand-red-pressed: rgba(var(--red),1) !important;
+        --brand-orange-pressed: rgba(var(--orange),1) !important;
+        --brand-yellow-pressed: rgba(var(--yellow),1) !important;
+        --brand-green-pressed: rgba(var(--green),1) !important;
+        --brand-blue-pressed: rgba(var(--blue),1) !important;
+        --brand-purple-pressed: rgba(var(--purple),1) !important;
+        --brand-pink-pressed: rgba(var(--pink),1) !important;
+        
+        --brand-red-tint: rgba(var(--red),0.1) !important;
+        --brand-orange-tint: rgba(var(--orange),0.1) !important;
+        --brand-yellow-tint: rgba(var(--yellow),0.1) !important;
+        --brand-green-tint: rgba(var(--green),0.1) !important;
+        --brand-blue-tint: rgba(var(--blue),0.1) !important;
+        --brand-purple-tint: rgba(var(--purple),0.1) !important;
+        --brand-pink-tint: rgba(var(--pink),0.1) !important;
+        
+        --brand-red-tint-strong: rgba(var(--red),0.2) !important;
+        --brand-orange-tint-strong: rgba(var(--orange),0.2) !important;
+        --brand-yellow-tint-strong: rgba(var(--yellow),0.2) !important;
+        --brand-green-tint-strong: rgba(var(--green),0.2) !important;
+        --brand-blue-tint-strong: rgba(var(--blue),0.2) !important;
+        --brand-purple-tint-strong: rgba(var(--purple),0.2) !important;
+        --brand-pink-tint-strong: rgba(var(--pink),0.2) !important;
+        
+        --brand-red-tint-heavy: rgba(var(--red),0.3) !important;
+        --brand-orange-tint-heavy: rgba(var(--orange),0.3) !important;
+        --brand-yellow-tint-heavy: rgba(var(--yellow),0.3) !important;
+        --brand-green-tint-heavy: rgba(var(--green),0.3) !important;
+        --brand-blue-tint-heavy: rgba(var(--blue),0.3) !important;
+        --brand-purple-tint-heavy: rgba(var(--purple),0.3) !important;
+        --brand-pink-tint-heavy: rgba(var(--pink),0.3) !important;
+        
+        --content-danger: rgb(var(--red)) !important;
+        --content-success: rgb(var(--green)) !important;
+        --content-education: rgb(var(--purple)) !important;
+        --content-red: rgb(var(--red)) !important;
+        --content-orange: rgb(var(--orange)) !important;
+        --content-yellow: rgb(var(--yellow)) !important;
+        --content-green: rgb(var(--green)) !important;
+        --content-blue: rgb(var(--blue)) !important;
+        --content-purple: rgb(var(--purple)) !important;
+        --content-pink: rgb(var(--pink)) !important;
 
         background: rgb(var(--navy)) var(--custom-bg);
         background-attachment: fixed;
@@ -1066,10 +1155,73 @@ peepr2 "Override Posts Only" <<<EOT
         --tertiary-accent: /*[[tertiary-rgb]]*\/ !important; 
         --quaternary-accent: /*[[quaternary-rgb]]*\/ !important;
 
-        --color-primary-link: rgb(var(--accent)) !important;
         --deprecated-accent: var(--accent) !important;
+        --color-primary-link: rgb(var(--accent)) !important;
+
+        --content-fg: rgba(var(--black)) !important;
+        --content-fg-secondary: rgba(var(--black),0.7) !important;
+        --content-panel: rgba(var(--white),1) !important;
 
         --blog-search-background-color: rgba(/*[[whiteondark-rgb]]*\/, 0.15) !important;
+
+        --brand-red: rgb(var(--red)) !important;
+        --brand-orange: rgb(var(--orange)) !important;
+        --brand-yellow: rgb(var(--yellow)) !important;
+        --brand-green: rgb(var(--green)) !important;
+        --brand-blue: rgb(var(--blue)) !important;
+        --brand-purple: rgb(var(--purple)) !important;
+        --brand-pink: rgb(var(--pink)) !important;
+        
+        --brand-red-hover: rgba(var(--red),0.8) !important;
+        --brand-orange-hover: rgba(var(--orange),0.8) !important;
+        --brand-yellow-hover: rgba(var(--yellow),0.8) !important;
+        --brand-green-hover: rgba(var(--green),0.8) !important;
+        --brand-blue-hover: rgba(var(--blue),0.8) !important;
+        --brand-purple-hover: rgba(var(--purple),0.8) !important;
+        --brand-pink-hover: rgba(var(--pink),0.8) !important;
+        
+        --brand-red-pressed: rgba(var(--red),1) !important;
+        --brand-orange-pressed: rgba(var(--orange),1) !important;
+        --brand-yellow-pressed: rgba(var(--yellow),1) !important;
+        --brand-green-pressed: rgba(var(--green),1) !important;
+        --brand-blue-pressed: rgba(var(--blue),1) !important;
+        --brand-purple-pressed: rgba(var(--purple),1) !important;
+        --brand-pink-pressed: rgba(var(--pink),1) !important;
+        
+        --brand-red-tint: rgba(var(--red),0.1) !important;
+        --brand-orange-tint: rgba(var(--orange),0.1) !important;
+        --brand-yellow-tint: rgba(var(--yellow),0.1) !important;
+        --brand-green-tint: rgba(var(--green),0.1) !important;
+        --brand-blue-tint: rgba(var(--blue),0.1) !important;
+        --brand-purple-tint: rgba(var(--purple),0.1) !important;
+        --brand-pink-tint: rgba(var(--pink),0.1) !important;
+        
+        --brand-red-tint-strong: rgba(var(--red),0.2) !important;
+        --brand-orange-tint-strong: rgba(var(--orange),0.2) !important;
+        --brand-yellow-tint-strong: rgba(var(--yellow),0.2) !important;
+        --brand-green-tint-strong: rgba(var(--green),0.2) !important;
+        --brand-blue-tint-strong: rgba(var(--blue),0.2) !important;
+        --brand-purple-tint-strong: rgba(var(--purple),0.2) !important;
+        --brand-pink-tint-strong: rgba(var(--pink),0.2) !important;
+        
+        --brand-red-tint-heavy: rgba(var(--red),0.3) !important;
+        --brand-orange-tint-heavy: rgba(var(--orange),0.3) !important;
+        --brand-yellow-tint-heavy: rgba(var(--yellow),0.3) !important;
+        --brand-green-tint-heavy: rgba(var(--green),0.3) !important;
+        --brand-blue-tint-heavy: rgba(var(--blue),0.3) !important;
+        --brand-purple-tint-heavy: rgba(var(--purple),0.3) !important;
+        --brand-pink-tint-heavy: rgba(var(--pink),0.3) !important;
+        
+        --content-danger: rgb(var(--red)) !important;
+        --content-success: rgb(var(--green)) !important;
+        --content-education: rgb(var(--purple)) !important;
+        --content-red: rgb(var(--red)) !important;
+        --content-orange: rgb(var(--orange)) !important;
+        --content-yellow: rgb(var(--yellow)) !important;
+        --content-green: rgb(var(--green)) !important;
+        --content-blue: rgb(var(--blue)) !important;
+        --content-purple: rgb(var(--purple)) !important;
+        --content-pink: rgb(var(--pink)) !important;
     }
     /*subscribe fix*\/
     body#tumblr #glass-container .Lq1wm > .xm3hr.KwKKC.TP9ou[style] {
@@ -1086,7 +1238,18 @@ peepr2 "Override Posts Only" <<<EOT
         color: rgb(var(--black)) !important;
     }
 EOT;
-peepr3 "Default" <<<EOT  EOT;
+peepr3 "Default" <<<EOT 
+body#tumblr #glass-container .DCCfo.kXP4L,
+    body#tumblr #glass-container .xm3hr.KwKKC.u10SL.raBdW,
+    body#tumblr .D5eCV > .c9lq9 > ._3xgk > .RkANE > .DCCfo, /*blog view in separate tab*\/
+    body#tumblr .D5eCV > .ZYef7 > ._3xgk > .RkANE > .DCCfo  /*blog view in separate tab smaller screen size*\/,
+    body#tumblr div[data-testid="tipping-modal"] {
+        --font-family: /*[[font]]*\/ !important;
+        --custom-font: /*[[customfont]]*\/ !important;
+        --base-font-size: /*[[fontsize]]*\/ !important;
+        --menu-font-size: /*[[menufontsize]]*\/ !important;
+    }
+ EOT;
 }
 
 @advanced dropdown alt "Image ALT Label" {
@@ -1146,7 +1309,7 @@ compactblockedpost2 "Enable" <<<EOT
         color: rgb(var(--black)) !important;
     }
     body#tumblr .So6RQ[data-id] .W0ros .TRX6J { /*view post button*\/
-        margin-left: 0;
+        margin: 0;
         flex: 0 0 30%;
     }
     body#tumblr .So6RQ[data-id] .W0ros .TRX6J .NQQC8 {
@@ -1213,8 +1376,29 @@ adfree2 "Show" <<<EOT  EOT;
         --purple: /*[[purple-rgb]]*/;
         --pink: /*[[pink-rgb]]*/;
         
-        --success: rgb(var(--green));
+        --success: rgba(var(--green),1);
+        --success-hover: rgba(var(--green),0.8);
+        --success-pressed: rgba(var(--green),1);
+        --success-tint: rgba(var(--green),0.1);
+        --success-tint-strong: rgba(var(--green),0.2);
+        --success-tint-heavy: rgba(var(--green),0.3);
         
+        --danger: rgba(var(--red),1);
+        --danger-hover: rgba(var(--red),0.8);
+        --danger-pressed: rgba(var(--red),1);
+        --danger-tint: rgba(var(--red),0.1);
+        --danger-tint-strong: rgba(var(--red),0.2);
+        --danger-tint-heavy: rgba(var(--red),0.3);
+        
+        --education: rgba(var(--purple),1);
+        --education-hover: rgba(var(--purple)),0.8;
+        --education-pressed: rgba(var(--purple),1);
+        --education-tint: rgba(var(--purple),0.1);
+        --education-tint-strong: rgba(var(--purple),0.2);
+        --education-tint-heavy: rgba(var(--purple),0.3);
+        
+        --unread-tint: rgba(var(--accent),0.07);
+        --unread-tint-hover: rgba(var(--accent),0.12);
         
         --brand-red: rgb(var(--red));
         --brand-orange: rgb(var(--orange));
@@ -1223,10 +1407,62 @@ adfree2 "Show" <<<EOT  EOT;
         --brand-blue: rgb(var(--blue));
         --brand-purple: rgb(var(--purple));
         --brand-pink: rgb(var(--pink));
+        
+        --brand-red-hover: rgba(var(--red),0.8);
+        --brand-orange-hover: rgba(var(--orange),0.8);
+        --brand-yellow-hover: rgba(var(--yellow),0.8);
+        --brand-green-hover: rgba(var(--green),0.8);
+        --brand-blue-hover: rgba(var(--blue),0.8);
+        --brand-purple-hover: rgba(var(--purple),0.8);
+        --brand-pink-hover: rgba(var(--pink),0.8);
+        
+        --brand-red-pressed: rgba(var(--red),1);
+        --brand-orange-pressed: rgba(var(--orange),1);
+        --brand-yellow-pressed: rgba(var(--yellow),1);
+        --brand-green-pressed: rgba(var(--green),1);
+        --brand-blue-pressed: rgba(var(--blue),1);
+        --brand-purple-pressed: rgba(var(--purple),1);
+        --brand-pink-pressed: rgba(var(--pink),1);
+        
+        --brand-red-tint: rgba(var(--red),0.1);
+        --brand-orange-tint: rgba(var(--orange),0.1);
+        --brand-yellow-tint: rgba(var(--yellow),0.1);
+        --brand-green-tint: rgba(var(--green),0.1);
+        --brand-blue-tint: rgba(var(--blue),0.1);
+        --brand-purple-tint: rgba(var(--purple),0.1);
+        --brand-pink-tint: rgba(var(--pink),0.1);
+        
+        --brand-red-tint-strong: rgba(var(--red),0.2);
+        --brand-orange-tint-strong: rgba(var(--orange),0.2);
+        --brand-yellow-tint-strong: rgba(var(--yellow),0.2);
+        --brand-green-tint-strong: rgba(var(--green),0.2);
+        --brand-blue-tint-strong: rgba(var(--blue),0.2);
+        --brand-purple-tint-strong: rgba(var(--purple),0.2);
+        --brand-pink-tint-strong: rgba(var(--pink),0.2);
+        
+        --brand-red-tint-heavy: rgba(var(--red),0.3);
+        --brand-orange-tint-heavy: rgba(var(--orange),0.3);
+        --brand-yellow-tint-heavy: rgba(var(--yellow),0.3);
+        --brand-green-tint-heavy: rgba(var(--green),0.3);
+        --brand-blue-tint-heavy: rgba(var(--blue),0.3);
+        --brand-purple-tint-heavy: rgba(var(--purple),0.3);
+        --brand-pink-tint-heavy: rgba(var(--pink),0.3);
+        
+        --content-danger: rgb(var(--red));
+        --content-success: rgb(var(--green));
+        --content-education: rgb(var(--purple));
+        --content-red: rgb(var(--red));
+        --content-orange: rgb(var(--orange));
+        --content-yellow: rgb(var(--yellow));
+        --content-green: rgb(var(--green));
+        --content-blue: rgb(var(--blue));
+        --content-purple: rgb(var(--purple));
+        --content-pink: rgb(var(--pink));
 
         --navy: /*[[navy-rgb]]*/; /* body background */
         --accent: /*[[accent-rgb]]*/; /* links, buttons on top */
         --accent-tint: rgba(var(--accent),0.1);
+        --accent-hover: rgba(var(--accent),0.2);
         --secondary-accent: /*[[secondary-rgb]]*/; /*secondary accent */
         --link-hover: /*[[linkhover-rgb]]*/; /*link hover color */
         --tertiary-accent: /*[[tertiary-rgb]]*/; /*top bar bg */
@@ -1249,35 +1485,38 @@ adfree2 "Show" <<<EOT  EOT;
         --chrome-tint-strong: rgba(var(--accent),0.15);
         --content-tint-strong: rgba(var(--accent),0.15);
         
+        --chrome-tint-heavy: rgba(var(--accent),0.2);
+        --content-tint-heavy: rgba(var(--accent),0.2);
+        
         --chrome-panel-border: rgba(var(--black-on-white),0.5);
         
         --chrome-ui: rgb(var(--accent));
         --content-ui: var(--chrome-ui);
+        --content-ui-toggle: rgb(var(--accent));
         
         --chrome-ui-hover: rgb(var(--quaternary-accent));
         --content-ui-hover: rgb(var(--quaternary-accent));
         
         --chrome-ui-fg: rgb(var(--white));
         --content-fg: rgb(var(--black));
+        --content-fg-secondary: rgba(var(--black),0.7);
         
         --chrome-fg: rgb(var(--black));
         --color-fg: rgb(var(--navy));
         --accent-fg: rgb(var(--white));
         
-        --content-fg-secondary: rgba(var(--black),0.5);
         --chrome-fg-secondary: rgba(var(--black),0.5);
         
         --content-fg-tertiary: rgba(var(--black),0.3);
         --chrome-fg-tertiary: rgba(var(--black),0.3);
         
-        --danger: rgba(var(--red),0.8);
-        --danger-hover: rgba(var(--red),1);
         --color-fg-light: rgb(var(--white));
         --color-fg-light-secondary: rgba(var(--white),0.8);
         
         --color-ui: rgb(var(--tertiary-accent));
         --color-ui-fg: rgb(var(--quaternary-accent));
         
+        --badge-icon: rgb(var(--white));
     }
     
     /*custom background  */
@@ -1331,6 +1570,7 @@ adfree2 "Show" <<<EOT  EOT;
         background-color: rgb(var(--accent));
         color: rgb(var(--tertiary-accent));
         border-color: rgb(var(--tertiary-accent));
+        border-radius: 4px;
     }
     /*left menu aka old top bar search - fix bg*/
     body#tumblr .N5wJr {
@@ -1620,7 +1860,7 @@ adfree2 "Show" <<<EOT  EOT;
     }
     /*community post button styling*/
     body#tumblr article .LaNUG .bkPoT.bkPoT,
-    body#tumblr .So6RQ[data-id] .W0ros .TRX6J  {
+    body#tumblr .So6RQ[data-id] .W0ros .TRX6J {
         text-transform: capitalize;
     }
     /*community fix long community url overflow*/
@@ -1633,6 +1873,13 @@ adfree2 "Show" <<<EOT  EOT;
         text-overflow: ellipsis;
         overflow: hidden;
     }
+    /*community online button*/
+    body#tumblr .kUY6q {
+        background-color: var(--brand-green-tint-heavy);
+    }
+    body#tumblr .UNR6O {
+        background-color: var(--brand-green);
+    }
     
     /*follow button styling
     2. recommended blogs in sidebar (.f68ED)
@@ -1640,19 +1887,25 @@ adfree2 "Show" <<<EOT  EOT;
     4. follow blog button in new page sidebar (.MV1bs button)
     5. follow button in blog peepr suggestions
     6. notes popover follow buttons
-    7. follow button in dashboard blog view suggested blogs*/
-    body#tumblr article .f68ED,
+    7. follow button in dashboard blog view suggested blogs
+    8. unfollow button
+    9. follow button alternative class
+    */
+    body#tumblr button[aria-label="Follow"] .f68ED,
     body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED,
     body#tumblr aside .MV1bs .u8J1W .hc4QI a,
     body#tumblr aside .MV1bs button[aria-label="Follow"] .f68ED,
     body#tumblr .DCCfo.kXP4L ul.PwJi6 button[aria-label="Follow"] .f68ED,
     body#tumblr #glass-container .EnRJg.W5tdN[aria-label="Post Activity"] button[aria-label="Follow"] .f68ED,
-    body#tumblr ul.PwJi6 button[aria-label="Follow"] .f68ED {
+    body#tumblr ul.PwJi6 button[aria-label="Follow"] .f68ED,
+    body#tumblr button.TRX6J[aria-label="Unfollow"] .f68ED, 
+    body#tumblr div.RIcm_ .zn53i.EF4A5,
+    body#tumblr .u8J1W > div > .zn53i.EF4A5 {
         font-size: 0.8em;
         font-weight: bold;
-        background-color: rgba(var(--black),0.4);
-        padding: 2px 8px;
-        border-radius: 2px;
+        background-color: rgba(var(--black),0.2);
+        padding: 0.5em 0.7em;
+        border-radius: 1rem;
         color: rgb(var(--white)) !important;
         vertical-align: middle;
     }
@@ -1671,8 +1924,12 @@ adfree2 "Show" <<<EOT  EOT;
         text-align: center;
     }
     /*follow button hover/focus styling*/
-    body#tumblr article button[aria-label="Follow"] .f68ED:hover,
-    body#tumblr article button[aria-label="Follow"]:focus .f68ED,
+    body#tumblr .RIcm_ .zn53i.EF4A5:hover,
+    body#tumblr .RIcm_ .zn53i.EF4A5:focus,
+    body#tumblr .u8J1W > div > .zn53i.EF4A5:hover,
+    body#tumblr .u8J1W > div > .zn53i.EF4A5:focus,
+    body#tumblr button[aria-label="Follow"] .f68ED:hover,
+    body#tumblr button[aria-label="Follow"]:focus .f68ED,
     body#tumblr aside .PwJi6 button[aria-label="Follow"] .f68ED:hover,
     body#tumblr aside .PwJi6 button[aria-label="Follow"]:focus .f68ED,
     body#tumblr aside .u8J1W .hc4QI a:hover,
@@ -1691,11 +1948,21 @@ adfree2 "Show" <<<EOT  EOT;
         color: rgb(var(--white)) !important;
         background-color: rgb(var(--green));
     }
+    /*unfollow button hover/focus styling*/
+    body#tumblr button.TRX6J[aria-label="Unfollow"] .f68ED:hover, body#tumblr button.TRX6J[aria-label="Unfollow"] .f68ED:focus {
+        text-decoration: none !important;
+        color: rgb(var(--white)) !important;
+        background-color: rgb(var(--red));
+    }
     body#tumblr aside .PwJi6 .SbeG8 {
         padding-right: 0;
     }
     body#tumblr article .f68ED {
         display: inline-block;
+    }
+    /*follow button alignment fix*/
+    body#tumblr .RIcm_ .w6x4o {
+        align-self: center;
     }
 
     /*permalink post corner*/
@@ -1716,8 +1983,12 @@ adfree2 "Show" <<<EOT  EOT;
     
     /*[[inlinesuggest]]*/
     
-    /*hide ad free banner*/
-    body#tumblr .D5eCV > .I6Lwl:last-child, div[data-cell-id*="timelineObject:live_marquee"] {
+    /*hide:
+        1. ad free banner
+        2. you have unlocked badge alert
+    */
+    body#tumblr .D5eCV > .I6Lwl:last-child, div[data-cell-id*="timelineObject:live_marquee"],
+    body#tumblr button[aria-label="You have an unlocked badge!"] {
         display: none;
     }
     
@@ -1751,6 +2022,11 @@ adfree2 "Show" <<<EOT  EOT;
     }
     body#tumblr #glass-container .GHloH:not(.N8SnF) .LaNhI > .hyiL2 .USr9U > div {
         margin-bottom: 20px;
+    }
+    /*search filter modal*/
+    body#tumblr .A8GnA {
+        background-color: var(--content-panel);
+        border-color: rgb(var(--navy));
     }
 
     /*popover & on-dashboard blog fixes */
@@ -2015,22 +2291,22 @@ adfree2 "Show" <<<EOT  EOT;
     }
     /*active styling svg*/
     /*restyle wrappers so svg is what controls bg color instead*/
-    .aoUoX > ._DlEg .Kpwkn {
+    body#tumblr .aoUoX > ._DlEg .Kpwkn {
         background: none;
         height: 30px;
         width: 30px;
     }
-    .aoUoX > ._DlEg .PD0uZ {
+    body#tumblr .aoUoX > ._DlEg .PD0uZ {
         padding: 0;
         border-radius: 100%;
     }
-    .aoUoX > ._DlEg .PD0uZ .WjK59 {
+    body#tumblr .aoUoX > ._DlEg .PD0uZ .WjK59 {
         height: 100%;
         width: 100%;
         overflow: hidden;
         padding-top: 0;
     }
-    .aoUoX > ._DlEg .PD0uZ:not([style*="background"]) svg {
+    body#tumblr .aoUoX > ._DlEg .PD0uZ:not([style*="background"]) svg {
         padding: 7px;
         width: 100%;
         height: 100%;
@@ -2075,38 +2351,42 @@ adfree2 "Show" <<<EOT  EOT;
         font-size: 1em;
     }
     /*new link editor url input*/
-    .RupUR .aoUoX .avi_I input[type="url"] {
+    body#tumblr .RupUR .aoUoX .avi_I input[type="url"] {
         font-size: 1em;
     }
     /*link editor 'done' button when editing existing link*/
-    .RupUR .KpIMI .avi_I .jsRn4 {
+    body#tumblr .RupUR .KpIMI .avi_I .jsRn4 {
         position: static;
         box-sizing: border-box;
         padding-right: 13px;
         flex-shrink: 0;
         height: 100%;
     }
-    .RupUR .KpIMI .avi_I .jsRn4:hover {
+    body#tumblr .RupUR .KpIMI .avi_I .jsRn4:hover {
         background-color: rgba(var(--accent),1);
     }
-    /*link editor button wrapper*/
-    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB,
-    .block-editor-writing-flow span[data-testid="controlled-popover-wrapper"] .KpIMI > .P0AaB {
-        padding: 0;
-        height: 100%;
+    /*selected post style buttons*/
+    body#tumblr .dzJuF .xXvvU .aoUoX .PD0uZ[aria-pressed="true"],
+    body#tumblr .dzJuF .xXvvU .aoUoX .WeDwS[aria-checked="true"] {
+        background-color: rgba(var(--link-hover),1);
+        color: rgba(var(--white));
     }
-    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J,
-    .block-editor-writing-flow span[data-testid="controlled-popover-wrapper"] .KpIMI > .P0AaB > .TRX6J {
-        height: 100%;
+    body#tumblr .dzJuF .xXvvU .aoUoX .PD0uZ[aria-pressed="true"] svg {
+        --icon-color-primary: rgba(var(--white));
     }
-    /*change bg color of buttons on hover, prevent text color from changing*/
-    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J:hover,
-    .block-editor-writing-flow span[data-testid="controlled-popover-wrapper"] .KpIMI > .P0AaB > .TRX6J:hover {
-	    background-color: rgba(var(--accent),.87);
+    /*change bg color of post text style options on hover, prevent text color from changing*/
+    body#tumblr .dzJuF .xXvvU .aoUoX .WeDwS:hover {
+	    background-color: rgba(var(--accent),1);
+        color: rgba(var(--white));
     }
-    div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J .p8ZLW:hover,
-    .block-editor-writing-flow span[data-testid="controlled-popover-wrapper"] .KpIMI > .P0AaB > .TRX6J .p8ZLW:hover {
-        color: rgb(var(--white));
+    body#tumblr .dzJuF .xXvvU .aoUoX .tumblr-color > a {
+        color: inherit !important;
+    }
+    /*text style dropdown button when alt style selected*/
+    body#tumblr .dzJuF .xXvvU .aoUoX .G16EK.EiaN0 {
+      --icon-color-primary: rgb(var(--white));
+      background: rgba(var(--link-hover),1);
+      color: RGB(var(--white));
     }
     /*fix button heights + padding*/
     div[data-testid="gutenberg-editor"] .KpIMI > .P0AaB > .TRX6J,
@@ -2631,8 +2911,9 @@ adfree2 "Show" <<<EOT  EOT;
     }
     
     /*post editor 140 chars or less popup*/
-    body#tumblr .CkEXb .a0A37.Td0xZ {
-        background: rgb(var(--accent));
+    body#tumblr .a0A37.Td0xZ,
+    body#tumblr .a0A37.feuui {
+        background: rgb(var(--accent)) !important;
     }
 
     /*~~~*/
@@ -2794,8 +3075,13 @@ adfree2 "Show" <<<EOT  EOT;
         color: rgba(var(--white-on-dark),1);
     }
     /*community button restyling*/
-    body#tumblr .iMbDn[aria-selected="true"] {
-        background: rgba(var(--accent))
+    body#tumblr .Sn8rD[aria-selected="true"], body#tumblr .iMbDn[aria-selected="true"] {
+        background: rgba(var(--accent));
+        color: rgba(var(--navy),1);
+    }
+    body#tumblr .Sn8rD[aria-selected="true"]:hover, body#tumblr .iMbDn[aria-selected="true"]:hover,
+    body#tumblr .Sn8rD[aria-selected="true"]:focus, body#tumblr .iMbDn[aria-selected="true"]:focus{
+        background: rgba(var(--link-hover))
     }
     /*community page fix issue with sidebar alignment*/
     body#tumblr .D5eCV ._3xgk.jB5sp:not(:has(.kTmxA._7Rw7)) {
