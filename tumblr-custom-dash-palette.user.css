@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.7.2
+@version        0.7.3
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -606,12 +606,33 @@ EOT;
 @advanced dropdown otdpixiel "Compatibility Fixes for Old Tumblr Dashboard by Pixiel" {
 otdpixiel1 "Disabled" <<<EOT EOT;
 otdpixiel2 "Enabled" <<<EOT 
+    nav.NkkDk.pbxM8 {
+        --badge-text: var(--tertiary-accent);
+    }
     body#tumblr .N5wJr {
         background: none;
         z-index: 100;
     }
     body#tumblr .zmjaW {
         display: none;
+    }
+    /*weird new posts badge issue*\/
+    body#tumblr .tDT48 .a132D .jF6A2 .jpu7k.jDcIV.SmqzX.D0OOd[role="status"] {
+        background: none !important;
+    }
+    /*fixing colors for this otd section:
+      Moves the notification number icons back into place*\/
+    nav .IYrO9 .a132D > .jF6A2 > .jpu7k.jDcIV.SmqzX.D0OOd.XnKJk > .VSvbe,
+    nav .IYrO9 .tDT48 > .kn4U3 > .jpu7k.jDcIV.D0OOd.XnKJk > .VSvbe {
+        border: 2px solid RGB(var(--tertiary-accent))!important;
+        background-color: rgb(var(--accent)) !important;
+    }
+    nav .IYrO9:hover .a132D > .jF6A2 > .jpu7k.jDcIV.SmqzX.D0OOd.XnKJk > .VSvbe,
+    nav .IYrO9:hover .tDT48 > .kn4U3 > .jpu7k.jDcIV.D0OOd.XnKJk > .VSvbe {
+        background-color: rgb(var(--link-hover)) !important;
+    }
+    .FA5JM .jDcIV:not(.SmqzX) {
+        border: 2px solid RGB(var(--tertiary-accent)) !important;
     }
 EOT;
 }
