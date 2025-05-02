@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.7.1
+@version        0.7.2
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -656,7 +656,7 @@ EOT;
 @advanced dropdown followlabel "Follow/Unfollow Buttons In Posts" {
 followlabel1 "Hide" <<<EOT 
     /*hide follow button, .TRX6J main line 42*\/
-    body#tumblr article button.TRX6J[aria-label="Follow"], body#tumblr article button.TRX6J[aria-label="Unfollow"], body#tumblr article .zn53i.EF4A5.r21y5, body#tumblr article button.TRX6J[aria-label="Unfollow"] {
+    body#tumblr article button.TRX6J[aria-label="Follow"], body#tumblr article button.TRX6J[aria-label="Unfollow"], body#tumblr article a[aria-label="Permalink"] + div .RIcm_ .zn53i.EF4A5.r21y5, body#tumblr article button.TRX6J[aria-label="Unfollow"] {
         display: none
     } EOT;
 followlabel2 "Show" <<<EOT  EOT;
@@ -937,6 +937,7 @@ peepr1 "Override All Colors" <<<EOT
         --bg-size: /*[[bgsize]]*\/ !important;
 
         --font-family: /*[[font]]*\/ !important;
+        --font-family-modern: /*[[font]]*\/ !important;
         --custom-font: /*[[customfont]]*\/ !important;
         --base-font-size: /*[[fontsize]]*\/ !important;
         --menu-font-size: /*[[menufontsize]]*\/ !important;
@@ -1134,6 +1135,7 @@ peepr2 "Override Posts Only" <<<EOT
         --color-modal-close-button: /*[[whiteondark]]*\/ !important;
 
         --font-family: /*[[font]]*\/ !important;
+        --font-family-modern: /*[[font]]*\/ !important;
         --custom-font: /*[[customfont]]*\/ !important;
         --base-font-size: /*[[fontsize]]*\/ !important;
         --menu-font-size: /*[[menufontsize]]*\/ !important;
@@ -1163,6 +1165,7 @@ peepr2 "Override Posts Only" <<<EOT
         --content-panel: rgba(var(--white),1) !important;
 
         --blog-search-background-color: rgba(/*[[whiteondark-rgb]]*\/, 0.15) !important;
+        --badge-icon: rgb(var(--white)) !important;
 
         --brand-red: rgb(var(--red)) !important;
         --brand-orange: rgb(var(--orange)) !important;
@@ -1245,9 +1248,14 @@ body#tumblr #glass-container .DCCfo.kXP4L,
     body#tumblr .D5eCV > .ZYef7 > ._3xgk > .RkANE > .DCCfo  /*blog view in separate tab smaller screen size*\/,
     body#tumblr div[data-testid="tipping-modal"] {
         --font-family: /*[[font]]*\/ !important;
+        --font-family-modern: /*[[font]]*\/ !important;
         --custom-font: /*[[customfont]]*\/ !important;
         --base-font-size: /*[[fontsize]]*\/ !important;
         --menu-font-size: /*[[menufontsize]]*\/ !important;
+        --badge-icon: rgb(var(--white)) !important;
+    }
+    body#tumblr article .EAugG[data-testid="community-label-cover"] .zn53i.EF4A5.r21y5 {
+        background: var(--accent);
     }
  EOT;
 }
@@ -1858,6 +1866,26 @@ adfree2 "Show" <<<EOT  EOT;
         text-transform: capitalize;
         text-decoration: none !important;
     }
+    /*community label cover: for mature content. makes button look like an actual button*/
+    body#tumblr article .EAugG[data-testid="community-label-cover"] .zn53i.EF4A5.r21y5 {
+        background: rgb(var(--accent));
+        padding: 0.5em 0.7em;
+        border-radius: 1rem;
+        transition: 0.1s background;
+    }
+    body#tumblr article .EAugG[data-testid="community-label-cover"] .zn53i.EF4A5.r21y5:hover,
+    body#tumblr article .EAugG[data-testid="community-label-cover"] .zn53i.EF4A5.r21y5:focus {
+        background: rgb(var(--link-hover));
+    }
+    body#tumblr article .EAugG[data-testid="community-label-cover"] .zn53i.EF4A5.r21y5 span {
+        color: rgb(var(--white));
+        text-transform: capitalize;
+        text-decoration: none !important;
+    }
+    body#tumblr article .EAugG[data-testid="community-label-cover"] .UF4Vo {
+        color: rgb(var(--orange));
+        text-transform: capitalize;
+    }
     /*community post button styling*/
     body#tumblr article .LaNUG .bkPoT.bkPoT,
     body#tumblr .So6RQ[data-id] .W0ros .TRX6J {
@@ -2306,7 +2334,7 @@ adfree2 "Show" <<<EOT  EOT;
         overflow: hidden;
         padding-top: 0;
     }
-    body#tumblr .aoUoX > ._DlEg .PD0uZ:not([style*="background"]) svg {
+    body#tumblr .aoUoX > ._DlEg .PD0uZ svg {
         padding: 7px;
         width: 100%;
         height: 100%;
