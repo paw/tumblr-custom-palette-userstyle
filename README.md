@@ -1,13 +1,19 @@
 # Tumblr – Custom Dashboard Palette
 
-### **Use alongside [Old Tumblr Dashboard (Userstyle) by Pixiel](https://userstyles.world/style/11286/old-tumblr-dashboard-userstyle) to get the old dashboard layout back.**
+### **Use alongside [Old Tumblr Dashboard (Userstyle)](https://userstyles.world/style/11286/old-tumblr-dashboard-userstyle) OR [Dashboard Plus](https://addons.mozilla.org/en-US/firefox/addon/dashboard-plus/) to get the old dashboard layout back.**
 
 ## About
 Just a simple userstyle for setting custom colors, font sizes, and font family for the tumblr dashboard. Supports full and tiling backgrounds.
 
 This theme will update automatically when I make changes to the code here on github if you have auto update enabled in Stylus. The default theme is inspired by the old dashboard and uses its old blue hue.
 
-[Click here to skip directly to installation instructions.](#how-to-install)
+
+[**Click here to skip directly to installation instructions.**](#how-to-install)
+
+### Compatible With:
+- [XKit Rewritten by April Sylph](https://github.com/AprilSylph/XKit-Rewritten)
+- [Dashboard Plus by April Lunarii](https://github.com/enchanted-sword/dashboard-plus)
+- [Old Tumblr Dashboard (Userstyle) by Pixiel](https://userstyles.world/style/11286/old-tumblr-dashboard-2023)
 
 ## Screenshots (Updated Jun. 2024)
 
