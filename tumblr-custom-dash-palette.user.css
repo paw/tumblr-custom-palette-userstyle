@@ -3440,10 +3440,21 @@ adfree2 "Show" <<<EOT  EOT;
     .POhPp[data-placement*="bottom-start"]::after {
         border-bottom-color: rgb(var(--tertiary-accent));
     }
+    /*new footer fix edit button color*/
+    body#tumblr article a.ndGZ1 {
+        color: var(--content-fg-secondary)
+    }
+    body#tumblr article a.ndGZ1.t8Z2i:hover {
+        color: var(--brand-blue)
+    }
+    /*legacy footer close notes button - prevent breaking in cases of very squished footer*/
+    body#tumblr .rlv6m .ePsyd {
+        white-space: nowrap;
+    }
     body#tumblr .MI6Q7 {
         --content-fg-tertiary: rgba(var(--black),0.5)
     }
-    /*footer fix alignment on notes with really big fonts*/
+    /*legacy footer fix alignment on notes with really big fonts*/
     footer[aria-label="Post Footer"] > .m5KTc > .gstmW .BPf9u[data-testid="controlled-popover-wrapper"] > .BPf9u {
         display: inline-flex;
     }
@@ -3612,6 +3623,18 @@ adfree2 "Show" <<<EOT  EOT;
     /*xkit timestamps*/
     .xkit-reblog-timestamp {
         text-align: right;
+    }
+    /*xkit quick tags button styling to match new edit and delete buttons*/
+    .xkit-quick-tags-button {
+        border-radius: 9999px;
+    }
+    .xkit-quick-tags-button:hover .xkit-control-button-inner svg {
+        fill: var(--brand-purple);
+    }
+    @media (hover: hover) and (pointer: fine) {
+        .xkit-quick-tags-button:hover {
+            background-color: var(--brand-purple-tint);
+        }
     }
     /*xkit sidebar fixes*/
     body#tumblr aside > .N5wJr + .zmjaW + .FZkjV + .FZkjV:not(:has(.Q55_h.KU8aS)) + #xkit-sidebar,
