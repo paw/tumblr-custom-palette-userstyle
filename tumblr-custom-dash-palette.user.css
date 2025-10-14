@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.8.0
+@version        0.8.1
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -409,7 +409,7 @@ bgasidefix1 "Enable" <<<EOT
         6/7. no tags found on tagged page
         8. inbox description
     *\/
-    body#tumblr .R0TWs,
+    body#tumblr .R0TWs, body#tumblr .cQqe6,
     body#tumblr .j8ha0[data-timeline] .cQqe6,
     body#tumblr .j8ha0[data-timeline] .t3NIG,
     body#tumblr .s9s8Q.gifts,
@@ -656,11 +656,15 @@ otdpixiel2 "Enabled" <<<EOT
 EOT;
 }
 
-@advanced dropdown postfooter "Post Footer (Use DB+ to Get Exact Old Footer, a pure-CSS solution is incompatible with XKit's Quick Reblog atm)" {
+@advanced dropdown postfooter "Post Footer (Use DB+ to get the Old Footer back, a pure-CSS solution is not possible)" {
 postfooter0 "Default" <<<EOT  EOT;
 postfooter1 "Old Button Order & Aligned to Right" <<<EOT 
 body#tumblr footer.gm9gb .ndAE7 > div:not([class]) {
     order: -1;
+    display: flex;
+}
+body#tumblr footer.gm9gb .ndAE7 > div:not([class]) .xZAjr {
+    position: static;
 }
 body#tumblr footer.gm9gb .dbplus-controlIcon {
     order: -2;
@@ -680,31 +684,41 @@ body#tumblr footer.gm9gb .ndAE7 .rtfvT > span.Vcrhu {
 }
 EOT;
 postfooter2 "Old Button Order Only" <<<EOT 
-body#tumblr footer.gm9gb .ndAE7 > div:not([class]),
-body#tumblr footer.gm9gb .dbplus-controlIcon {
+body#tumblr footer.gm9gb .ndAE7 > div:not([class]) {
     order: -1;
     display: inline-flex;
-    justify-content: center;
-    width: 20%;
+    justify-content: space-around;
+    max-width: 50%;
+    width: auto;
+    flex: 1;
+}
+body#tumblr footer.gm9gb .ndAE7 > div:not([class]) .xZAjr {
+    position: static;
 }
 body#tumblr footer.gm9gb .dbplus-controlIcon {
+    display: inline-flex;
+    justify-content: center;
     order: -2;
-    width: 20%;
+    flex: 1;
 }
 body#tumblr footer.gm9gb .ndAE7 {
-    --cols: 4;
-    display: grid;
-    grid-template-columns: repeat(1fr, var(--cols))
-}
-body#tumblr footer.gm9gb:has(.dbplus-controlIcon) .ndAE7 {
-    --cols: 5;
+    display: flex;
+    gap: unset;
 }
 body#tumblr footer.gm9gb .ndAE7 .rtfvT {
-    grid-column: 2 / 4;
-    justify-items: center;
+    max-width: 80%;
+    justify-content: space-around;
+    display: flex;
+    width: auto;
+    min-width: 45%;
+    flex-grow: 1;
 }
-body#tumblr footer.gm9gb:has(.dbplus-controlIcon) .ndAE7 .rtfvT {
-    grid-column: 3 / 5;
+body#tumblr footer.gm9gb .ndAE7 .rtfvT > * {
+    flex: 1;
+}
+body#tumblr footer.gm9gb .ndAE7 .rtfvT .Vcrhu {
+    display: flex;
+    justify-content: center;
 }
 EOT;
 }
@@ -3610,4 +3624,3 @@ adfree2 "Show" <<<EOT  EOT;
         margin-top: 0.5em !important;
     }
 }
-
