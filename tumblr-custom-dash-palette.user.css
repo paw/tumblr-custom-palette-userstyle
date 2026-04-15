@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.8.1
+@version        0.8.2
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -1779,6 +1779,10 @@ adfree2 "Show" <<<EOT  EOT;
         color: rgb(var(--quaternary-accent));
         font-weight: bold;
     }
+    /*fix tumblr breaking activity popover*/
+    body#tumblr #glass-container .AzqQv {
+        background: rgb(var(--white));
+    }
     /*activity selected blog name*/
     body#tumblr .hlDot .jBtpD header .gcKSf {
         color: rgb(var(--quaternary-accent)) !important;
@@ -3238,6 +3242,10 @@ adfree2 "Show" <<<EOT  EOT;
     /*~~~*/
 
     /*misc fixes*/
+    /*bug fix for some classes not using rgb for colors*/
+    body#tumblr .N4a8t .Up4z9, body#tumblr .N4a8t .ifclM {
+        color: rgb(var(--accent))
+    }
     
     /*make community tags matched tagged page tag styling*/
     body#tumblr .vehmL .yej87 {
