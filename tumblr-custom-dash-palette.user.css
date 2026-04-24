@@ -1617,6 +1617,7 @@ adfree2 "Show" <<<EOT  EOT;
         --content-fg: rgb(var(--black));
         --content-fg-secondary: rgba(var(--black),0.7);
         
+        --chrome: rgb(var(--white));
         --chrome-fg: rgb(var(--black));
         --color-fg: rgb(var(--navy));
         --accent-fg: rgb(var(--white));
@@ -1631,7 +1632,6 @@ adfree2 "Show" <<<EOT  EOT;
         --color-fg-light: rgb(var(--white));
         --color-fg-light-secondary: rgba(var(--white),0.8);
         
-        --chrome: rgb(var(--tertiary-accent));
         --color-ui: rgb(var(--tertiary-accent));
         --color-ui-fg: rgb(var(--quaternary-accent));
         
