@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.8.2
+@version        0.8.3
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -1586,7 +1586,8 @@ adfree2 "Show" <<<EOT  EOT;
         --top-menu: rgb(var(--white));
 
         --post-controls-scale: /*[[editorsize]]*/;
-        --modal: /*[[modal-rgb]]*/;
+        --modal-bg: /*[[modal-rgb]]*/;
+        --modal: rgb(var(--white));
         
         --color-primary-link: rgb(var(--accent));
         --deprecated-accent: var(--accent);
@@ -1616,6 +1617,7 @@ adfree2 "Show" <<<EOT  EOT;
         --content-fg: rgb(var(--black));
         --content-fg-secondary: rgba(var(--black),0.7);
         
+        --chrome: rgb(var(--white));
         --chrome-fg: rgb(var(--black));
         --color-fg: rgb(var(--navy));
         --accent-fg: rgb(var(--white));
@@ -1826,13 +1828,15 @@ adfree2 "Show" <<<EOT  EOT;
         --icon-color-primary: rgb(var(--white-on-dark));
         opacity: 1;
     }
-    
+    /*dashboard tabs fix issue with accent being rgb*/
+    body#tumblr .sSq2h .wl0Ka, .sSq2h.wl0Ka {
+        box-shadow: inset 0px -2px 0px rgb(var(--accent));
+    }
     /*[[dashtabs]]*/
     /*fix issue with "my tags" popover border styling*/
-    hr + .tBdaa {
+    body#tumblr hr + .tBdaa {
         border-top: none;
     }
-    
     /*in posts: reblog symbol & options menu dots */
     body#tumblr .jOhmG svg {
         fill: rgb(var(--black))
@@ -1972,9 +1976,11 @@ adfree2 "Show" <<<EOT  EOT;
         --icon-color-primary: RGB(var(--green)) !important;
         fill: rgb(var(--green)) !important;
     }
-    /*post footer in drafts/queue post button hover styling*/
+    /*post footer in drafts/queue post button hover styling
+        post editor fix post button hover styling
+    */
     body#tumblr footer.tOKgq button[aria-label="Post"]:hover .EvhBA.UUr5c,
-    body#tumblr footer.tOKgq button[aria-label="Post"]:focus .EvhBA.UUr5c{
+    body#tumblr footer.tOKgq button[aria-label="Post"]:focus .EvhBA.UUr5c {
         background: rgb(var(--link-hover));
     }
     /*post footer button tooltips*/
@@ -2171,7 +2177,7 @@ adfree2 "Show" <<<EOT  EOT;
     
     /*modal bg color*/
     body#tumblr button.SaLOl span.ZUy1d, body#tumblr .SaLOl[tabindex="-1"] {
-        background-color: rgba(var(--modal), 0.95) !important;
+        background-color: rgba(var(--modal-bg), 0.95) !important;
     }
     /*modal info popup*/
     body#tumblr .fxR1V {
@@ -2470,6 +2476,47 @@ adfree2 "Show" <<<EOT  EOT;
     /*fix z-index bug with images and the post editor's sticky header*/
     body#tumblr #glass-container .kCzoF {
         z-index: 2;
+    }
+    /*post editor submit post button color fix*/
+    body#tumblr .Q1jRN .xved4 {
+        background: rgb(var(--accent))
+    }
+    /*post editor submit button colors for new posts*/
+    body#tumblr .Q1jRN .xved4 .VxmZd:disabled,
+    body#tumblr .xved4.LfOBx {
+        color: rgb(var(--white));
+        opacity: 1;
+    }
+    /*post editor submit line between text and dropdown caret in button*/
+    body#tumblr .xved4.LfOBx .qtKRw::before {
+        background: rgb(var(--white));
+    }
+    /*post editor submit make disabled partially*/
+    body#tumblr .Q1jRN .xved4:has(.VxmZd:disabled) {
+        opacity: 1;
+        background: rgba(var(--accent), 0.5)
+    }
+    /*hover styling for post editor submit button*/
+    body#tumblr .Q1jRN .xved4:not(.LfOBx):hover,
+    body#tumblr .Q1jRN .xved4:not(.LfOBx):focus
+    {
+        background: rgb(var(--quaternary-accent));
+    }
+    /*post editor submit caret*/
+    body#tumblr .xved4.LfOBx .qtKRw svg use {
+        --icon-color-primary: rgb(var(--white));
+    }
+    /*post editor 'insert' button,
+    alt text update button*/
+    body#tumblr .EatnB .rEo6Y .FJQ9W .WY_lp,
+    body#tumblr .Ad5lq {
+        background: RGB(var(--accent))
+    }
+    body#tumblr .EatnB .rEo6Y .FJQ9W .WY_lp:hover,
+    body#tumblr .EatnB .rEo6Y .FJQ9W .WY_lp:focus,
+    body#tumblr .Ad5lq:hover,
+    body#tumblr .Ad5lq:focus {
+        background: RGB(var(--link-hover))
     }
     /*active styling svg*/
     /*restyle wrappers so svg is what controls bg color instead*/
@@ -3278,7 +3325,7 @@ adfree2 "Show" <<<EOT  EOT;
     }
     /*community modal fix*/
     body#tumblr .ctBr6 {
-        background-color: rgb(var(--modal));
+        background-color: rgb(var(--modal-bg));
     }
 
     /*because you follow #tag spacing fix*/
