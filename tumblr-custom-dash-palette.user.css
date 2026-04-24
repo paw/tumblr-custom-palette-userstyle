@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.8.3
+@version        0.8.4
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -1595,7 +1595,7 @@ adfree2 "Show" <<<EOT  EOT;
         --content-panel: rgb(var(--white));
         --chrome-panel: rgb(var(--navy));
         
-        --chrome-tint: rgba(var(--accent),0.1);
+        --chrome-tint: rgba(var(--white-on-dark),0.15);
         --content-tint: rgba(var(--accent),0.1);
         
         --chrome-tint-strong: rgba(var(--accent),0.15);
@@ -1618,12 +1618,12 @@ adfree2 "Show" <<<EOT  EOT;
         --content-fg-secondary: rgba(var(--black),0.7);
         
         --chrome: rgb(var(--white));
-        --chrome-fg: rgb(var(--black));
+        --chrome-fg: rgb(var(--white-on-dark));
         --color-fg: rgb(var(--navy));
         --accent-fg: rgb(var(--white));
         --content-ui-fg: rgb(var(--white));
         
-        --chrome-fg-secondary: rgba(var(--black),0.5);
+        --chrome-fg-secondary: rgba(var(--white-on-dark),0.5);
         --color-fg-secondary: rgba(var(--black),0.5);
         
         --content-fg-tertiary: rgba(var(--black),0.3);
@@ -3100,7 +3100,7 @@ adfree2 "Show" <<<EOT  EOT;
         margin-right: 12px;
     }
     /*full width radar */
-    body#tumblr aside h1.hF8Wr + div > .QfN0z,
+    body#tumblr aside div:has(h1) + .Q55_h .QfN0z,
     body#tumblr aside h1.hF8Wr + div > .QfN0z > .oNZY7 {
         padding: 0;
         width: 100%;
