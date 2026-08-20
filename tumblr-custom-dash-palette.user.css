@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.8.4
+@version        0.8.5
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -543,7 +543,20 @@ bgasidefix1 "Enable" <<<EOT
     body#tumblr .Sn8rD:hover, body#tumblr .Sn8rD:focus {
         color: var(--chrome-fg);
     }
-    
+    /*hide overlay and replace w/ pseudo element when repositioning blog header*\/
+    .xZeGG ~ .w52M7.bxP7u::after {
+        content: '';
+        background: var(--overlay-tint-heavy);
+        position: fixed;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+    body#tumblr:has(.xZeGG.bxP7u) .oBLLF {
+        display: none;
+    }
     EOT;
 }
 
