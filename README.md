@@ -1,6 +1,6 @@
 # Tumblr – Custom Dashboard Palette
 
-### **Use alongside [Old Tumblr Dashboard (Userstyle)](https://userstyles.world/style/11286/old-tumblr-dashboard-userstyle) OR [Dashboard Plus](https://addons.mozilla.org/en-US/firefox/addon/dashboard-plus/) to get the old dashboard layout back.**
+### **Use alongside [Old Tumblr Dashboard (Userstyle)](https://userstyles.world/style/11286/old-tumblr-dashboard-userstyle) to get the old dashboard layout back.**
 
 ## About
 Just a simple userstyle for setting custom colors, font sizes, and font family for the tumblr dashboard. Supports full and tiling backgrounds.
