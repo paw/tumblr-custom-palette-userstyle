@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.8.5
+@version        0.8.6
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -1883,6 +1883,10 @@ adfree2 "Show" <<<EOT  EOT;
     body#tumblr .sSq2h .wl0Ka, .sSq2h.wl0Ka {
         box-shadow: inset 0px -2px 0px rgb(var(--accent));
     }
+    /*dash tabs fix issue with using incorrect bg color*/
+    body#tumblr .Dk06o, body#tumblr .WVvBo {
+        --chrome: rgb(var(--navy))
+    }
     /*[[dashtabs]]*/
     /*fix issue with "my tags" popover border styling*/
     body#tumblr hr + .tBdaa {
@@ -2239,6 +2243,17 @@ adfree2 "Show" <<<EOT  EOT;
     /*modal bg color*/
     body#tumblr button.SaLOl span.ZUy1d, body#tumblr .SaLOl[tabindex="-1"] {
         background-color: rgba(var(--modal-bg), 0.95) !important;
+    }
+    /*modal - popup for notes, replies restricted*/
+    body#tumblr .OQjMh.mXmh6 {
+        color: rgb(var(--black))
+    }
+    body#tumblr .OQjMh.mXmh6[aria-label="Reply restricted"] {
+        color: rgb(var(--red))
+    }
+    /*modal popup for notes: fix rgb issue for 'check out the reblogs'*/
+    body#tumblr .MlOHN {
+        color: rgb(var(--accent))
     }
     /*modal info popup*/
     body#tumblr .fxR1V {
