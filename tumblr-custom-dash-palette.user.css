@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.8.6
+@version        0.8.7
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -412,13 +412,15 @@ bgasidefix1 "Enable" <<<EOT
         5. purchases
         6/7. no tags found on tagged page
         8. inbox description
+        9. video processing empty
     *\/
     body#tumblr .R0TWs, body#tumblr .cQqe6,
     body#tumblr .j8ha0[data-timeline] .cQqe6,
     body#tumblr .j8ha0[data-timeline] .t3NIG,
     body#tumblr .s9s8Q.gifts,
     body#tumblr .s9s8Q.purchases,
-    body#tumblr .j8ha0.qr36f[data-timeline] + .pf0It {
+    body#tumblr .j8ha0.qr36f[data-timeline] + .pf0It,
+    body#tumblr [data-timeline-id] .bdEqW {
         background: rgba(var(--navy),0.92);
         color: rgba(var(--white-on-dark),1);
     }
@@ -1495,7 +1497,8 @@ adfree1 "Hide (Compatible w/ Old Dash Userstyle)" <<<EOT
     body#tumblr div[role="banner"] li[title="Get a domain"],
     body#tumblr div[role="banner"] li[title="Go Ad-Free"],
     body#tumblr .GkT5S[title="TumblrMart"],
-    body#tumblr #glass-container .jBc2O [aria-label="Go Premium"] {
+    body#tumblr #glass-container .jBc2O [aria-label="Go Premium"],
+    body#tumblr .h_Erh [aria-label="Go Premium"] {
         display: none;
     }
     body#tumblr ul#account_subnav + li[title="Settings"] + .JvaFZ[data-testid] {
