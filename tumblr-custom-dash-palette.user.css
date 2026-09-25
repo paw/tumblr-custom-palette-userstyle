@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name           Tumblr – Custom Dashboard Palette
 @namespace      github.com/paw/tumblr-custom-palette-userstyle
-@version        0.8.5
+@version        0.8.7
 @description    `Set custom colors for your Tumblr dashboard.`
 @author         github.com/paw
 @updateURL      https://github.com/paw/tumblr-custom-palette-userstyle/raw/main/tumblr-custom-dash-palette.user.css
@@ -412,13 +412,15 @@ bgasidefix1 "Enable" <<<EOT
         5. purchases
         6/7. no tags found on tagged page
         8. inbox description
+        9. video processing empty
     *\/
     body#tumblr .R0TWs, body#tumblr .cQqe6,
     body#tumblr .j8ha0[data-timeline] .cQqe6,
     body#tumblr .j8ha0[data-timeline] .t3NIG,
     body#tumblr .s9s8Q.gifts,
     body#tumblr .s9s8Q.purchases,
-    body#tumblr .j8ha0.qr36f[data-timeline] + .pf0It {
+    body#tumblr .j8ha0.qr36f[data-timeline] + .pf0It,
+    body#tumblr [data-timeline-id] .bdEqW {
         background: rgba(var(--navy),0.92);
         color: rgba(var(--white-on-dark),1);
     }
@@ -1495,7 +1497,8 @@ adfree1 "Hide (Compatible w/ Old Dash Userstyle)" <<<EOT
     body#tumblr div[role="banner"] li[title="Get a domain"],
     body#tumblr div[role="banner"] li[title="Go Ad-Free"],
     body#tumblr .GkT5S[title="TumblrMart"],
-    body#tumblr #glass-container .jBc2O [aria-label="Go Premium"] {
+    body#tumblr #glass-container .jBc2O [aria-label="Go Premium"],
+    body#tumblr .h_Erh [aria-label="Go Premium"] {
         display: none;
     }
     body#tumblr ul#account_subnav + li[title="Settings"] + .JvaFZ[data-testid] {
@@ -1883,6 +1886,10 @@ adfree2 "Show" <<<EOT  EOT;
     body#tumblr .sSq2h .wl0Ka, .sSq2h.wl0Ka {
         box-shadow: inset 0px -2px 0px rgb(var(--accent));
     }
+    /*dash tabs fix issue with using incorrect bg color*/
+    body#tumblr .Dk06o, body#tumblr .WVvBo {
+        --chrome: rgb(var(--navy))
+    }
     /*[[dashtabs]]*/
     /*fix issue with "my tags" popover border styling*/
     body#tumblr hr + .tBdaa {
@@ -2239,6 +2246,17 @@ adfree2 "Show" <<<EOT  EOT;
     /*modal bg color*/
     body#tumblr button.SaLOl span.ZUy1d, body#tumblr .SaLOl[tabindex="-1"] {
         background-color: rgba(var(--modal-bg), 0.95) !important;
+    }
+    /*modal - popup for notes, replies restricted*/
+    body#tumblr .OQjMh.mXmh6 {
+        color: rgb(var(--black))
+    }
+    body#tumblr .OQjMh.mXmh6[aria-label="Reply restricted"] {
+        color: rgb(var(--red))
+    }
+    /*modal popup for notes: fix rgb issue for 'check out the reblogs'*/
+    body#tumblr .MlOHN {
+        color: rgb(var(--accent))
     }
     /*modal info popup*/
     body#tumblr .fxR1V {
